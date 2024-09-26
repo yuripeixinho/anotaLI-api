@@ -1,0 +1,24 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AL.WebApi/AL.WebApi.csproj
+/AnotaLI.sln
+
+[Dd]ebug/
+[Rr]elease/
+.vscode/
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+*.pdb
+*.dbmdl
+*.jfm
+*.ide
+# Others
+appsettings.json
+appsettings.Development.json

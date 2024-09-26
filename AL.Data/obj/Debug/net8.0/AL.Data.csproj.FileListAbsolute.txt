@@ -1,0 +1,17 @@
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\bin\Debug\net8.0\AL.Data.deps.json
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\bin\Debug\net8.0\AL.Data.runtimeconfig.json
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\bin\Debug\net8.0\AL.Data.dll
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\bin\Debug\net8.0\AL.Data.pdb
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\bin\Debug\net8.0\AL.Core.dll
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\bin\Debug\net8.0\AL.Core.pdb
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\obj\Debug\net8.0\AL.Data.csproj.AssemblyReference.cache
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\obj\Debug\net8.0\AL.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\obj\Debug\net8.0\AL.Data.AssemblyInfoInputs.cache
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\obj\Debug\net8.0\AL.Data.AssemblyInfo.cs
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\obj\Debug\net8.0\AL.Data.csproj.CoreCompileInputs.cache
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\obj\Debug\net8.0\AL.Data.csproj.Up2Date
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\obj\Debug\net8.0\AL.Data.dll
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\obj\Debug\net8.0\refint\AL.Data.dll
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\obj\Debug\net8.0\AL.Data.pdb
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\obj\Debug\net8.0\AL.Data.genruntimeconfig.cache
+C:\Users\Yurip\source\repos\AnotaLI\AL.Data\obj\Debug\net8.0\ref\AL.Data.dll
