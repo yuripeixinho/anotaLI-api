@@ -2,11 +2,75 @@
   {
     "ContainingType": "AL.WebApi.Controllers.ContasController",
     "Method": "Get",
-    "RelativePath": "Contas",
+    "RelativePath": "contas",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AL.WebApi.Controllers.ContasController",
+    "Method": "Post",
+    "RelativePath": "contas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "novaConta",
+        "Type": "AL.Core.Shared.ModelViews.Conta.NovaConta",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AL.WebApi.Controllers.ContasController",
+    "Method": "Put",
+    "RelativePath": "contas",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "alteraConta",
+        "Type": "AL.Core.Shared.ModelViews.Conta.AlteraConta",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AL.WebApi.Controllers.ContasController",
+    "Method": "GetById",
+    "RelativePath": "contas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AL.WebApi.Controllers.ContasController",
+    "Method": "Delete",
+    "RelativePath": "contas/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

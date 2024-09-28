@@ -6,4 +6,7 @@ public interface IContaRepository
 {
     Task<IEnumerable<Conta>> GetContasAsync();
     Task<Conta> GetContaByIdAsync(int id);
+    Task<Conta> InsertContaAsync(Conta conta);
+    Task<Conta> UpdateContaAsync(Conta conta);
+    Task DeleteContaAsync(int id);
 }

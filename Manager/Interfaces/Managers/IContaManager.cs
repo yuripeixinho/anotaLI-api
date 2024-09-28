@@ -5,6 +5,9 @@ namespace AL.Manager.Interfaces.Managers;
 
 public interface IContaManager
 {
-    Task<IEnumerable<Conta>> GetContasAsync();
+    Task<IEnumerable<ContaView>> GetContasAsync();
     Task<ContaView> GetContaByIdAsync(int id);
+    Task<Conta> InsertContaAsync(NovaConta conta);
+    Task<Conta> UpdateContaAsync(AlteraConta conta);
+    Task DeleteContaAsync(int id);
 }

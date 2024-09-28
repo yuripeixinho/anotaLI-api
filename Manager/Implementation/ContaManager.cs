@@ -14,15 +14,57 @@ public class ContaManager : IContaManager
         _contaRepository = contaRepository;
     }
 
-    public async Task<IEnumerable<Conta>> GetContasAsync()
+    public async Task<IEnumerable<ContaView>> GetContasAsync()
     {
         var contas = await _contaRepository.GetContasAsync();
-        return contas;
+
+        var contasView = contas.Select(cliente => new ContaView
+        {
+            ContaID = cliente.ContaID,  
+            Email = cliente.Email,
+        }).ToList();
+
+        return contasView;
     }
 
     public async Task<ContaView> GetContaByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var conta = await _contaRepository.GetContaByIdAsync(id);
+
+        ContaView contaView = new()
+        {
+            ContaID = conta.ContaID,
+            Email = conta.Email,
+        };
+
+        return contaView;
     }
 
+    public async Task<Conta> InsertContaAsync(NovaConta conta)
+    {
+        Conta novaContaView = new Conta
+        {
+            Email = conta.Email,
+            Senha = conta.Senha,
+        };
+
+        return await _contaRepository.InsertContaAsync(novaContaView);
+    }
+
+    public async Task<Conta> UpdateContaAsync(AlteraConta conta)
+    {
+        Conta alteraContaView = new Conta
+        {
+            ContaID = conta.ContaID,
+            Email = conta.Email,
+            Senha = conta.Senha,
+        };
+
+        return await _contaRepository.UpdateContaAsync(alteraContaView);
+    }
+
+    public async Task DeleteContaAsync(int id)
+    {
+        await _contaRepository.DeleteContaAsync(id);
+    }
 }

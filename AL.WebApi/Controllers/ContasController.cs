@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AL.Manager.Interfaces.Managers;
+using AL.Core.Shared.ModelViews.Conta;
+using AL.Core.Domain;
 
 namespace AL.WebApi.Controllers;
 
@@ -13,10 +15,42 @@ public class ContasController : ControllerBase
     {
         _contaManager = contaManager;
     }
-
-    [HttpGet]
+    
+    [HttpGet("/contas")]
     public async Task<IActionResult> Get()
     {
         return Ok(await _contaManager.GetContasAsync());
     }
+
+    [HttpGet("/contas/{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        return Ok(await _contaManager.GetContaByIdAsync(id));
+    }
+
+    [HttpPost("/contas")]
+    public async Task<IActionResult> Post([FromBody] NovaConta novaConta)
+    {
+        Conta contaInserida = await _contaManager.InsertContaAsync(novaConta);
+
+        return CreatedAtAction(nameof(Get), new { id = contaInserida.ContaID }, contaInserida);
+    }
+
+    [HttpPut("/contas")]
+    public async Task<IActionResult> Put([FromBody] AlteraConta alteraConta)
+    {
+        var contaAtualizada = await _contaManager.UpdateContaAsync(alteraConta);
+
+        return Ok(contaAtualizada);
+    }
+
+    [HttpDelete("/contas/{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        await _contaManager.DeleteContaAsync(id);
+
+        return NoContent();
+    }
+
+
 }

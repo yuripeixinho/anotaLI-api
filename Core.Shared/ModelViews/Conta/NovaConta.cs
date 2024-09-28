@@ -1,7 +1,7 @@
 ﻿namespace AL.Core.Shared.ModelViews.Conta;
 
-public class ContaView
+public class NovaConta
 {
-    public int ContaID { get; set; }
     public required string Email { get; set; }
+    public required string Senha { get; set; }
 }
