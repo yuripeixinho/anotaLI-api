@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AL.Core\AL.Core.csproj" />
+    <ProjectReference Include="..\Core.Shared\AL.Core.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,5 @@
 ﻿using AL.Core.Domain;
+using AL.Data.Configuration;
 using Microsoft.EntityFrameworkCore;
 
 namespace AL.Data.Context;
@@ -11,6 +12,10 @@ public class ALContext : DbContext
 
     public DbSet<Conta> Contas { get; set; }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
 
-
+        modelBuilder.ApplyConfiguration(new ContaConfiguration());
+    }
 }

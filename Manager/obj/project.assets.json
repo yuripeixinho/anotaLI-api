@@ -1,11 +1,46 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "AL.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/AL.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AL.Core.dll": {}
+        }
+      },
+      "AL.Core.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/AL.Core.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AL.Core.Shared.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "AL.Core/1.0.0": {
+      "type": "project",
+      "path": "../AL.Core/AL.Core.csproj",
+      "msbuildProject": "../AL.Core/AL.Core.csproj"
+    },
+    "AL.Core.Shared/1.0.0": {
+      "type": "project",
+      "path": "../Core.Shared/AL.Core.Shared.csproj",
+      "msbuildProject": "../Core.Shared/AL.Core.Shared.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "AL.Core >= 1.0.0",
+      "AL.Core.Shared >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Yurip\\.nuget\\packages\\": {}
@@ -34,7 +69,14 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Core\\AL.Core.csproj": {
+              "projectPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Core\\AL.Core.csproj"
+            },
+            "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj": {
+              "projectPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

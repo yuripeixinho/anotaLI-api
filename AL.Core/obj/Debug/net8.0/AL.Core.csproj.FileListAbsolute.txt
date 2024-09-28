@@ -5,6 +5,7 @@ C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.GeneratedMS
 C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.AssemblyInfoInputs.cache
 C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.AssemblyInfo.cs
 C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.csproj.CoreCompileInputs.cache
+C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.sourcelink.json
 C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.dll
 C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\refint\AL.Core.dll
 C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.pdb

@@ -7,14 +7,44 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {
       "AL.Manager/1.0.0": {
+        "dependencies": {
+          "AL.Core": "1.0.0",
+          "AL.Core.Shared": "1.0.0"
+        },
         "runtime": {
           "AL.Manager.dll": {}
+        }
+      },
+      "AL.Core/1.0.0": {
+        "runtime": {
+          "AL.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AL.Core.Shared/1.0.0": {
+        "runtime": {
+          "AL.Core.Shared.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
   },
   "libraries": {
     "AL.Manager/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AL.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AL.Core.Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
