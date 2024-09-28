@@ -51,6 +51,4 @@ public class ContasController : ControllerBase
 
         return NoContent();
     }
-
-
 }

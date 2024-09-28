@@ -259,3 +259,6 @@ C:\Users\Yurip\source\repos\AnotaLI\AL.WebApi\bin\Debug\net8.0\AL.Core.Shared.dl
 C:\Users\Yurip\source\repos\AnotaLI\AL.WebApi\bin\Debug\net8.0\AL.Manager.dll
 C:\Users\Yurip\source\repos\AnotaLI\AL.WebApi\bin\Debug\net8.0\AL.Core.Shared.pdb
 C:\Users\Yurip\source\repos\AnotaLI\AL.WebApi\bin\Debug\net8.0\AL.Manager.pdb
+C:\Users\Yurip\source\repos\AnotaLI\AL.WebApi\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\Yurip\source\repos\AnotaLI\AL.WebApi\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\Yurip\source\repos\AnotaLI\AL.WebApi\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
