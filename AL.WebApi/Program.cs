@@ -1,3 +1,4 @@
+using AL.Manager.Middlewares;
 using AL.WebApi.Configuration;
 using CL.WebApi.Configuration;
 
@@ -21,6 +22,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware(typeof(ExceptionMiddleware));
 
 app.UseDatabaseConfiguration();
 

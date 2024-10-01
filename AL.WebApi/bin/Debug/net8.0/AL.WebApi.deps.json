@@ -1984,7 +1984,8 @@
         "dependencies": {
           "AL.Core": "1.0.0",
           "AL.Core.Shared": "1.0.0",
-          "FluentValidation.AspNetCore": "11.3.0"
+          "FluentValidation.AspNetCore": "11.3.0",
+          "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
           "AL.Manager.dll": {

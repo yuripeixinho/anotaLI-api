@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AL.Data", "AL.Data\AL.Data.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AL.Core", "AL.Core\AL.Core.csproj", "{2F329B1A-A7B7-47A3-85D9-875CCF411F0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AL.Core.Shared", "Core.Shared\AL.Core.Shared.csproj", "{CDDF40AD-7C0A-4CCD-9270-AFE51376075D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AL.Core.Shared", "Core.Shared\AL.Core.Shared.csproj", "{CDDF40AD-7C0A-4CCD-9270-AFE51376075D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
