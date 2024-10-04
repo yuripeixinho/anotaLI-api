@@ -10,3 +10,9 @@ public interface IContaRepository
     Task<Conta> UpdateContaAsync(Conta conta);
     Task DeleteContaAsync(int id);
 }
+
+public interface IContaValidationRepository
+{
+    Conta GetContaByEmailAsync(string email);
+}
+

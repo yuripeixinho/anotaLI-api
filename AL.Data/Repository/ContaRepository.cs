@@ -1,12 +1,13 @@
 ﻿using AL.Core.Domain;
+using AL.Core.Exceptions;
+using AL.Core.Shared.Messages;
 using AL.Data.Context;
 using AL.Manager.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace AL.Data.Repository;
 
-public class ContaRepository : IContaRepository
+public class ContaRepository : IContaRepository, IContaValidationRepository
 {
     private readonly ALContext _context;
 
@@ -22,8 +23,13 @@ public class ContaRepository : IContaRepository
 
     public async Task<Conta> GetContaByIdAsync(int id)
     {
-        return await _context.Contas
-             .SingleOrDefaultAsync(p => p.ContaID == id);
+        var conta = await _context.Contas
+                    .SingleOrDefaultAsync(p => p.ContaID == id);
+
+        if (conta is null)
+            throw new NotFoundException(ExceptionMessages.NotFoundID);
+
+        return conta;
     }
 
     public async Task<Conta> InsertContaAsync(Conta conta)
@@ -39,7 +45,7 @@ public class ContaRepository : IContaRepository
         var contaExistente = await _context.Contas.FindAsync(conta.ContaID);
 
         if (contaExistente is null)
-            throw new KeyNotFoundException($"Conta com ID: {conta.ContaID} não foi encontrada.");
+            throw new NotFoundException(ExceptionMessages.NotFoundID);
 
         _context.Entry(contaExistente).CurrentValues.SetValues(conta); // Essencialmente, este código copia todos os valores das propriedades da entidade cliente para clienteConsultado, que já está sendo rastreado pelo contexto.Após isso, o Entity Framework irá considerar que conta foi modificado, e quando você chamar SaveChanges(), essas alterações serão persistidas no banco de dados.
 
@@ -54,9 +60,20 @@ public class ContaRepository : IContaRepository
         var contaExistente = await _context.Contas.FindAsync(id);
 
         if (contaExistente is null)
-            throw new KeyNotFoundException($"Conta com ID: {id} não foi encontrada.");
+            throw new NotFoundException(ExceptionMessages.NotFoundID);
 
         _context.Contas.Remove(contaExistente);
         await _context.SaveChangesAsync();
+    }
+
+    public Conta GetContaByEmailAsync(string email)
+    {
+        var conta = _context.Contas
+            .FirstOrDefault(c => c.Email.ToLower() == email.ToLower());
+
+        if (conta is null)
+            throw new NotFoundException(ExceptionMessages.NotFoundAccountEmail);
+
+        return conta;
     }
 }

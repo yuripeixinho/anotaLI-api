@@ -11,5 +11,10 @@ public static class DependencyInjectionConfig
     {
         services.AddScoped<IContaRepository, ContaRepository>();
         services.AddScoped<IContaManager, ContaManager>();
+        services.AddScoped<IContaValidationRepository, ContaRepository>();
+
+        services.AddScoped<IPerfilContaRepository, PerfilContaRepository>();
+        services.AddScoped<IPerfilContaManager, PerfilContaManager>();
+
     }
 }

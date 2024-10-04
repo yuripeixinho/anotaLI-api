@@ -12,7 +12,8 @@
           "AL.Manager": "1.0.0",
           "Microsoft.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
-          "Microsoft.EntityFrameworkCore.Tools": "8.0.8"
+          "Microsoft.EntityFrameworkCore.Tools": "8.0.8",
+          "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
           "AL.Data.dll": {}

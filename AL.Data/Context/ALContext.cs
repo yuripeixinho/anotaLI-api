@@ -11,11 +11,13 @@ public class ALContext : DbContext
     }
 
     public DbSet<Conta> Contas { get; set; }
+    public DbSet<PerfilConta> PerfilContas { get; set; }    
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.ApplyConfiguration(new ContaConfiguration());
+        modelBuilder.ApplyConfiguration(new PerfilContaConfiguration());
     }
 }

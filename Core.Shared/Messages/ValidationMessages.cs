@@ -2,10 +2,11 @@
 public static class ValidationMessages
 {
     // GERAL
-    public const string FieldNotEmpty = "O campo não pode estar vazio.";
+    public const string FieldNotEmpty = "Campo obrigatório";
 
     // EMAIL
     public const string EmailInvalid = "O email informado não é válido.";
+    public const string EmailAlreadyExists = "O email informado já existe.";
 
     // SENHA
     public const string PasswordMinLength = "A senha deve ter pelo menos 6 caracteres.";

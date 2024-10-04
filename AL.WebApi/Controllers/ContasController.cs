@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using AL.Manager.Interfaces.Managers;
+﻿using AL.Core.Domain;
 using AL.Core.Shared.ModelViews.Conta;
-using AL.Core.Domain;
-using AL.Core.Exceptions;
-using AL.Core.Shared.Messages;
+using AL.Manager.Interfaces.Managers;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AL.WebApi.Controllers;
 
@@ -21,7 +19,6 @@ public class ContasController : ControllerBase
     [HttpGet("/contas")]
     public async Task<IActionResult> Get()
     {
-        throw new NotFoundException(ExceptionMessages.FieldNotEmpty);
         return Ok(await _contaManager.GetContasAsync());
     }
 
