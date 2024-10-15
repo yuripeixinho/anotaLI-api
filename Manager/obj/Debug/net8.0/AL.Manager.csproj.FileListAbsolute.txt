@@ -16,3 +16,21 @@ C:\Users\Yurip\source\repos\AnotaLI\Manager\obj\Debug\net8.0\AL.Manager.pdb
 C:\Users\Yurip\source\repos\AnotaLI\Manager\obj\Debug\net8.0\ref\AL.Manager.dll
 C:\Users\Yurip\source\repos\AnotaLI\Manager\bin\Debug\net8.0\AL.Core.Shared.dll
 C:\Users\Yurip\source\repos\AnotaLI\Manager\bin\Debug\net8.0\AL.Core.Shared.pdb
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\bin\Debug\net8.0\AL.Manager.deps.json
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\bin\Debug\net8.0\AL.Manager.dll
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\bin\Debug\net8.0\AL.Manager.pdb
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\bin\Debug\net8.0\AL.Core.dll
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\bin\Debug\net8.0\AL.Core.Shared.dll
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\bin\Debug\net8.0\AL.Core.pdb
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\bin\Debug\net8.0\AL.Core.Shared.pdb
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\obj\Debug\net8.0\AL.Manager.csproj.AssemblyReference.cache
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\obj\Debug\net8.0\AL.Manager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\obj\Debug\net8.0\AL.Manager.AssemblyInfoInputs.cache
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\obj\Debug\net8.0\AL.Manager.AssemblyInfo.cs
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\obj\Debug\net8.0\AL.Manager.csproj.CoreCompileInputs.cache
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\obj\Debug\net8.0\AL.Manager.sourcelink.json
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\obj\Debug\net8.0\AL.Manager.csproj.Up2Date
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\obj\Debug\net8.0\AL.Manager.dll
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\obj\Debug\net8.0\refint\AL.Manager.dll
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\obj\Debug\net8.0\AL.Manager.pdb
+C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\Manager\obj\Debug\net8.0\ref\AL.Manager.dll

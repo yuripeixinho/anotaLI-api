@@ -16,5 +16,11 @@ public static class DependencyInjectionConfig
         services.AddScoped<IPerfilContaRepository, PerfilContaRepository>();
         services.AddScoped<IPerfilContaManager, PerfilContaManager>();
 
+        services.AddScoped<IProdutoRepository, ProdutoRepository>();
+        services.AddScoped<IProdutoManager, ProdutoManager>();
+
+
+        services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+        services.AddScoped<ICategoriaManager, CategoriaManager>();
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ej1kdnSSSvc=",
+  "dgSpecHash": "fvxu4y3jSW4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Data\\AL.Data.csproj",
+  "projectFilePath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Data\\AL.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Yurip\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Yurip\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

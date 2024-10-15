@@ -1,0 +1,6 @@
+﻿namespace AL.Core.Shared.ModelViews.PerfilConta;
+public class PerfilContaView
+{
+    public int PerfilContaID { get; set; }
+    public required string Nome { get; set; }
+}

@@ -1,4 +1,4 @@
-﻿using AL.Core.Domain;
+﻿using AL.Core.Shared.ModelViews.PerfilConta;
 using AL.Manager.Interfaces.Managers;
 using AL.Manager.Interfaces.Repositories;
 
@@ -13,10 +13,16 @@ public class PerfilContaManager : IPerfilContaManager
         _perfilContaRepository = perfilContaRepository;   
     }
 
-    public async Task<IEnumerable<PerfilConta>> GetPerfisContaAsync(int contaID)
+    public async Task<IEnumerable<PerfilContaView>> GetPerfisContaAsync(int contaID)
     {
-        var perfilConta = await _perfilContaRepository.GetPerfisContaAsync(contaID);
+        var perfisConta = await _perfilContaRepository.GetPerfisContaAsync(contaID);
 
-        return perfilConta;
+        var perfisContaView = perfisConta.Select(p => new PerfilContaView
+        {
+            Nome = p.Nome,  
+            PerfilContaID = p.PerfilContaID,
+        });
+
+        return perfisContaView;
     }
 }

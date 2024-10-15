@@ -1,6 +1,16 @@
 [
   {
-    "ContainingType": "AL.WebApi.Controllers.ContasController",
+    "ContainingType": "AL.WebApi.Controllers.CategoriaController",
+    "Method": "GetDefault",
+    "RelativePath": "categorias-nao-vinculadas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AL.WebApi.Controllers.ContaController",
     "Method": "Get",
     "RelativePath": "contas",
     "HttpMethod": "GET",
@@ -10,7 +20,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AL.WebApi.Controllers.ContasController",
+    "ContainingType": "AL.WebApi.Controllers.ContaController",
     "Method": "Post",
     "RelativePath": "contas",
     "HttpMethod": "POST",
@@ -26,7 +36,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AL.WebApi.Controllers.ContasController",
+    "ContainingType": "AL.WebApi.Controllers.ContaController",
     "Method": "Put",
     "RelativePath": "contas",
     "HttpMethod": "PUT",
@@ -42,7 +52,55 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AL.WebApi.Controllers.ContasController",
+    "ContainingType": "AL.WebApi.Controllers.CategoriaController",
+    "Method": "GetByContaID",
+    "RelativePath": "contas/{contaID}/categorias",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contaID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AL.WebApi.Controllers.PerfilContaController",
+    "Method": "Get",
+    "RelativePath": "contas/{contaID}/perfis",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contaID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AL.WebApi.Controllers.ProdutosController",
+    "Method": "GetByConta",
+    "RelativePath": "contas/{contaID}/produtos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contaID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AL.WebApi.Controllers.ContaController",
     "Method": "GetById",
     "RelativePath": "contas/{id}",
     "HttpMethod": "GET",
@@ -58,7 +116,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AL.WebApi.Controllers.ContasController",
+    "ContainingType": "AL.WebApi.Controllers.ContaController",
     "Method": "Delete",
     "RelativePath": "contas/{id}",
     "HttpMethod": "DELETE",
@@ -74,17 +132,33 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AL.WebApi.Controllers.PerfilContaController",
-    "Method": "Get",
-    "RelativePath": "perfis/{contaID}/contas",
+    "ContainingType": "AL.WebApi.Controllers.ProdutosController",
+    "Method": "GetByPerfilConta",
+    "RelativePath": "perfilcontas/{perfilContaID}/produtos",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "contaID",
+        "Name": "perfilContaID",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AL.WebApi.Controllers.ProdutosController",
+    "Method": "FiltrarFeirasPorPeriodos",
+    "RelativePath": "produtos/filtrar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "periodoIds",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

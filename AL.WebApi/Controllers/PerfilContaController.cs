@@ -16,7 +16,7 @@ public class PerfilContaController : ControllerBase
     }
 
 
-    [HttpGet("/perfis/{contaID}/contas")]
+    [HttpGet("/contas/{contaID}/perfis")]
     public async Task<IActionResult> Get(int contaID)
     {
         return Ok(await _perfilContaManager.GetPerfisContaAsync(contaID));

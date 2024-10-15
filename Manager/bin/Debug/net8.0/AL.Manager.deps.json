@@ -67,6 +67,9 @@
         }
       },
       "AL.Core.Shared/1.0.0": {
+        "dependencies": {
+          "AL.Core": "1.0.0"
+        },
         "runtime": {
           "AL.Core.Shared.dll": {
             "assemblyVersion": "1.0.0",

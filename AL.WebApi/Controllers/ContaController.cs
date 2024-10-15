@@ -7,11 +7,11 @@ namespace AL.WebApi.Controllers;
 
 [Route("[controller]")]
 [ApiController]
-public class ContasController : ControllerBase
+public class ContaController : ControllerBase
 {
     private readonly IContaManager _contaManager;
 
-    public ContasController(IContaManager contaManager)
+    public ContaController(IContaManager contaManager)
     {
         _contaManager = contaManager;
     }

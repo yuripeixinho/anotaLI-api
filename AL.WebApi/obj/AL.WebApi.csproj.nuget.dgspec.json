@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.WebApi\\AL.WebApi.csproj": {}
+    "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.WebApi\\AL.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Core\\AL.Core.csproj": {
+    "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Core\\AL.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj",
         "projectName": "AL.Core",
-        "projectPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Core\\AL.Core.csproj",
+        "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj",
         "packagesPath": "C:\\Users\\Yurip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Core\\obj\\",
+        "outputPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Yurip\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -65,14 +65,14 @@
         }
       }
     },
-    "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Data\\AL.Data.csproj": {
+    "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Data\\AL.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Data\\AL.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Data\\AL.Data.csproj",
         "projectName": "AL.Data",
-        "projectPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Data\\AL.Data.csproj",
+        "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Data\\AL.Data.csproj",
         "packagesPath": "C:\\Users\\Yurip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Data\\obj\\",
+        "outputPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Yurip\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -90,11 +90,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Core\\AL.Core.csproj": {
-                "projectPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Core\\AL.Core.csproj"
+              "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj": {
+                "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj"
               },
-              "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Manager\\AL.Manager.csproj": {
-                "projectPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Manager\\AL.Manager.csproj"
+              "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Manager\\AL.Manager.csproj": {
+                "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Manager\\AL.Manager.csproj"
               }
             }
           }
@@ -153,14 +153,14 @@
         }
       }
     },
-    "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.WebApi\\AL.WebApi.csproj": {
+    "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.WebApi\\AL.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.WebApi\\AL.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.WebApi\\AL.WebApi.csproj",
         "projectName": "AL.WebApi",
-        "projectPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.WebApi\\AL.WebApi.csproj",
+        "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.WebApi\\AL.WebApi.csproj",
         "packagesPath": "C:\\Users\\Yurip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.WebApi\\obj\\",
+        "outputPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Yurip\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -178,8 +178,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Data\\AL.Data.csproj": {
-                "projectPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Data\\AL.Data.csproj"
+              "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Data\\AL.Data.csproj": {
+                "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Data\\AL.Data.csproj"
               }
             }
           }
@@ -257,14 +257,14 @@
         }
       }
     },
-    "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj": {
+    "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj",
         "projectName": "AL.Core.Shared",
-        "projectPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj",
+        "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj",
         "packagesPath": "C:\\Users\\Yurip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Core.Shared\\obj\\",
+        "outputPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Core.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Yurip\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -281,7 +281,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj": {
+                "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -318,14 +322,14 @@
         }
       }
     },
-    "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Manager\\AL.Manager.csproj": {
+    "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Manager\\AL.Manager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Manager\\AL.Manager.csproj",
+        "projectUniqueName": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Manager\\AL.Manager.csproj",
         "projectName": "AL.Manager",
-        "projectPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Manager\\AL.Manager.csproj",
+        "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Manager\\AL.Manager.csproj",
         "packagesPath": "C:\\Users\\Yurip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Manager\\obj\\",
+        "outputPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Manager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Yurip\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -343,11 +347,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Core\\AL.Core.csproj": {
-                "projectPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\AL.Core\\AL.Core.csproj"
+              "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj": {
+                "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj"
               },
-              "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj": {
-                "projectPath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj"
+              "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj": {
+                "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj"
               }
             }
           }

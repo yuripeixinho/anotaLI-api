@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QES9Sf1OjCs=",
+  "dgSpecHash": "nbOZspwiJzo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Yurip\\source\\repos\\AnotaLI\\Manager\\AL.Manager.csproj",
+  "projectFilePath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Manager\\AL.Manager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Yurip\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\Yurip\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
