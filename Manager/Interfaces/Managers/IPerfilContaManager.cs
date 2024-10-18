@@ -4,5 +4,5 @@ namespace AL.Manager.Interfaces.Managers;
 
 public interface IPerfilContaManager
 {
-    Task<IEnumerable<PerfilContaView>> GetPerfisContaAsync(int contaID);
+    Task<IEnumerable<PerfilContaView>> GetPerfisContaAsync(string contaID);
 }

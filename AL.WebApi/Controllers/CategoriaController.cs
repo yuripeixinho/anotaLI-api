@@ -21,7 +21,7 @@ public class CategoriaController : ControllerBase
     }
 
     [HttpGet("/contas/{contaID}/categorias")]
-    public async Task<IActionResult> GetByContaID(int contaID)
+    public async Task<IActionResult> GetByContaID(string contaID)
     {
         return Ok(await _categoriaManager.GetCategoriasByContaAsync(contaID));
     }

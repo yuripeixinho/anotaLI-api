@@ -33,7 +33,7 @@ namespace AL.Manager.Validator.Conta
 
         private bool BeUniqueEmail(string email)
         {
-            var contaExistente = _contaValidationRepository.GetContaByEmailAsync(email);
+            var contaExistente = _contaValidationRepository.GetContaValidationByEmailAsync(email);
             return contaExistente == null;
         }
     }

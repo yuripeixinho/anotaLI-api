@@ -1,6 +1,7 @@
 using AL.Manager.Middlewares;
 using AL.WebApi.Configuration;
 using CL.WebApi.Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 builder.Services.AddFluentValidationConfiguration();
 
+builder.Services.AddJwtTConfiguration(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -40,9 +42,9 @@ app.UseMiddleware(typeof(ExceptionMiddleware));
 
 app.UseCors("AllowAllOrigins"); // Certifique-se de que o nome seja o mesmo da política configurada
 
-app.UseDatabaseConfiguration();
-
 app.UseHttpsRedirection();
+
+app.UseDatabaseConfiguration();
 
 app.UseAuthorization();
 

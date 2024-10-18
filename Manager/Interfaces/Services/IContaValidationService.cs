@@ -1,6 +1,6 @@
-﻿//namespace AL.Manager.Interfaces.Services;
+﻿namespace AL.Manager.Interfaces.Services;
 
-//public interface IContaValidationService
-//{
-//    Task<bool> IsEmailUniqueAsync(string email);    
-//}
+public interface IContaValidationService
+{
+    Task<bool> IsEmailUniqueAsync(string email);
+}

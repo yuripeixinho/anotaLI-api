@@ -15,7 +15,7 @@ public class ProdutoManager : IProdutoManager
         _produtoRepository = produtoRepository;
     }
 
-    public async Task<List<ProdutoContaView>> GetProdutosByContaAsync(int contaID)
+    public async Task<List<ProdutoContaView>> GetProdutosByContaAsync(string contaID)
     {
         var produto = await _produtoRepository.GetProdutosByContaAsync(contaID);
 

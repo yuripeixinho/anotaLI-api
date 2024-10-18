@@ -2,6 +2,6 @@
 
 public class ContaView
 {
-    public int ContaID { get; set; }
+    public string ContaID { get; set; }
     public required string Email { get; set; }
 }

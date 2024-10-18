@@ -1,5 +1,5 @@
 ﻿using AL.Manager.Interfaces.Managers;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AL.WebApi.Controllers;
@@ -15,9 +15,8 @@ public class PerfilContaController : ControllerBase
         _perfilContaManager = perfilContaManager;   
     }
 
-
     [HttpGet("/contas/{contaID}/perfis")]
-    public async Task<IActionResult> Get(int contaID)
+    public async Task<IActionResult> Get(string contaID)
     {
         return Ok(await _perfilContaManager.GetPerfisContaAsync(contaID));
     }

@@ -21,7 +21,7 @@ public class ContaRepository : IContaRepository, IContaValidationRepository
         return await _context.Contas.AsNoTracking().ToListAsync();
     }
 
-    public async Task<Conta> GetContaByIdAsync(int id)
+    public async Task<Conta> GetContaByIdAsync(string id)
     {
         var conta = await _context.Contas
                     .SingleOrDefaultAsync(p => p.ContaID == id);
@@ -55,7 +55,7 @@ public class ContaRepository : IContaRepository, IContaValidationRepository
         return contaExistente;
     }
 
-    public async Task DeleteContaAsync(int id)
+    public async Task DeleteContaAsync(string id)
     {
         var contaExistente = await _context.Contas.FindAsync(id);
 
@@ -66,13 +66,24 @@ public class ContaRepository : IContaRepository, IContaValidationRepository
         await _context.SaveChangesAsync();
     }
 
-    public Conta GetContaByEmailAsync(string email)
+    public async Task<Conta> GetContaByEmailAsync(string email)
+    {
+        var conta = await _context.Contas
+            .FirstOrDefaultAsync(p => p.Email == email);
+
+        if (conta is null)
+            throw new NotFoundException(ExceptionMessages.InvalidCredentials);
+
+        return conta;
+    }
+
+    public Conta GetContaValidationByEmailAsync(string email)
     {
         var conta = _context.Contas
             .FirstOrDefault(c => c.Email.ToLower() == email.ToLower());
 
-        if (conta is null)
-            throw new NotFoundException(ExceptionMessages.NotFoundAccountEmail);
+        if (conta != null)
+            throw new NotFoundException(ExceptionMessages.AccountAlreadyExists);
 
         return conta;
     }

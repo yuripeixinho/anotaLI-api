@@ -3,7 +3,7 @@ using AL.Manager.Implementation;
 using AL.Manager.Interfaces.Managers;
 using AL.Manager.Interfaces.Repositories;
 
-namespace CL.WebApi.Configuration;
+namespace AL.WebApi.Configuration;
 
 public static class DependencyInjectionConfig
 {

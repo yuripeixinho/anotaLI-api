@@ -7,6 +7,6 @@ public class Categoria
 
     public List<Produto>? Produtos { get; set; }
 
-    public int? ContaID { get; set; }
+    public string? ContaID { get; set; }
     public Conta? Conta { get; set; }    
 }

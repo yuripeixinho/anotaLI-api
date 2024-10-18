@@ -1,6 +1,7 @@
 ﻿using AL.Core.Domain;
 using AL.Core.Shared.ModelViews.Conta;
 using AL.Manager.Interfaces.Managers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AL.WebApi.Controllers;
@@ -15,7 +16,23 @@ public class ContaController : ControllerBase
     {
         _contaManager = contaManager;
     }
-    
+
+
+    [HttpGet]
+    [Route("/login")]
+    public async Task<IActionResult> Login([FromBody] Conta conta)
+    {
+        var contaLogada = await _contaManager.ValidaContaEGeraTokenAsync(conta);
+
+        if (contaLogada != null)
+        {
+            return Ok(contaLogada);
+        }
+
+        return Unauthorized();
+    }
+
+    [Authorize]
     [HttpGet("/contas")]
     public async Task<IActionResult> Get()
     {
@@ -23,7 +40,7 @@ public class ContaController : ControllerBase
     }
 
     [HttpGet("/contas/{id}")]
-    public async Task<IActionResult> GetById(int id)
+    public async Task<IActionResult> GetById(string id)
     {
         return Ok(await _contaManager.GetContaByIdAsync(id));
     }
@@ -45,7 +62,7 @@ public class ContaController : ControllerBase
     }
 
     [HttpDelete("/contas/{id}")]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> Delete(string id)
     {
         await _contaManager.DeleteContaAsync(id);
 

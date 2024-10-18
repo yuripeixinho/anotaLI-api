@@ -17,7 +17,7 @@ namespace AL.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("ProductVersion", "8.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -30,8 +30,8 @@ namespace AL.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoriaID"));
 
-                    b.Property<int?>("ContaID")
-                        .HasColumnType("int");
+                    b.Property<string>("ContaID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -43,120 +43,81 @@ namespace AL.Data.Migrations
                     b.HasIndex("ContaID");
 
                     b.ToTable("Categorias");
-
-                    b.HasData(
-                        new
-                        {
-                            CategoriaID = 1,
-                            Nome = "Frutas"
-                        },
-                        new
-                        {
-                            CategoriaID = 2,
-                            Nome = "Verduras e Legumes"
-                        },
-                        new
-                        {
-                            CategoriaID = 3,
-                            Nome = "Grãos e Cereais"
-                        },
-                        new
-                        {
-                            CategoriaID = 4,
-                            Nome = "Laticínios"
-                        },
-                        new
-                        {
-                            CategoriaID = 5,
-                            Nome = "Carnes e Peixes"
-                        },
-                        new
-                        {
-                            CategoriaID = 6,
-                            Nome = "Bebidas"
-                        },
-                        new
-                        {
-                            CategoriaID = 7,
-                            Nome = "Produtos de Limpeza"
-                        },
-                        new
-                        {
-                            CategoriaID = 8,
-                            Nome = "Alimentos Enlatados"
-                        },
-                        new
-                        {
-                            CategoriaID = 9,
-                            Nome = "Doces e Sobremesas"
-                        },
-                        new
-                        {
-                            CategoriaID = 10,
-                            Nome = "Pães e Massas"
-                        },
-                        new
-                        {
-                            CategoriaID = 11,
-                            Nome = "Especiarias e Temperos"
-                        },
-                        new
-                        {
-                            CategoriaID = 12,
-                            Nome = "Produtos Congelados"
-                        },
-                        new
-                        {
-                            CategoriaID = 13,
-                            Nome = "Snacks e Petiscos"
-                        },
-                        new
-                        {
-                            CategoriaID = 14,
-                            Nome = "Condimentos"
-                        },
-                        new
-                        {
-                            CategoriaID = 15,
-                            Nome = "Frutos Secos e Sementes"
-                        });
                 });
 
             modelBuilder.Entity("AL.Core.Domain.Conta", b =>
                 {
-                    b.Property<int>("ContaID")
+                    b.Property<string>("ContaID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ContaID"));
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Senha")
                         .IsRequired()
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
                     b.HasKey("ContaID");
 
-                    b.ToTable("Contas");
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
 
-                    b.HasData(
-                        new
-                        {
-                            ContaID = 1,
-                            Email = "yuri@gmail.com",
-                            Senha = "senha123"
-                        },
-                        new
-                        {
-                            ContaID = 2,
-                            Email = "marcelo@gmail.com",
-                            Senha = "senha456"
-                        });
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
                 });
 
             modelBuilder.Entity("AL.Core.Domain.DimPeriodoFeira", b =>
@@ -175,28 +136,6 @@ namespace AL.Data.Migrations
                     b.HasKey("DimPeriodoFeiraID");
 
                     b.ToTable("DimPeriodoFeiras");
-
-                    b.HasData(
-                        new
-                        {
-                            DimPeriodoFeiraID = 1,
-                            Periodo = "Diária"
-                        },
-                        new
-                        {
-                            DimPeriodoFeiraID = 2,
-                            Periodo = "Semanal"
-                        },
-                        new
-                        {
-                            DimPeriodoFeiraID = 3,
-                            Periodo = "Quinzenal"
-                        },
-                        new
-                        {
-                            DimPeriodoFeiraID = 4,
-                            Periodo = "Mensal"
-                        });
                 });
 
             modelBuilder.Entity("AL.Core.Domain.PerfilConta", b =>
@@ -207,8 +146,9 @@ namespace AL.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PerfilContaID"));
 
-                    b.Property<int>("ContaID")
-                        .HasColumnType("int");
+                    b.Property<string>("ContaID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -220,38 +160,6 @@ namespace AL.Data.Migrations
                     b.HasIndex("ContaID");
 
                     b.ToTable("PerfilContas");
-
-                    b.HasData(
-                        new
-                        {
-                            PerfilContaID = 1,
-                            ContaID = 1,
-                            Nome = "Yago"
-                        },
-                        new
-                        {
-                            PerfilContaID = 2,
-                            ContaID = 1,
-                            Nome = "Yuri"
-                        },
-                        new
-                        {
-                            PerfilContaID = 3,
-                            ContaID = 2,
-                            Nome = "Marcelo"
-                        },
-                        new
-                        {
-                            PerfilContaID = 4,
-                            ContaID = 2,
-                            Nome = "Gislene"
-                        },
-                        new
-                        {
-                            PerfilContaID = 5,
-                            ContaID = 2,
-                            Nome = "Lucas"
-                        });
                 });
 
             modelBuilder.Entity("AL.Core.Domain.Produto", b =>
@@ -291,68 +199,139 @@ namespace AL.Data.Migrations
                     b.HasIndex("PerfilContaID");
 
                     b.ToTable("Produtos");
+                });
 
-                    b.HasData(
-                        new
-                        {
-                            ProdutoID = 1,
-                            CategoriaID = 4,
-                            DimPeriodoFeiraID = 2,
-                            Nome = "Leite",
-                            PerfilContaID = 1,
-                            Quantidade = 1,
-                            Unidade = "un"
-                        },
-                        new
-                        {
-                            ProdutoID = 2,
-                            CategoriaID = 9,
-                            DimPeriodoFeiraID = 3,
-                            Nome = "Cacau",
-                            PerfilContaID = 2,
-                            Quantidade = 3,
-                            Unidade = "un"
-                        },
-                        new
-                        {
-                            ProdutoID = 3,
-                            CategoriaID = 3,
-                            DimPeriodoFeiraID = 4,
-                            Nome = "Feijão",
-                            PerfilContaID = 4,
-                            Quantidade = 5,
-                            Unidade = "un"
-                        },
-                        new
-                        {
-                            ProdutoID = 5,
-                            CategoriaID = 3,
-                            DimPeriodoFeiraID = 4,
-                            Nome = "Arroz",
-                            PerfilContaID = 5,
-                            Quantidade = 3,
-                            Unidade = "un"
-                        },
-                        new
-                        {
-                            ProdutoID = 6,
-                            CategoriaID = 10,
-                            DimPeriodoFeiraID = 1,
-                            Nome = "Macarrão",
-                            PerfilContaID = 5,
-                            Quantidade = 8,
-                            Unidade = "un"
-                        },
-                        new
-                        {
-                            ProdutoID = 7,
-                            CategoriaID = 7,
-                            DimPeriodoFeiraID = 4,
-                            Nome = "Desinfetante",
-                            PerfilContaID = 3,
-                            Quantidade = 1,
-                            Unidade = "un"
-                        });
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
             modelBuilder.Entity("AL.Core.Domain.Categoria", b =>
@@ -401,6 +380,57 @@ namespace AL.Data.Migrations
                     b.Navigation("DimPeriodoFeira");
 
                     b.Navigation("PerfilConta");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("AL.Core.Domain.Conta", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("AL.Core.Domain.Conta", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AL.Core.Domain.Conta", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("AL.Core.Domain.Conta", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("AL.Core.Domain.Categoria", b =>

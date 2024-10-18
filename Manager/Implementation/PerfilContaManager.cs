@@ -13,7 +13,7 @@ public class PerfilContaManager : IPerfilContaManager
         _perfilContaRepository = perfilContaRepository;   
     }
 
-    public async Task<IEnumerable<PerfilContaView>> GetPerfisContaAsync(int contaID)
+    public async Task<IEnumerable<PerfilContaView>> GetPerfisContaAsync(string contaID)
     {
         var perfisConta = await _perfilContaRepository.GetPerfisContaAsync(contaID);
 

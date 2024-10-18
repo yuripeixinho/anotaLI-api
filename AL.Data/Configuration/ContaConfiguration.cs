@@ -10,6 +10,10 @@ public class ContaConfiguration : IEntityTypeConfiguration<Conta>
     {
         builder.HasKey(c => c.ContaID);
 
+        builder.Property(c => c.ContaID)
+         .ValueGeneratedOnAdd();
+
+
         builder.Property(c => c.Email)
             .IsRequired()
             .HasMaxLength(256);

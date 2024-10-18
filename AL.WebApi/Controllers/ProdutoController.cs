@@ -17,7 +17,7 @@ public class ProdutosController : ControllerBase
     }
 
     [HttpGet("/contas/{contaID}/produtos")]
-    public async Task<IActionResult> GetByConta(int contaID)
+    public async Task<IActionResult> GetByConta(string contaID)
     {
         return Ok(await _produtoManager.GetProdutosByContaAsync(contaID));
     }

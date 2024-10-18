@@ -19,11 +19,11 @@ public class CategoriaRepository : ICategoriaRepository
     public async Task<IEnumerable<Categoria>> GetCategoriasDefaultAsync()
     {
        return await _context.Categorias
-                    .Where(c => c.ContaID == null || c.ContaID == 0)
+                    .Where(c => c.ContaID == null)
                     .ToListAsync();
     }
 
-    public async Task<IEnumerable<Categoria>> GetCategoriasByContaAsync(int contaID)
+    public async Task<IEnumerable<Categoria>> GetCategoriasByContaAsync(string contaID)
     {
         var categoriaConta = await _context.Categorias
                     .Where(c => c.ContaID == contaID)

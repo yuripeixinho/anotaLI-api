@@ -14,7 +14,7 @@ public class PerfilContaRepository : IPerfilContaRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<PerfilConta>> GetPerfisContaAsync(int contaID)
+    public async Task<IEnumerable<PerfilConta>> GetPerfisContaAsync(string contaID)
     {
         return await _context.PerfilContas
             .Include(p => p.Conta)

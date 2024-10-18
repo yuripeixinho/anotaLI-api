@@ -16,7 +16,7 @@ public class ProdutoRepository : IProdutoRepository
         _context = context; 
     }
 
-    public async Task<List<Produto>> GetProdutosByContaAsync(int contaID)
+    public async Task<List<Produto>> GetProdutosByContaAsync(string contaID)
     {
         var produtos = await _context.Produtos
                 .AsNoTracking()

@@ -17,7 +17,7 @@ public class CategoriaManager : ICategoriaManager
         return await _categoriaRepository.GetCategoriasDefaultAsync();
     }
 
-    public async Task<IEnumerable<Categoria>> GetCategoriasByContaAsync(int contaID)
+    public async Task<IEnumerable<Categoria>> GetCategoriasByContaAsync(string contaID)
     {
         return await _categoriaRepository.GetCategoriasByContaAsync(contaID);
     }
