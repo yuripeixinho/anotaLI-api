@@ -1,25 +1,38 @@
-C:\Users\Yurip\source\repos\AnotaLI\AL.Core\bin\Debug\net8.0\AL.Core.deps.json
-C:\Users\Yurip\source\repos\AnotaLI\AL.Core\bin\Debug\net8.0\AL.Core.dll
-C:\Users\Yurip\source\repos\AnotaLI\AL.Core\bin\Debug\net8.0\AL.Core.pdb
-C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.AssemblyInfoInputs.cache
-C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.AssemblyInfo.cs
-C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.csproj.CoreCompileInputs.cache
-C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.sourcelink.json
-C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.dll
-C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\refint\AL.Core.dll
-C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.pdb
-C:\Users\Yurip\source\repos\AnotaLI\AL.Core\obj\Debug\net8.0\ref\AL.Core.dll
-C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\AL.Core\bin\Debug\net8.0\AL.Core.deps.json
-C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\AL.Core\bin\Debug\net8.0\AL.Core.dll
-C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\AL.Core\bin\Debug\net8.0\AL.Core.pdb
-C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.csproj.AssemblyReference.cache
-C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.AssemblyInfoInputs.cache
-C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.AssemblyInfo.cs
-C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.csproj.CoreCompileInputs.cache
-C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.sourcelink.json
-C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.dll
-C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\AL.Core\obj\Debug\net8.0\refint\AL.Core.dll
-C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\AL.Core\obj\Debug\net8.0\AL.Core.pdb
-C:\Users\Yurip\OneDrive\Área de Trabalho\yuri\AnotaLI\AnotaLI-backend\AnotaLI\AL.Core\obj\Debug\net8.0\ref\AL.Core.dll
+C:/Users/Yurip/source/repos/AnotaLI/AL.Core/bin/Debug/net8.0/AL.Core.deps.json
+C:/Users/Yurip/source/repos/AnotaLI/AL.Core/bin/Debug/net8.0/AL.Core.dll
+C:/Users/Yurip/source/repos/AnotaLI/AL.Core/bin/Debug/net8.0/AL.Core.pdb
+C:/Users/Yurip/source/repos/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Yurip/source/repos/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.AssemblyInfoInputs.cache
+C:/Users/Yurip/source/repos/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.AssemblyInfo.cs
+C:/Users/Yurip/source/repos/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.csproj.CoreCompileInputs.cache
+C:/Users/Yurip/source/repos/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.sourcelink.json
+C:/Users/Yurip/source/repos/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.dll
+C:/Users/Yurip/source/repos/AnotaLI/AL.Core/obj/Debug/net8.0/refint/AL.Core.dll
+C:/Users/Yurip/source/repos/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.pdb
+C:/Users/Yurip/source/repos/AnotaLI/AL.Core/obj/Debug/net8.0/ref/AL.Core.dll
+C:/Users/Yurip/OneDrive/Área de Trabalho/yuri/AnotaLI/AnotaLI-backend/AnotaLI/AL.Core/bin/Debug/net8.0/AL.Core.deps.json
+C:/Users/Yurip/OneDrive/Área de Trabalho/yuri/AnotaLI/AnotaLI-backend/AnotaLI/AL.Core/bin/Debug/net8.0/AL.Core.dll
+C:/Users/Yurip/OneDrive/Área de Trabalho/yuri/AnotaLI/AnotaLI-backend/AnotaLI/AL.Core/bin/Debug/net8.0/AL.Core.pdb
+C:/Users/Yurip/OneDrive/Área de Trabalho/yuri/AnotaLI/AnotaLI-backend/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.csproj.AssemblyReference.cache
+C:/Users/Yurip/OneDrive/Área de Trabalho/yuri/AnotaLI/AnotaLI-backend/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Yurip/OneDrive/Área de Trabalho/yuri/AnotaLI/AnotaLI-backend/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.AssemblyInfoInputs.cache
+C:/Users/Yurip/OneDrive/Área de Trabalho/yuri/AnotaLI/AnotaLI-backend/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.AssemblyInfo.cs
+C:/Users/Yurip/OneDrive/Área de Trabalho/yuri/AnotaLI/AnotaLI-backend/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.csproj.CoreCompileInputs.cache
+C:/Users/Yurip/OneDrive/Área de Trabalho/yuri/AnotaLI/AnotaLI-backend/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.sourcelink.json
+C:/Users/Yurip/OneDrive/Área de Trabalho/yuri/AnotaLI/AnotaLI-backend/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.dll
+C:/Users/Yurip/OneDrive/Área de Trabalho/yuri/AnotaLI/AnotaLI-backend/AnotaLI/AL.Core/obj/Debug/net8.0/refint/AL.Core.dll
+C:/Users/Yurip/OneDrive/Área de Trabalho/yuri/AnotaLI/AnotaLI-backend/AnotaLI/AL.Core/obj/Debug/net8.0/AL.Core.pdb
+C:/Users/Yurip/OneDrive/Área de Trabalho/yuri/AnotaLI/AnotaLI-backend/AnotaLI/AL.Core/obj/Debug/net8.0/ref/AL.Core.dll
+/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/bin/Debug/net8.0/AL.Core.deps.json
+/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/bin/Debug/net8.0/AL.Core.dll
+/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/bin/Debug/net8.0/AL.Core.pdb
+/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/obj/Debug/net8.0/AL.Core.csproj.AssemblyReference.cache
+/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/obj/Debug/net8.0/AL.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/obj/Debug/net8.0/AL.Core.AssemblyInfoInputs.cache
+/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/obj/Debug/net8.0/AL.Core.AssemblyInfo.cs
+/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/obj/Debug/net8.0/AL.Core.csproj.CoreCompileInputs.cache
+/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/obj/Debug/net8.0/AL.Core.sourcelink.json
+/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/obj/Debug/net8.0/AL.Core.dll
+/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/obj/Debug/net8.0/refint/AL.Core.dll
+/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/obj/Debug/net8.0/AL.Core.pdb
+/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/obj/Debug/net8.0/ref/AL.Core.dll

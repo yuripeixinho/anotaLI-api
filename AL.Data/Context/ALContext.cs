@@ -11,7 +11,19 @@ public class ALContext : IdentityDbContext<Conta>
     public ALContext(DbContextOptions<ALContext> options) : base(options)
     {
     }
+     // Construtor sem parâmetros para ser usado no design-time
+    public ALContext() 
+    { 
+    }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            // Configura o SQLite como banco de dados padrão para migrações
+            optionsBuilder.UseSqlite("Data Source=AnotaLi.db");
+        }
+    }
     public DbSet<Conta> Contas { get; set; }
     public DbSet<PerfilConta> PerfilContas { get; set; }
     public DbSet<Produto> Produtos { get; set; }

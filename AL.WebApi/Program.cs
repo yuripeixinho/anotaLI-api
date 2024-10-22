@@ -1,14 +1,15 @@
+using AL.Data.Context;
 using AL.Manager.Middlewares;
 using AL.WebApi.Configuration;
 using CL.WebApi.Configuration;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuração CORS com uma política nomeada
+// Configuraï¿½ï¿½o CORS com uma polï¿½tica nomeada
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins", // Nome da política
+    options.AddPolicy("AllowAllOrigins", // Nome da polï¿½tica
         builder =>
         {
             builder.AllowAnyOrigin()
@@ -17,12 +18,16 @@ builder.Services.AddCors(options =>
         });
 });
 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ALContext>(options =>
+    options.UseSqlite(connectionString));
+
 builder.Services.AddControllers();
 builder.Services.AddFluentValidationConfiguration();
 
 builder.Services.AddJwtTConfiguration(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerConfiguration(); // Configuração do Swagger
+builder.Services.AddSwaggerConfiguration(); // Configuraï¿½ï¿½o do Swagger
 
 
 builder.Services.AddDataBaseConfiguration(builder.Configuration);
@@ -41,7 +46,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseMiddleware(typeof(ExceptionMiddleware));
 
-app.UseCors("AllowAllOrigins"); // Certifique-se de que o nome seja o mesmo da política configurada
+app.UseCors("AllowAllOrigins"); // Certifique-se de que o nome seja o mesmo da polï¿½tica configurada
 
 app.UseHttpsRedirection();
 
