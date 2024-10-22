@@ -24,7 +24,7 @@ public class ContaRepository : IContaRepository, IContaValidationRepository
     public async Task<Conta> GetContaByIdAsync(string id)
     {
         var conta = await _context.Contas
-                    .SingleOrDefaultAsync(p => p.ContaID == id);
+                    .SingleOrDefaultAsync(p => p.Id == id);
 
         if (conta is null)
             throw new NotFoundException(ExceptionMessages.NotFoundID);
@@ -42,7 +42,7 @@ public class ContaRepository : IContaRepository, IContaValidationRepository
 
     public async Task<Conta> UpdateContaAsync(Conta conta)
     {
-        var contaExistente = await _context.Contas.FindAsync(conta.ContaID);
+        var contaExistente = await _context.Contas.FindAsync(conta.Id);
 
         if (contaExistente is null)
             throw new NotFoundException(ExceptionMessages.NotFoundID);

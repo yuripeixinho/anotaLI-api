@@ -22,7 +22,8 @@ builder.Services.AddFluentValidationConfiguration();
 
 builder.Services.AddJwtTConfiguration(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerConfiguration(); // Configuração do Swagger
+
 
 builder.Services.AddDataBaseConfiguration(builder.Configuration);
 

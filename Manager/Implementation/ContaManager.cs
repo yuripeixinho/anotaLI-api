@@ -11,12 +11,13 @@ public class ContaManager : IContaManager
 {
     private readonly IContaRepository _contaRepository;
     private readonly IJWTService _jwt;
+    private readonly SenhaService _senhaService;
 
-    public ContaManager(IContaRepository contaRepository, IJWTService jwt)
+    public ContaManager(IContaRepository contaRepository, IJWTService jwt, SenhaService senhaService)
     {
         _contaRepository = contaRepository;
         _jwt = jwt;
-
+        _senhaService = senhaService;
     }
 
     public async Task<IEnumerable<ContaView>> GetContasAsync()
@@ -25,7 +26,7 @@ public class ContaManager : IContaManager
 
         var contasView = contas.Select(cliente => new ContaView
         {
-            ContaID = cliente.ContaID,  
+            Id = cliente.Id,  
             Email = cliente.Email,
         }).ToList();
 
@@ -39,11 +40,12 @@ public class ContaManager : IContaManager
         if(contaConsultada == null) 
             return null;
 
-        if (await ValidaEAtualizaHashAsync(conta, contaConsultada.Senha))
+        if (await _senhaService.ValidaEAtualizaHashAsync(conta, contaConsultada.Senha))
         {
             ContaLogada contaLogadaView = new()
             {
-                Email = conta.Email,
+                Id = contaConsultada.Id,
+                Email = contaConsultada.Email,
             };
 
             contaLogadaView.Token = _jwt.GerarToken(contaConsultada);
@@ -54,36 +56,13 @@ public class ContaManager : IContaManager
         return null;
     }
 
-    private async Task<bool> ValidaEAtualizaHashAsync(Conta conta, string hash)
-    {
-        var passwordHasher = new PasswordHasher<Conta>();
-        var status = passwordHasher.VerifyHashedPassword(conta, hash, conta.Senha);
-
-        switch (status)
-        {
-            case PasswordVerificationResult.Failed:
-                return false;
-
-            case PasswordVerificationResult.Success:
-                return true;
-
-            //case PasswordVerificationResult.SuccessRehashNeeded:
-            //    await UpdateMedicoAsync(usuario);
-            //    return true;
-
-            default:
-                throw new InvalidOperationException();
-        }
-    }
-
-
     public async Task<ContaView> GetContaByIdAsync(string id)
     {
         var conta = await _contaRepository.GetContaByIdAsync(id);
 
         ContaView contaView = new()
         {
-            ContaID = conta.ContaID,
+            Id = conta.Id,
             Email = conta.Email,
         };
 
@@ -98,22 +77,16 @@ public class ContaManager : IContaManager
             Senha = conta.Senha,
         };
 
-        ConverteSenhaEmHash(novaContaView);
+        _senhaService.CriptografarSenha(novaContaView);
 
         return await _contaRepository.InsertContaAsync(novaContaView);
-    }
-
-    private static void ConverteSenhaEmHash(Conta conta)
-    {
-        var passwordHasher = new PasswordHasher<Conta>();
-        conta.Senha = passwordHasher.HashPassword(conta, conta.Senha);
     }
 
     public async Task<Conta> UpdateContaAsync(AlteraConta conta)
     {
         Conta alteraContaView = new Conta
         {
-            ContaID = conta.ContaID,
+            Id = conta.Id,
             Email = conta.Email,
             Senha = conta.Senha,
         };
@@ -125,6 +98,4 @@ public class ContaManager : IContaManager
     {
         await _contaRepository.DeleteContaAsync(id);
     }
-
-
 }

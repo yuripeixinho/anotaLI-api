@@ -15,6 +15,7 @@ public class PerfilContaController : ControllerBase
         _perfilContaManager = perfilContaManager;   
     }
 
+    [Authorize]
     [HttpGet("/contas/{contaID}/perfis")]
     public async Task<IActionResult> Get(string contaID)
     {

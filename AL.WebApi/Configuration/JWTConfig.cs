@@ -31,7 +31,8 @@ public static class JwtConfig
                 ValidIssuer = configuration.GetSection("JWT:Issuer").Value,
                 ValidateAudience = true,
                 ValidAudience = configuration.GetSection("JWT:Audience").Value,
-                ValidateLifetime = true
+                ValidateLifetime = true, // Importante para validar o tempo de expiração
+                ClockSkew = TimeSpan.Zero,  // Remove tempo extra de tolerância para expiração
             };
         });
     }

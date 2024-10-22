@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AL.Data.Migrations
 {
     [DbContext(typeof(ALContext))]
-    [Migration("20241017234741_atualizarConta")]
-    partial class atualizarConta
+    [Migration("20241018204642_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,12 +46,88 @@ namespace AL.Data.Migrations
                     b.HasIndex("ContaID");
 
                     b.ToTable("Categorias");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoriaID = 1,
+                            Nome = "Frutas"
+                        },
+                        new
+                        {
+                            CategoriaID = 2,
+                            Nome = "Verduras e Legumes"
+                        },
+                        new
+                        {
+                            CategoriaID = 3,
+                            Nome = "Grãos e Cereais"
+                        },
+                        new
+                        {
+                            CategoriaID = 4,
+                            Nome = "Laticínios"
+                        },
+                        new
+                        {
+                            CategoriaID = 5,
+                            Nome = "Carnes e Peixes"
+                        },
+                        new
+                        {
+                            CategoriaID = 6,
+                            Nome = "Bebidas"
+                        },
+                        new
+                        {
+                            CategoriaID = 7,
+                            Nome = "Produtos de Limpeza"
+                        },
+                        new
+                        {
+                            CategoriaID = 8,
+                            Nome = "Alimentos Enlatados"
+                        },
+                        new
+                        {
+                            CategoriaID = 9,
+                            Nome = "Doces e Sobremesas"
+                        },
+                        new
+                        {
+                            CategoriaID = 10,
+                            Nome = "Pães e Massas"
+                        },
+                        new
+                        {
+                            CategoriaID = 11,
+                            Nome = "Especiarias e Temperos"
+                        },
+                        new
+                        {
+                            CategoriaID = 12,
+                            Nome = "Produtos Congelados"
+                        },
+                        new
+                        {
+                            CategoriaID = 13,
+                            Nome = "Snacks e Petiscos"
+                        },
+                        new
+                        {
+                            CategoriaID = 14,
+                            Nome = "Condimentos"
+                        },
+                        new
+                        {
+                            CategoriaID = 15,
+                            Nome = "Frutos Secos e Sementes"
+                        });
                 });
 
             modelBuilder.Entity("AL.Core.Domain.Conta", b =>
                 {
-                    b.Property<string>("ContaID")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
@@ -68,9 +144,6 @@ namespace AL.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -110,7 +183,7 @@ namespace AL.Data.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.HasKey("ContaID");
+                    b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -120,7 +193,35 @@ namespace AL.Data.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("AspNetUsers", (string)null);
+                    b.ToTable("Contas", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "123233e2-73d4-4bc1-a328-590190a86906",
+                            Email = "yuri@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "45fbb61f-3a57-4766-a1ec-8e04d2d30ad9",
+                            Senha = "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==",
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "60f92878-e421-4d79-87d3-fb9c16c1ce64",
+                            Email = "marcelo@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "461532b7-cf31-4602-9dfb-6d59d864b2af",
+                            Senha = "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==",
+                            TwoFactorEnabled = false
+                        });
                 });
 
             modelBuilder.Entity("AL.Core.Domain.DimPeriodoFeira", b =>
@@ -139,6 +240,28 @@ namespace AL.Data.Migrations
                     b.HasKey("DimPeriodoFeiraID");
 
                     b.ToTable("DimPeriodoFeiras");
+
+                    b.HasData(
+                        new
+                        {
+                            DimPeriodoFeiraID = 1,
+                            Periodo = "Diária"
+                        },
+                        new
+                        {
+                            DimPeriodoFeiraID = 2,
+                            Periodo = "Semanal"
+                        },
+                        new
+                        {
+                            DimPeriodoFeiraID = 3,
+                            Periodo = "Quinzenal"
+                        },
+                        new
+                        {
+                            DimPeriodoFeiraID = 4,
+                            Periodo = "Mensal"
+                        });
                 });
 
             modelBuilder.Entity("AL.Core.Domain.PerfilConta", b =>
@@ -163,6 +286,38 @@ namespace AL.Data.Migrations
                     b.HasIndex("ContaID");
 
                     b.ToTable("PerfilContas");
+
+                    b.HasData(
+                        new
+                        {
+                            PerfilContaID = 1,
+                            ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            Nome = "Yago"
+                        },
+                        new
+                        {
+                            PerfilContaID = 2,
+                            ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            Nome = "Yuri"
+                        },
+                        new
+                        {
+                            PerfilContaID = 3,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            Nome = "Marcelo"
+                        },
+                        new
+                        {
+                            PerfilContaID = 4,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            Nome = "Gislene"
+                        },
+                        new
+                        {
+                            PerfilContaID = 5,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            Nome = "Lucas"
+                        });
                 });
 
             modelBuilder.Entity("AL.Core.Domain.Produto", b =>
@@ -202,6 +357,68 @@ namespace AL.Data.Migrations
                     b.HasIndex("PerfilContaID");
 
                     b.ToTable("Produtos");
+
+                    b.HasData(
+                        new
+                        {
+                            ProdutoID = 1,
+                            CategoriaID = 4,
+                            DimPeriodoFeiraID = 2,
+                            Nome = "Leite",
+                            PerfilContaID = 1,
+                            Quantidade = 1,
+                            Unidade = "un"
+                        },
+                        new
+                        {
+                            ProdutoID = 2,
+                            CategoriaID = 9,
+                            DimPeriodoFeiraID = 3,
+                            Nome = "Cacau",
+                            PerfilContaID = 2,
+                            Quantidade = 3,
+                            Unidade = "un"
+                        },
+                        new
+                        {
+                            ProdutoID = 3,
+                            CategoriaID = 3,
+                            DimPeriodoFeiraID = 4,
+                            Nome = "Feijão",
+                            PerfilContaID = 4,
+                            Quantidade = 5,
+                            Unidade = "un"
+                        },
+                        new
+                        {
+                            ProdutoID = 5,
+                            CategoriaID = 3,
+                            DimPeriodoFeiraID = 4,
+                            Nome = "Arroz",
+                            PerfilContaID = 5,
+                            Quantidade = 3,
+                            Unidade = "un"
+                        },
+                        new
+                        {
+                            ProdutoID = 6,
+                            CategoriaID = 10,
+                            DimPeriodoFeiraID = 1,
+                            Nome = "Macarrão",
+                            PerfilContaID = 5,
+                            Quantidade = 8,
+                            Unidade = "un"
+                        },
+                        new
+                        {
+                            ProdutoID = 7,
+                            CategoriaID = 7,
+                            DimPeriodoFeiraID = 4,
+                            Nome = "Desinfetante",
+                            PerfilContaID = 3,
+                            Quantidade = 1,
+                            Unidade = "un"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

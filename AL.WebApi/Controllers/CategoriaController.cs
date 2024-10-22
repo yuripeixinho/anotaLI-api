@@ -1,4 +1,5 @@
 ﻿using AL.Manager.Interfaces.Managers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AL.WebApi.Controllers;
@@ -14,12 +15,14 @@ public class CategoriaController : ControllerBase
         _categoriaManager = categoriaManager;   
     }
 
+    [Authorize]
     [HttpGet("/categorias-nao-vinculadas")]
     public async Task<IActionResult> GetDefault()
     {
         return Ok(await _categoriaManager.GetCategoriasDefaultAsync());
     }
 
+    [Authorize]
     [HttpGet("/contas/{contaID}/categorias")]
     public async Task<IActionResult> GetByContaID(string contaID)
     {

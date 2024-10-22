@@ -17,8 +17,7 @@ public class ContaController : ControllerBase
         _contaManager = contaManager;
     }
 
-
-    [HttpGet]
+    [HttpPost]
     [Route("/login")]
     public async Task<IActionResult> Login([FromBody] Conta conta)
     {
@@ -39,20 +38,22 @@ public class ContaController : ControllerBase
         return Ok(await _contaManager.GetContasAsync());
     }
 
+    [Authorize]
     [HttpGet("/contas/{id}")]
     public async Task<IActionResult> GetById(string id)
     {
         return Ok(await _contaManager.GetContaByIdAsync(id));
     }
 
-    [HttpPost("/contas")]
+    [HttpPost("/registrar")]
     public async Task<IActionResult> Post([FromBody] NovaConta novaConta)
     {
         Conta contaInserida = await _contaManager.InsertContaAsync(novaConta);
 
-        return CreatedAtAction(nameof(Get), new { id = contaInserida.ContaID }, contaInserida);
+        return CreatedAtAction(nameof(Get), new { id = contaInserida.Id }, contaInserida);
     }
 
+    [Authorize]
     [HttpPut("/contas")]
     public async Task<IActionResult> Put([FromBody] AlteraConta alteraConta)
     {
@@ -61,6 +62,7 @@ public class ContaController : ControllerBase
         return Ok(contaAtualizada);
     }
 
+    [Authorize]
     [HttpDelete("/contas/{id}")]
     public async Task<IActionResult> Delete(string id)
     {

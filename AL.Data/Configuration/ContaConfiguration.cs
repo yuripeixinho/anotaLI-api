@@ -8,11 +8,7 @@ public class ContaConfiguration : IEntityTypeConfiguration<Conta>
 {
     public void Configure(EntityTypeBuilder<Conta> builder)
     {
-        builder.HasKey(c => c.ContaID);
-
-        builder.Property(c => c.ContaID)
-         .ValueGeneratedOnAdd();
-
+        builder.HasKey(c => c.Id);
 
         builder.Property(c => c.Email)
             .IsRequired()
@@ -20,6 +16,8 @@ public class ContaConfiguration : IEntityTypeConfiguration<Conta>
 
         builder.Property(c => c.Senha)
             .IsRequired()
-            .HasMaxLength(128);
+        .HasMaxLength(128);
+
+        builder.ToTable("Contas");
     }
 }

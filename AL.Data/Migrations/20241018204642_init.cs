@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace AL.Data.Migrations
 {
     /// <inheritdoc />
@@ -26,15 +28,14 @@ namespace AL.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetUsers",
+                name: "Contas",
                 columns: table => new
                 {
-                    ContaID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Senha = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    Id = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
                     NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -49,7 +50,7 @@ namespace AL.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.ContaID);
+                    table.PrimaryKey("PK_Contas", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -100,10 +101,10 @@ namespace AL.Data.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                        name: "FK_AspNetUserClaims_Contas_UserId",
                         column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "ContaID",
+                        principalTable: "Contas",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -120,10 +121,10 @@ namespace AL.Data.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
                     table.ForeignKey(
-                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                        name: "FK_AspNetUserLogins_Contas_UserId",
                         column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "ContaID",
+                        principalTable: "Contas",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -144,10 +145,10 @@ namespace AL.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        name: "FK_AspNetUserRoles_Contas_UserId",
                         column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "ContaID",
+                        principalTable: "Contas",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -164,10 +165,10 @@ namespace AL.Data.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
                     table.ForeignKey(
-                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
+                        name: "FK_AspNetUserTokens_Contas_UserId",
                         column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "ContaID",
+                        principalTable: "Contas",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -184,10 +185,10 @@ namespace AL.Data.Migrations
                 {
                     table.PrimaryKey("PK_Categorias", x => x.CategoriaID);
                     table.ForeignKey(
-                        name: "FK_Categorias_AspNetUsers_ContaID",
+                        name: "FK_Categorias_Contas_ContaID",
                         column: x => x.ContaID,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "ContaID",
+                        principalTable: "Contas",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -204,10 +205,10 @@ namespace AL.Data.Migrations
                 {
                     table.PrimaryKey("PK_PerfilContas", x => x.PerfilContaID);
                     table.ForeignKey(
-                        name: "FK_PerfilContas_AspNetUsers_ContaID",
+                        name: "FK_PerfilContas_Contas_ContaID",
                         column: x => x.ContaID,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "ContaID",
+                        principalTable: "Contas",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -247,6 +248,73 @@ namespace AL.Data.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Categorias",
+                columns: new[] { "CategoriaID", "ContaID", "Nome" },
+                values: new object[,]
+                {
+                    { 1, null, "Frutas" },
+                    { 2, null, "Verduras e Legumes" },
+                    { 3, null, "Grãos e Cereais" },
+                    { 4, null, "Laticínios" },
+                    { 5, null, "Carnes e Peixes" },
+                    { 6, null, "Bebidas" },
+                    { 7, null, "Produtos de Limpeza" },
+                    { 8, null, "Alimentos Enlatados" },
+                    { 9, null, "Doces e Sobremesas" },
+                    { 10, null, "Pães e Massas" },
+                    { 11, null, "Especiarias e Temperos" },
+                    { 12, null, "Produtos Congelados" },
+                    { 13, null, "Snacks e Petiscos" },
+                    { 14, null, "Condimentos" },
+                    { 15, null, "Frutos Secos e Sementes" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Contas",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Senha", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 0, "60f92878-e421-4d79-87d3-fb9c16c1ce64", "marcelo@gmail.com", false, false, null, null, null, null, null, false, "461532b7-cf31-4602-9dfb-6d59d864b2af", "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==", false, null },
+                    { "7318d839-ff36-48fd-92a9-3401ab215121", 0, "123233e2-73d4-4bc1-a328-590190a86906", "yuri@gmail.com", false, false, null, null, null, null, null, false, "45fbb61f-3a57-4766-a1ec-8e04d2d30ad9", "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==", false, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "DimPeriodoFeiras",
+                columns: new[] { "DimPeriodoFeiraID", "Periodo" },
+                values: new object[,]
+                {
+                    { 1, "Diária" },
+                    { 2, "Semanal" },
+                    { 3, "Quinzenal" },
+                    { 4, "Mensal" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PerfilContas",
+                columns: new[] { "PerfilContaID", "ContaID", "Nome" },
+                values: new object[,]
+                {
+                    { 1, "7318d839-ff36-48fd-92a9-3401ab215121", "Yago" },
+                    { 2, "7318d839-ff36-48fd-92a9-3401ab215121", "Yuri" },
+                    { 3, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Marcelo" },
+                    { 4, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Gislene" },
+                    { 5, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Lucas" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Produtos",
+                columns: new[] { "ProdutoID", "CategoriaID", "DimPeriodoFeiraID", "Nome", "PerfilContaID", "Quantidade", "Unidade" },
+                values: new object[,]
+                {
+                    { 1, 4, 2, "Leite", 1, 1, "un" },
+                    { 2, 9, 3, "Cacau", 2, 3, "un" },
+                    { 3, 3, 4, "Feijão", 4, 5, "un" },
+                    { 5, 3, 4, "Arroz", 5, 3, "un" },
+                    { 6, 10, 1, "Macarrão", 5, 8, "un" },
+                    { 7, 7, 4, "Desinfetante", 3, 1, "un" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -275,21 +343,21 @@ namespace AL.Data.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Categorias_ContaID",
+                table: "Categorias",
+                column: "ContaID");
+
+            migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                table: "AspNetUsers",
+                table: "Contas",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                table: "AspNetUsers",
+                table: "Contas",
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Categorias_ContaID",
-                table: "Categorias",
-                column: "ContaID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PerfilContas_ContaID",
@@ -346,7 +414,7 @@ namespace AL.Data.Migrations
                 name: "PerfilContas");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Contas");
         }
     }
 }
