@@ -189,12 +189,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "7318d839-ff36-48fd-92a9-3401ab215121",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d37619df-bbf3-4b2c-b37b-ff23cf58f8a4",
+                            ConcurrencyStamp = "93b8cf7c-e07d-427b-829c-87a6579bcbb3",
                             Email = "yuri@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bb4dc464-b3e9-4c77-854c-2e558f793f4c",
+                            SecurityStamp = "cebda327-f3d5-43d1-ac09-3a336bb5b283",
                             Senha = "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==",
                             TwoFactorEnabled = false
                         },
@@ -202,12 +202,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8a41c696-20ab-49c3-82ab-3144b5a6239b",
+                            ConcurrencyStamp = "a770f6c9-4789-43e9-b62e-f4c4b6f781a1",
                             Email = "marcelo@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9ca01383-18a5-47dd-9a5c-120e667c927c",
+                            SecurityStamp = "0bdb9534-038e-4ff8-8daa-4b63423de84a",
                             Senha = "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==",
                             TwoFactorEnabled = false
                         });
@@ -271,6 +271,38 @@ namespace AL.Data.Migrations
                     b.HasIndex("ContaID");
 
                     b.ToTable("PerfilContas");
+
+                    b.HasData(
+                        new
+                        {
+                            PerfilContaID = 1,
+                            ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            Nome = "Yago"
+                        },
+                        new
+                        {
+                            PerfilContaID = 2,
+                            ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            Nome = "Yuri"
+                        },
+                        new
+                        {
+                            PerfilContaID = 3,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            Nome = "Marcelo"
+                        },
+                        new
+                        {
+                            PerfilContaID = 4,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            Nome = "Gislene"
+                        },
+                        new
+                        {
+                            PerfilContaID = 5,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            Nome = "Lucas"
+                        });
                 });
 
             modelBuilder.Entity("AL.Core.Domain.Produto", b =>

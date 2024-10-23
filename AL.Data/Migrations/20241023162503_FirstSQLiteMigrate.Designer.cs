@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AL.Data.Migrations
 {
     [DbContext(typeof(ALContext))]
-    [Migration("20241023145102_FirstSQLiteMigrate")]
+    [Migration("20241023162503_FirstSQLiteMigrate")]
     partial class FirstSQLiteMigrate
     {
         /// <inheritdoc />
@@ -192,12 +192,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "7318d839-ff36-48fd-92a9-3401ab215121",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a94589ac-82c9-4e43-8cb5-c27ded178389",
+                            ConcurrencyStamp = "93b8cf7c-e07d-427b-829c-87a6579bcbb3",
                             Email = "yuri@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6cb6b3d8-17a7-48b6-adea-09ee57a91da5",
+                            SecurityStamp = "cebda327-f3d5-43d1-ac09-3a336bb5b283",
                             Senha = "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==",
                             TwoFactorEnabled = false
                         },
@@ -205,12 +205,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "483275e3-bc81-402e-afdf-cfac213c9b6c",
+                            ConcurrencyStamp = "a770f6c9-4789-43e9-b62e-f4c4b6f781a1",
                             Email = "marcelo@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d8b83f07-f14f-4b33-8a82-e318b963aa9b",
+                            SecurityStamp = "0bdb9534-038e-4ff8-8daa-4b63423de84a",
                             Senha = "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==",
                             TwoFactorEnabled = false
                         });
@@ -274,6 +274,38 @@ namespace AL.Data.Migrations
                     b.HasIndex("ContaID");
 
                     b.ToTable("PerfilContas");
+
+                    b.HasData(
+                        new
+                        {
+                            PerfilContaID = 1,
+                            ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            Nome = "Yago"
+                        },
+                        new
+                        {
+                            PerfilContaID = 2,
+                            ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            Nome = "Yuri"
+                        },
+                        new
+                        {
+                            PerfilContaID = 3,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            Nome = "Marcelo"
+                        },
+                        new
+                        {
+                            PerfilContaID = 4,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            Nome = "Gislene"
+                        },
+                        new
+                        {
+                            PerfilContaID = 5,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            Nome = "Lucas"
+                        });
                 });
 
             modelBuilder.Entity("AL.Core.Domain.Produto", b =>
