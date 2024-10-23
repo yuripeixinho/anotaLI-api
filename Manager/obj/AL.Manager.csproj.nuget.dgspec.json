@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Manager\\AL.Manager.csproj": {}
+    "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/Manager/AL.Manager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj": {
+    "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/AL.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj",
+        "projectUniqueName": "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/AL.Core.csproj",
         "projectName": "AL.Core",
-        "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj",
-        "packagesPath": "C:\\Users\\Yurip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\obj\\",
+        "projectPath": "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/AL.Core.csproj",
+        "packagesPath": "/home/yagopeixinho/.nuget/packages/",
+        "outputPath": "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Yurip\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/yagopeixinho/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -35,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -71,37 +63,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj": {
+    "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/Core.Shared/AL.Core.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj",
+        "projectUniqueName": "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/Core.Shared/AL.Core.Shared.csproj",
         "projectName": "AL.Core.Shared",
-        "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj",
-        "packagesPath": "C:\\Users\\Yurip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Core.Shared\\obj\\",
+        "projectPath": "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/Core.Shared/AL.Core.Shared.csproj",
+        "packagesPath": "/home/yagopeixinho/.nuget/packages/",
+        "outputPath": "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/Core.Shared/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Yurip\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/yagopeixinho/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj": {
-                "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj"
+              "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/AL.Core.csproj": {
+                "projectPath": "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/AL.Core.csproj"
               }
             }
           }
@@ -110,11 +99,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -136,40 +120,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Manager\\AL.Manager.csproj": {
+    "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/Manager/AL.Manager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Manager\\AL.Manager.csproj",
+        "projectUniqueName": "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/Manager/AL.Manager.csproj",
         "projectName": "AL.Manager",
-        "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Manager\\AL.Manager.csproj",
-        "packagesPath": "C:\\Users\\Yurip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Manager\\obj\\",
+        "projectPath": "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/Manager/AL.Manager.csproj",
+        "packagesPath": "/home/yagopeixinho/.nuget/packages/",
+        "outputPath": "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/Manager/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Yurip\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/yagopeixinho/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj": {
-                "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\AL.Core\\AL.Core.csproj"
+              "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/AL.Core.csproj": {
+                "projectPath": "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/AL.Core/AL.Core.csproj"
               },
-              "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj": {
-                "projectPath": "C:\\Users\\Yurip\\OneDrive\\Área de Trabalho\\yuri\\AnotaLI\\AnotaLI-backend\\AnotaLI\\Core.Shared\\AL.Core.Shared.csproj"
+              "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/Core.Shared/AL.Core.Shared.csproj": {
+                "projectPath": "/home/yagopeixinho/Desktop/anotali-backend/anotaLI-api/Core.Shared/AL.Core.Shared.csproj"
               }
             }
           }
@@ -178,11 +159,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -218,7 +194,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

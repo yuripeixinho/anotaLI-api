@@ -300,10 +300,7 @@
           "Microsoft.EntityFrameworkCore": "8.0.10"
         },
         "runtime": {
-          "AL.Core.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "AL.Core.dll": {}
         }
       },
       "AL.Core.Shared/1.0.0": {
@@ -311,10 +308,7 @@
           "AL.Core": "1.0.0"
         },
         "runtime": {
-          "AL.Core.Shared.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "AL.Core.Shared.dll": {}
         }
       }
     }
