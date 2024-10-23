@@ -13,6 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: List contents of the root workspace
+        run: |
+          Write-Host "Listing contents of the root directory:"
+          Get-ChildItem -Path D:\a\anotaLI-api -Recurse
+
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
@@ -39,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ./myapp # Adicione o caminho do diretório aqui para upload
+          path: ./myapp
 
   deploy:
     runs-on: windows-latest
@@ -87,4 +92,4 @@ jobs:
         with:
           app-name: "anotali"
           slot-name: "Production"
-          package: "./myapp" # O caminho ajustado para o diretório myapp
+          package: "./myapp"
