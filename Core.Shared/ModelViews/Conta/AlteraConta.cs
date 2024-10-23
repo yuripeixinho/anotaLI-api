@@ -2,5 +2,5 @@
 
 public class AlteraConta : NovaConta
 {
-    public string Id { get; set; }
+    public required string Id { get; set; }
 }

@@ -3,7 +3,6 @@ using AL.Core.Shared.ModelViews.Conta;
 using AL.Manager.Interfaces.Managers;
 using AL.Manager.Interfaces.Repositories;
 using AL.Manager.Interfaces.Services;
-using Microsoft.AspNetCore.Identity;
 
 namespace AL.Manager.Implementation;
 
@@ -27,7 +26,7 @@ public class ContaManager : IContaManager
         var contasView = contas.Select(cliente => new ContaView
         {
             Id = cliente.Id,  
-            Email = cliente.Email,
+            Email = cliente.Email ?? "",
         }).ToList();
 
         return contasView;
@@ -35,25 +34,28 @@ public class ContaManager : IContaManager
 
     public async Task<ContaLogada> ValidaContaEGeraTokenAsync(Conta conta)
     {
-        var contaConsultada = await _contaRepository.GetContaByEmailAsync(conta.Email);
-
-        if(contaConsultada == null) 
-            return null;
-
-        if (await _senhaService.ValidaEAtualizaHashAsync(conta, contaConsultada.Senha))
+        if (string.IsNullOrWhiteSpace(conta.Email))
         {
-            ContaLogada contaLogadaView = new()
-            {
-                Id = contaConsultada.Id,
-                Email = contaConsultada.Email,
-            };
-
-            contaLogadaView.Token = _jwt.GerarToken(contaConsultada);
-
-            return contaLogadaView;
+            throw new ArgumentException("O e-mail não pode ser nulo ou vazio.", nameof(conta));
         }
 
-        return null;
+        var contaConsultada = await _contaRepository.GetContaByEmailAsync(conta.Email) ?? throw new UnauthorizedAccessException("E-mail ou senha incorretos.");
+
+        bool senhaValida =  _senhaService.ValidaEAtualizaHashAsync(conta, contaConsultada.Senha);
+
+        if (!senhaValida)
+        {
+            throw new UnauthorizedAccessException("E-mail ou senha incorretos.");
+        }
+
+        ContaLogada contaLogadaView = new()
+        {
+            Id = contaConsultada.Id,
+            Email = contaConsultada.Email ?? "",
+            Token = _jwt.GerarToken(contaConsultada)
+        };
+
+        return contaLogadaView;
     }
 
     public async Task<ContaView> GetContaByIdAsync(string id)
@@ -63,7 +65,7 @@ public class ContaManager : IContaManager
         ContaView contaView = new()
         {
             Id = conta.Id,
-            Email = conta.Email,
+            Email = conta?.Email ?? "",
         };
 
         return contaView;
@@ -71,7 +73,7 @@ public class ContaManager : IContaManager
 
     public async Task<ContaLogada> InsertContaAsync(NovaConta conta)
     {
-        Conta novaContaView = new Conta
+        Conta novaContaView = new()
         {
             Email = conta.Email,
             Senha = conta.Senha,
@@ -94,7 +96,7 @@ public class ContaManager : IContaManager
 
     public async Task<Conta> UpdateContaAsync(AlteraConta conta)
     {
-        Conta alteraContaView = new Conta
+        Conta alteraContaView = new()
         {
             Id = conta.Id,
             Email = conta.Email,

@@ -2,8 +2,8 @@
 
 public class ContaLogada
 {
-    public string Id { get; set; }
+    public required string Id { get; set; }
     public required string Email { get; set; }
-    public string Token { get; set; }
+    public required string Token { get; set; }
 
 }
