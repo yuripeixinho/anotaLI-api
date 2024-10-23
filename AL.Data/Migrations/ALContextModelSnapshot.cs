@@ -189,12 +189,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "7318d839-ff36-48fd-92a9-3401ab215121",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2ac452c4-9649-4c4f-8e01-87a39da23685",
+                            ConcurrencyStamp = "d37619df-bbf3-4b2c-b37b-ff23cf58f8a4",
                             Email = "yuri@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "de81e126-5436-43c1-8e23-e02ae3d49991",
+                            SecurityStamp = "bb4dc464-b3e9-4c77-854c-2e558f793f4c",
                             Senha = "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==",
                             TwoFactorEnabled = false
                         },
@@ -202,12 +202,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "13945932-178a-449a-925f-e61166a75304",
+                            ConcurrencyStamp = "8a41c696-20ab-49c3-82ab-3144b5a6239b",
                             Email = "marcelo@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d8d2a800-e99f-42c1-a659-df69f00e4eae",
+                            SecurityStamp = "9ca01383-18a5-47dd-9a5c-120e667c927c",
                             Senha = "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==",
                             TwoFactorEnabled = false
                         });
