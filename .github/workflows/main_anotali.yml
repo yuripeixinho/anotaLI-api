@@ -1,3 +1,11 @@
+name: Build and deploy ASP.Net Core app to Azure Web App - anotali
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: windows-latest
@@ -31,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ./myapp
+          path: ./myapp # Adicione o caminho do diretório aqui para upload
 
   deploy:
     runs-on: windows-latest
@@ -50,8 +58,10 @@ jobs:
 
       - name: List contents after artifact download
         run: |
-          Write-Host "Current directory:"
+          Write-Host "Listing contents of the current directory:"
           Get-ChildItem -Path . -Recurse
+          Write-Host "Listing contents of the myapp directory:"
+          Get-ChildItem -Path "./myapp" -Recurse
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -77,4 +87,4 @@ jobs:
         with:
           app-name: "anotali"
           slot-name: "Production"
-          package: "myapp/**/*" # Ajustado
+          package: "./myapp" # O caminho ajustado para o diretório myapp
