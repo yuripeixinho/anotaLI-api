@@ -25,6 +25,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AL.Core\AL.Core.csproj" />
+     <None Update="AL.Data\AnotaLi.db">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     <ProjectReference Include="..\Manager\AL.Manager.csproj" />
   </ItemGroup>
 
