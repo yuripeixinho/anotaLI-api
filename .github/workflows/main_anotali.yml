@@ -18,18 +18,18 @@ jobs:
         with:
           dotnet-version: "8.x"
 
-      - name: Build with dotnet
+      - name: Build solution
         run: dotnet build ./AnotaLI.sln --configuration Release
 
-      - name: dotnet publish
+      - name: Publish the application
         run: dotnet publish ./AL.WebApi/AL.WebApi.csproj -c Release -o ./myapp
 
-      - name: Verify publish output
+      - name: List contents of myapp after publish
         run: |
           if (Test-Path -Path "./myapp") {
             Write-Host "Directory myapp exists."
             Write-Host "Contents of myapp:"
-            Get-ChildItem -Path "./myapp" -Recurse  # List contents recursively
+            Get-ChildItem -Path "./myapp" -Recurse
           } else {
             Write-Host "Directory myapp does not exist!"
             exit 1
@@ -48,7 +48,7 @@ jobs:
       name: "Production"
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write # This is required for requesting the JWT
+      id-token: write
 
     steps:
       - name: Download artifact from build job
@@ -76,4 +76,4 @@ jobs:
         with:
           app-name: "anotali"
           slot-name: "Production"
-          package: "./myapp/*"  # Use um wildcard para garantir que os arquivos sejam encontrados
+          package: "./anotaLI-api/myapp*"  # Utilize um wildcard
