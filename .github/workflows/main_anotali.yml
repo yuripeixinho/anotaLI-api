@@ -22,16 +22,16 @@ jobs:
         run: dotnet build ./AnotaLI.sln --configuration Release
 
       - name: Publish the application
-        run: dotnet publish ./AL.WebApi/AL.WebApi.csproj -c Release -o ./myapp
+        run: dotnet publish ./AL.WebApi/AL.WebApi.csproj -c Release -o ./anotaLI-api/anotaLI-api/myapp
 
       - name: List contents after publish
         run: |
           Write-Host "Checking contents of the current directory after publish:"
           Get-ChildItem -Path . -Recurse
           Write-Host "Checking if 'myapp' directory was created:"
-          if (Test-Path -Path "./myapp") {
+          if (Test-Path -Path "./anotaLI-api/anotaLI-api/myapp") {
             Write-Host "'myapp' directory exists."
-            Get-ChildItem -Path "./myapp" -Recurse
+            Get-ChildItem -Path "./anotaLI-api/anotaLI-api/myapp" -Recurse
           } else {
             Write-Host "'myapp' directory does not exist!"
           }
@@ -40,7 +40,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ./myapp
+          path: ./anotaLI-api/anotaLI-api/myapp
 
   deploy:
     runs-on: windows-latest
@@ -62,8 +62,8 @@ jobs:
           Write-Host "Listing contents of the current directory after download:"
           Get-ChildItem -Path . -Recurse
           Write-Host "Listing contents of the myapp directory after download:"
-          if (Test-Path -Path "./myapp") {
-            Get-ChildItem -Path "./myapp" -Recurse
+          if (Test-Path -Path "./anotaLI-api/anotaLI-api/myapp") {
+            Get-ChildItem -Path "./anotaLI-api/anotaLI-api/myapp" -Recurse
           } else {
             Write-Host "'myapp' directory does not exist after download!"
           }
@@ -78,10 +78,10 @@ jobs:
       - name: Verify package contents
         run: |
           Write-Host "Verifying contents of the myapp directory:"
-          if (Test-Path -Path "./myapp") {
+          if (Test-Path -Path "./anotaLI-api/anotaLI-api/myapp") {
             Write-Host "Directory myapp exists."
             Write-Host "Contents of myapp:"
-            Get-ChildItem -Path "./myapp" -Recurse
+            Get-ChildItem -Path "./anotaLI-api/anotaLI-api/myapp" -Recurse
           } else {
             Write-Host "Directory myapp does not exist!"
             exit 1
@@ -93,4 +93,4 @@ jobs:
         with:
           app-name: "anotali"
           slot-name: "Production"
-          package: "./myapp"
+          package: "./anotaLI-api/anotaLI-api/myapp"
