@@ -68,6 +68,8 @@ jobs:
             Write-Host "'myapp' directory does not exist after download!"
           }
 
+          
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -86,6 +88,12 @@ jobs:
             Write-Host "Directory myapp does not exist!"
             exit 1
           }
+
+      - name: List all directories
+        run: |
+          Write-Host "Listing all directories in the current path:"
+          Get-ChildItem -Path . -Recurse -Directory
+
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
