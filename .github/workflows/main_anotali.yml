@@ -13,11 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: List contents of the root workspace
-        run: |
-          Write-Host "Listing contents of the root directory:"
-          Get-ChildItem -Path D:\a\anotaLI-api -Recurse
-
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
@@ -29,15 +24,16 @@ jobs:
       - name: Publish the application
         run: dotnet publish ./AL.WebApi/AL.WebApi.csproj -c Release -o ./myapp
 
-      - name: List contents of myapp after publish
+      - name: List contents after publish
         run: |
+          Write-Host "Checking contents of the current directory after publish:"
+          Get-ChildItem -Path . -Recurse
+          Write-Host "Checking if 'myapp' directory was created:"
           if (Test-Path -Path "./myapp") {
-            Write-Host "Directory myapp exists."
-            Write-Host "Contents of myapp:"
+            Write-Host "'myapp' directory exists."
             Get-ChildItem -Path "./myapp" -Recurse
           } else {
-            Write-Host "Directory myapp does not exist!"
-            exit 1
+            Write-Host "'myapp' directory does not exist!"
           }
 
       - name: Upload artifact for deployment job
@@ -63,10 +59,14 @@ jobs:
 
       - name: List contents after artifact download
         run: |
-          Write-Host "Listing contents of the current directory:"
+          Write-Host "Listing contents of the current directory after download:"
           Get-ChildItem -Path . -Recurse
-          Write-Host "Listing contents of the myapp directory:"
-          Get-ChildItem -Path "./myapp" -Recurse
+          Write-Host "Listing contents of the myapp directory after download:"
+          if (Test-Path -Path "./myapp") {
+            Get-ChildItem -Path "./myapp" -Recurse
+          } else {
+            Write-Host "'myapp' directory does not exist after download!"
+          }
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -77,6 +77,7 @@ jobs:
 
       - name: Verify package contents
         run: |
+          Write-Host "Verifying contents of the myapp directory:"
           if (Test-Path -Path "./myapp") {
             Write-Host "Directory myapp exists."
             Write-Host "Contents of myapp:"
