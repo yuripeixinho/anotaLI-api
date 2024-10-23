@@ -22,13 +22,16 @@ jobs:
         run: dotnet build ./AnotaLI.sln --configuration Release
 
       - name: Publish the application
-        run: dotnet publish ./AL.WebApi/AL.WebApi.csproj -c Release -o ./anotaLI-api/anotaLI-api/myapp
+        run: dotnet publish ./AL.WebApi/AL.WebApi.csproj -c Release -o ./myapp
+
+      - name: List files in output directory
+        run: dir ./myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ./anotaLI-api/anotaLI-api/myapp
+          path: ./myapp
 
   deploy:
     runs-on: windows-latest
@@ -58,4 +61,4 @@ jobs:
         with:
           app-name: "anotali"
           slot-name: "Production"
-          package: "./anotaLI-api/anotaLI-api/myapp"
+          package: "./myapp"
