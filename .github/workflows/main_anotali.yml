@@ -16,13 +16,23 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.x'
+          dotnet-version: "8.x"
 
       - name: Build with dotnet
-        run: dotnet build AnotaLI.sln --configuration Release
+        run: dotnet build ./AnotaLI.sln --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish AnotaLI.sln -c Release -o ./myapp
+        run: dotnet publish ./AnotaLI.sln -c Release -o ./myapp
+
+      - name: Verify output directory
+        run: |
+          if [ -d "./myapp" ]; then
+            echo "Directory myapp exists."
+            ls ./myapp
+          else
+            echo "Directory myapp does not exist!"
+            exit 1
+          fi
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -34,7 +44,7 @@ jobs:
     runs-on: windows-latest
     needs: build
     environment:
-      name: 'Production'
+      name: "Production"
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write # This is required for requesting the JWT
@@ -44,7 +54,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: .net-app
-      
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -56,6 +66,6 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'anotali'
-          slot-name: 'Production'
-          package: './myapp' # Caminho para a pasta gerada pelo publish
+          app-name: "anotali"
+          slot-name: "Production"
+          package: "${{ github.workspace }}/myapp" # Caminho para a pasta gerada pelo publish
