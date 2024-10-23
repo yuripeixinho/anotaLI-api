@@ -24,18 +24,6 @@ jobs:
       - name: Publish the application
         run: dotnet publish ./AL.WebApi/AL.WebApi.csproj -c Release -o ./anotaLI-api/anotaLI-api/myapp
 
-      - name: List contents after publish
-        run: |
-          Write-Host "Checking contents of the current directory after publish:"
-          Get-ChildItem -Path . -Recurse
-          Write-Host "Checking if 'myapp' directory was created:"
-          if (Test-Path -Path "./anotaLI-api/anotaLI-api/myapp") {
-            Write-Host "'myapp' directory exists."
-            Get-ChildItem -Path "./anotaLI-api/anotaLI-api/myapp" -Recurse
-          } else {
-            Write-Host "'myapp' directory does not exist!"
-          }
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -57,40 +45,12 @@ jobs:
         with:
           name: .net-app
 
-      - name: List contents after artifact download
-        run: |
-          Write-Host "Listing contents of the current directory after download:"
-          Get-ChildItem -Path . -Recurse
-          Write-Host "Listing contents of the myapp directory after download:"
-          if (Test-Path -Path "./anotaLI-api/anotaLI-api/myapp") {
-            Get-ChildItem -Path "./anotaLI-api/anotaLI-api/myapp" -Recurse
-          } else {
-            Write-Host "'myapp' directory does not exist after download!"
-          }
-
-      - name: List root directory contents
-        run: |
-          Write-Host "Listing contents of the root directory:"
-          Get-ChildItem -Path . -Recurse
-
       - name: Login to Azure
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_13CE46608F0647FEB019812AF81C7D5E }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D29035EDD2C14CA085127F67320078B2 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_59B22C08B79B4168983069F2E5182686 }}
-
-      - name: Verify package contents
-        run: |
-          Write-Host "Verifying contents of the myapp directory:"
-          if (Test-Path -Path "./anotaLI-api/anotaLI-api/myapp") {
-            Write-Host "Directory myapp exists."
-            Write-Host "Contents of myapp:"
-            Get-ChildItem -Path "./anotaLI-api/anotaLI-api/myapp" -Recurse
-          } else {
-            Write-Host "Directory myapp does not exist!"
-            exit 1
-          }
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
