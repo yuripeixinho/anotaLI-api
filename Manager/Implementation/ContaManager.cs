@@ -69,7 +69,7 @@ public class ContaManager : IContaManager
         return contaView;
     }
 
-    public async Task<Conta> InsertContaAsync(NovaConta conta)
+    public async Task<ContaLogada> InsertContaAsync(NovaConta conta)
     {
         Conta novaContaView = new Conta
         {
@@ -79,7 +79,17 @@ public class ContaManager : IContaManager
 
         _senhaService.CriptografarSenha(novaContaView);
 
-        return await _contaRepository.InsertContaAsync(novaContaView);
+        var contaCriada = await _contaRepository.InsertContaAsync(novaContaView);
+
+        ContaLogada contaLogadaView = new()
+        {
+            Id = contaCriada.Id,
+            Email = contaCriada.Email,
+        };
+
+        contaLogadaView.Token = _jwt.GerarToken(contaCriada);
+
+        return contaLogadaView;
     }
 
     public async Task<Conta> UpdateContaAsync(AlteraConta conta)

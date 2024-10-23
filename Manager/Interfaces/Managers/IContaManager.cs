@@ -7,7 +7,7 @@ public interface IContaManager
 {
     Task<IEnumerable<ContaView>> GetContasAsync();
     Task<ContaView> GetContaByIdAsync(string id);
-    Task<Conta> InsertContaAsync(NovaConta conta);
+    Task<ContaLogada> InsertContaAsync(NovaConta conta);
     Task<Conta> UpdateContaAsync(AlteraConta conta);
     Task DeleteContaAsync(string id);
     Task<ContaLogada> ValidaContaEGeraTokenAsync(Conta conta);
