@@ -24,6 +24,9 @@ jobs:
       - name: dotnet publish
         run: dotnet publish ./AnotaLI.sln -c Release -o ./myapp
 
+      - name: List contents of publish directory
+        run: Get-ChildItem -Path "./myapp"
+
       - name: Verify output directory
         run: |
           if (Test-Path -Path "./myapp") {
@@ -55,6 +58,9 @@ jobs:
         with:
           name: .net-app
 
+      - name: List contents after artifact download
+        run: Get-ChildItem -Path "./myapp"
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -68,4 +74,4 @@ jobs:
         with:
           app-name: "anotali"
           slot-name: "Production"
-          package: "./myapp" # Ajuste aqui
+          package: "./myapp" # Use um caminho consistente
