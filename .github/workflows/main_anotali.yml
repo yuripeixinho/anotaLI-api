@@ -22,16 +22,14 @@ jobs:
         run: dotnet build ./AnotaLI.sln --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish ./AnotaLI.sln -c Release -o ./myapp
+        run: dotnet publish ./AL.WebApi/AL.WebApi.csproj -c Release -o ./myapp
 
-      - name: List contents of publish directory
-        run: Get-ChildItem -Path "./myapp"
-
-      - name: Verify output directory
+      - name: Verify publish output
         run: |
           if (Test-Path -Path "./myapp") {
             Write-Host "Directory myapp exists."
-            Get-ChildItem -Path "./myapp"
+            Write-Host "Contents of myapp:"
+            Get-ChildItem -Path "./myapp" -Recurse  # List contents recursively
           } else {
             Write-Host "Directory myapp does not exist!"
             exit 1
@@ -59,7 +57,11 @@ jobs:
           name: .net-app
 
       - name: List contents after artifact download
-        run: Get-ChildItem -Path "./myapp"
+        run: |
+          Write-Host "Listing contents of the current directory:"
+          Get-ChildItem -Path ./
+          Write-Host "Listing contents of the myapp directory:"
+          Get-ChildItem -Path "./myapp" -Recurse
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -74,4 +76,4 @@ jobs:
         with:
           app-name: "anotali"
           slot-name: "Production"
-          package: "./myapp" # Use um caminho consistente
+          package: "./myapp/**/*"  # Use um wildcard para garantir que os arquivos sejam encontrados
