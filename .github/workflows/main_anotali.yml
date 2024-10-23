@@ -22,18 +22,18 @@ jobs:
         run: dotnet build ./AnotaLI.sln --configuration Release
 
       - name: Publish the application
-        run: dotnet publish ./AL.WebApi/AL.WebApi.csproj -c Release -o ./publish
+        run: dotnet publish ./AL.WebApi/AL.WebApi.csproj -c Release -o ./myapp # Mantido o caminho para a raiz
 
       - name: List files in output directory
-        run: dir ./publish
+        run: dir ./myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ./publish
-jobs:
-  deploy:
+          path: ./myapp
+
+ deploy:
     runs-on: windows-latest
     needs: build
     environment:
@@ -48,6 +48,9 @@ jobs:
         with:
           name: .net-app
           path: ./publish # <-- Aqui você está especificando onde o artefato será baixado.
+
+      - name: Check current directory
+        run: pwd
 
       - name: List downloaded files
         run: dir ./publish  # <-- Este comando lista os arquivos no diretório ./publish para verificar se estão corretos.
