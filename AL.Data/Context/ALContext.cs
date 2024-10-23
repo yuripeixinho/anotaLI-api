@@ -156,38 +156,38 @@ public class ALContext : IdentityDbContext<Conta>
             }
         );
 
-        modelBuilder.Entity<PerfilConta>().HasData(
-            new PerfilConta
-            {
-                PerfilContaID = 1,
-                Nome = "Yago",
-                ContaID = "7318d839-ff36-48fd-92a9-3401ab215121"
-            },
-            new PerfilConta
-            {
-                PerfilContaID = 2,
-                Nome = "Yuri",
-                ContaID = "7318d839-ff36-48fd-92a9-3401ab215121"
-            },
-            new PerfilConta
-            {
-                PerfilContaID = 3,
-                Nome = "Marcelo",
-                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
-            },
-            new PerfilConta
-            {
-                PerfilContaID = 4,
-                Nome = "Gislene",
-                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
-            },
-            new PerfilConta
-            {
-                PerfilContaID = 5,
-                Nome = "Lucas",
-                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
-            }
-        );
+        // modelBuilder.Entity<PerfilConta>().HasData(
+        //     new PerfilConta
+        //     {
+        //         PerfilContaID = 1,
+        //         Nome = "Yago",
+        //         ContaID = "7318d839-ff36-48fd-92a9-3401ab215121"
+        //     },
+        //     new PerfilConta
+        //     {
+        //         PerfilContaID = 2,
+        //         Nome = "Yuri",
+        //         ContaID = "7318d839-ff36-48fd-92a9-3401ab215121"
+        //     },
+        //     new PerfilConta
+        //     {
+        //         PerfilContaID = 3,
+        //         Nome = "Marcelo",
+        //         ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
+        //     },
+        //     new PerfilConta
+        //     {
+        //         PerfilContaID = 4,
+        //         Nome = "Gislene",
+        //         ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
+        //     },
+        //     new PerfilConta
+        //     {
+        //         PerfilContaID = 5,
+        //         Nome = "Lucas",
+        //         ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
+        //     }
+        // );
 
         modelBuilder.Entity<Produto>().HasData(
             new Produto
