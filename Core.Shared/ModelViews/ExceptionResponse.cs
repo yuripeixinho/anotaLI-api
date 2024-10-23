@@ -17,5 +17,4 @@ public class ExceptionResponse
     public string TraceId { get; private set; }
     public int StatusCode { get; private set; } 
     public string Message { get; private set; }
-
  }

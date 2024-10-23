@@ -48,7 +48,7 @@ public class ContaController : ControllerBase
     [HttpPost("/registrar")]
     public async Task<IActionResult> Post([FromBody] NovaConta novaConta)
     {
-        Conta contaInserida = await _contaManager.InsertContaAsync(novaConta);
+        ContaLogada contaInserida = await _contaManager.InsertContaAsync(novaConta);
 
         return CreatedAtAction(nameof(Get), new { id = contaInserida.Id }, contaInserida);
     }

@@ -1,0 +1,63 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch and 'origin/main' have diverged,
+# and have 1 and 39 different commits each, respectively.
+#
+# Changes to be committed:
+#	new file:   .github/workflows/main_anotali.yml
+#	modified:   AL.Core/bin/Debug/net8.0/AL.Core.dll
+#	modified:   AL.Core/bin/Debug/net8.0/AL.Core.pdb
+#	modified:   AL.Core/obj/Debug/net8.0/AL.Core.AssemblyInfo.cs
+#	modified:   AL.Core/obj/Debug/net8.0/AL.Core.AssemblyInfoInputs.cache
+#	modified:   AL.Core/obj/Debug/net8.0/AL.Core.dll
+#	modified:   AL.Core/obj/Debug/net8.0/AL.Core.pdb
+#	modified:   AL.Core/obj/Debug/net8.0/ref/AL.Core.dll
+#	modified:   AL.Core/obj/Debug/net8.0/refint/AL.Core.dll
+#	new file:   AL.Data/AnotaLi.db
+#	new file:   AL.Data/AnotaLi.db-shm
+#	new file:   AL.Data/AnotaLi.db-wal
+#	new file:   AL.Data/Migrations/20241022233538_InitialCreate.Designer.cs
+#	new file:   AL.Data/Migrations/20241022233538_InitialCreate.cs
+#	modified:   AL.Data/bin/Debug/net8.0/AL.Core.dll
+#	modified:   AL.Data/bin/Debug/net8.0/AL.Core.pdb
+#	modified:   AL.Data/bin/Debug/net8.0/AL.Data.dll
+#	modified:   AL.Data/bin/Debug/net8.0/AL.Data.pdb
+#	modified:   AL.Data/obj/Debug/net8.0/AL.Data.AssemblyInfo.cs
+#	modified:   AL.Data/obj/Debug/net8.0/AL.Data.AssemblyInfoInputs.cache
+#	modified:   AL.Data/obj/Debug/net8.0/AL.Data.csproj.AssemblyReference.cache
+#	modified:   AL.Data/obj/Debug/net8.0/AL.Data.csproj.CoreCompileInputs.cache
+#	modified:   AL.Data/obj/Debug/net8.0/AL.Data.dll
+#	modified:   AL.Data/obj/Debug/net8.0/AL.Data.pdb
+#	modified:   AL.Data/obj/Debug/net8.0/ref/AL.Data.dll
+#	modified:   AL.Data/obj/Debug/net8.0/refint/AL.Data.dll
+#	new file:   AL.WebApi/AnotaLi.db
+#	modified:   AL.WebApi/Controllers/ContaController.cs
+#	modified:   AL.WebApi/appsettings.json
+#	modified:   AL.WebApi/bin/Debug/net8.0/AL.Core.dll
+#	modified:   AL.WebApi/bin/Debug/net8.0/AL.Core.pdb
+#	modified:   AL.WebApi/bin/Debug/net8.0/AL.Data.dll
+#	modified:   AL.WebApi/bin/Debug/net8.0/AL.Data.pdb
+#	modified:   AL.WebApi/bin/Debug/net8.0/AL.WebApi.dll
+#	modified:   AL.WebApi/bin/Debug/net8.0/AL.WebApi.exe
+#	modified:   AL.WebApi/bin/Debug/net8.0/AL.WebApi.pdb
+#	modified:   AL.WebApi/obj/Debug/net8.0/AL.WebApi.AssemblyInfo.cs
+#	modified:   AL.WebApi/obj/Debug/net8.0/AL.WebApi.AssemblyInfoInputs.cache
+#	modified:   AL.WebApi/obj/Debug/net8.0/AL.WebApi.csproj.AssemblyReference.cache
+#	modified:   AL.WebApi/obj/Debug/net8.0/AL.WebApi.dll
+#	modified:   AL.WebApi/obj/Debug/net8.0/AL.WebApi.pdb
+#	modified:   AL.WebApi/obj/Debug/net8.0/apphost.exe
+#	modified:   AL.WebApi/obj/Debug/net8.0/ref/AL.WebApi.dll
+#	modified:   AL.WebApi/obj/Debug/net8.0/refint/AL.WebApi.dll
+#	modified:   Core.Shared/ModelViews/ExceptionResponse.cs
+#	modified:   Manager/bin/Debug/net8.0/AL.Manager.dll
+#	modified:   Manager/bin/Debug/net8.0/AL.Manager.pdb
+#	modified:   Manager/obj/Debug/net8.0/AL.Manager.dll
+#	modified:   Manager/obj/Debug/net8.0/AL.Manager.pdb
+#	modified:   Manager/obj/Debug/net8.0/Al.Manager.AssemblyInfo.cs
+#	modified:   Manager/obj/Debug/net8.0/Al.Manager.AssemblyInfoInputs.cache
+#	modified:   Manager/obj/Debug/net8.0/ref/AL.Manager.dll
+#	modified:   Manager/obj/Debug/net8.0/refint/AL.Manager.dll
+#
