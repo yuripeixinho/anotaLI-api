@@ -33,39 +33,39 @@ jobs:
           name: .net-app
           path: ./myapp
 
- deploy:
-    runs-on: windows-latest
-    needs: build
-    environment:
-      name: "Production"
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write
+  deploy:
+      runs-on: windows-latest
+      needs: build
+      environment:
+        name: "Production"
+        url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      permissions:
+        id-token: write
 
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: .net-app
-          path: ./publish # <-- Aqui você está especificando onde o artefato será baixado.
+      steps:
+        - name: Download artifact from build job
+          uses: actions/download-artifact@v4
+          with:
+            name: .net-app
+            path: ./publish # <-- Aqui você está especificando onde o artefato será baixado.
 
-      - name: Check current directory
-        run: pwd
+        - name: Check current directory
+          run: pwd
 
-      - name: List downloaded files
-        run: dir ./publish  # <-- Este comando lista os arquivos no diretório ./publish para verificar se estão corretos.
+        - name: List downloaded files
+          run: dir ./publish  # <-- Este comando lista os arquivos no diretório ./publish para verificar se estão corretos.
 
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_13CE46608F0647FEB019812AF81C7D5E }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D29035EDD2C14CA085127F67320078B2 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_59B22C08B79B4168983069F2E5182686 }}
+        - name: Login to Azure
+          uses: azure/login@v2
+          with:
+            client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_13CE46608F0647FEB019812AF81C7D5E }}
+            tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D29035EDD2C14CA085127F67320078B2 }}
+            subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_59B22C08B79B4168983069F2E5182686 }}
 
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: "anotali"
-          slot-name: "Production"
-          package: "./publish"  # <-- Certifique-se de que o diretório está correto
+        - name: Deploy to Azure Web App
+          id: deploy-to-webapp
+          uses: azure/webapps-deploy@v3
+          with:
+            app-name: "anotali"
+            slot-name: "Production"
+            package: "./publish"  # <-- Certifique-se de que o diretório está correto
