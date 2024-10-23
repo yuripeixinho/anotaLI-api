@@ -22,16 +22,16 @@ jobs:
         run: dotnet build ./AnotaLI.sln --configuration Release
 
       - name: Publish the application
-        run: dotnet publish ./AL.WebApi/AL.WebApi.csproj -c Release -o ./myapp # Mantido o caminho para a raiz
+        run: dotnet publish ./AL.WebApi/AL.WebApi.csproj -c Release -o ./publish
 
       - name: List files in output directory
-        run: dir ./myapp
+        run: dir ./publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ./myapp
+          path: ./publish
 
   deploy:
     runs-on: windows-latest
@@ -49,7 +49,7 @@ jobs:
           name: .net-app
 
       - name: List downloaded files
-        run: dir ./myapp # Verifique se os arquivos estão no diretório correto
+        run: dir ./publish  # Verifique os arquivos baixados
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -64,4 +64,4 @@ jobs:
         with:
           app-name: "anotali"
           slot-name: "Production"
-          package: "./myapp" # Este caminho deve ser correto agora
+          package: "./publish"  # Atualizando o caminho
