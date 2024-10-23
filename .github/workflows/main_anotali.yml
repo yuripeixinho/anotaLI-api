@@ -68,6 +68,11 @@ jobs:
             Write-Host "'myapp' directory does not exist after download!"
           }
 
+      - name: List root directory contents
+        run: |
+          Write-Host "Listing contents of the root directory:"
+          Get-ChildItem -Path . -Recurse
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
