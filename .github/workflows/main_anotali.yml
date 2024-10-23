@@ -26,13 +26,13 @@ jobs:
 
       - name: Verify output directory
         run: |
-          if [ -d "./myapp" ]; then
-            echo "Directory myapp exists."
-            ls ./myapp
-          else
-            echo "Directory myapp does not exist!"
+          if (Test-Path -Path "./myapp") {
+            Write-Host "Directory myapp exists."
+            Get-ChildItem -Path "./myapp"
+          } else {
+            Write-Host "Directory myapp does not exist!"
             exit 1
-          fi
+          }
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
