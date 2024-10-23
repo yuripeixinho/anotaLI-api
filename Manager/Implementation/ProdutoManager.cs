@@ -25,8 +25,8 @@ public class ProdutoManager : IProdutoManager
             Nome = p.Nome,
             Quantidade = p.Quantidade,
             Unidade = p.Unidade,
-            Categoria = p.Categoria.Nome, 
-            PerfilConta = p.PerfilConta != null ? new PerfilContaView
+            Categoria = p?.Categoria?.Nome ?? "", 
+            PerfilConta = p?.PerfilConta != null ? new PerfilContaView
             {
                 PerfilContaID = p.PerfilConta.PerfilContaID,
                 Nome = p.PerfilConta.Nome
@@ -46,7 +46,7 @@ public class ProdutoManager : IProdutoManager
             Nome = p.Nome,
             Quantidade = p.Quantidade,
             Unidade = p.Unidade,
-            Categoria = p.Categoria.Nome,
+            Categoria = p?.Categoria?.Nome ?? "",
         }).ToList();
 
         return produtoView;
