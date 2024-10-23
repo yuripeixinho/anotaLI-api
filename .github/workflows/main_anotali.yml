@@ -68,4 +68,4 @@ jobs:
         with:
           app-name: "anotali"
           slot-name: "Production"
-          package: "${{ github.workspace }}/myapp" # Caminho para a pasta gerada pelo publish
+          package: "./myapp" # Ajuste aqui
