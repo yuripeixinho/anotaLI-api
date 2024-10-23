@@ -21,7 +21,7 @@ public class ALContext : IdentityDbContext<Conta>
         if (!optionsBuilder.IsConfigured)
         {
             // Configura o SQLite como banco de dados padrão para migrações
-            optionsBuilder.UseSqlite("Data Source=AnotaLi.db");
+        optionsBuilder.UseSqlite("Data Source=C:\\home\\data\\AnotaLi.db");
         }
     }
     public DbSet<Conta> Contas { get; set; }

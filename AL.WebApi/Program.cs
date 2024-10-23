@@ -56,4 +56,11 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Aplicar migrações ao iniciar a aplicação
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ALContext>();
+    dbContext.Database.Migrate(); // Aplica as migrações pendentes
+}
+
 app.Run();
