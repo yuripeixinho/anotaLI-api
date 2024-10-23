@@ -76,4 +76,4 @@ jobs:
         with:
           app-name: "anotali"
           slot-name: "Production"
-          package: "./myapp"  # Use um wildcard para garantir que os arquivos sejam encontrados
+          package: "./myapp/*"  # Use um wildcard para garantir que os arquivos sejam encontrados
