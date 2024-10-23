@@ -1,45 +1,90 @@
-trigger:
-- main  # ou o branch que você deseja usar
+name: Build and deploy ASP.Net Core app to Azure Web App - anotali
 
-pool:
-  vmImage: 'windows-latest'
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-variables:
-  solution: '**/*.sln'  # Caminho para sua solução
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+jobs:
+  build:
+    runs-on: windows-latest
 
-steps:
-- task: DotNetCoreCLI@2
-  displayName: 'Restore NuGet packages'
-  inputs:
-    command: 'restore'
-    projects: '$(solution)'
+    steps:
+      - uses: actions/checkout@v4
 
-- task: DotNetCoreCLI@2
-  displayName: 'Build project'
-  inputs:
-    command: 'build'
-    projects: '$(solution)'
-    arguments: '--configuration $(buildConfiguration)'
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.x"
 
-- task: DotNetCoreCLI@2
-  displayName: 'Run unit tests'
-  inputs:
-    command: 'test'
-    projects: '$(solution)'
-    arguments: '--configuration $(buildConfiguration) --no-build --verbosity normal'
+      - name: Build solution
+        run: dotnet build ./AnotaLI.sln --configuration Release
 
-- task: DotNetCoreCLI@2
-  displayName: 'Publish project'
-  inputs:
-    command: 'publish'
-    projects: '$(solution)'
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/myapp'
-    
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact'
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/myapp'
-    ArtifactName: 'myapp'
-    publishLocation: 'Container'
+      - name: Publish the application
+        run: dotnet publish ./AL.WebApi/AL.WebApi.csproj -c Release -o ./myapp
+
+      - name: List contents of myapp after publish
+        run: |
+          if (Test-Path -Path "./myapp") {
+            Write-Host "Directory myapp exists."
+            Write-Host "Contents of myapp:"
+            Get-ChildItem -Path "./myapp" -Recurse
+          } else {
+            Write-Host "Directory myapp does not exist!"
+            exit 1
+          }
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: .net-app
+          path: ./myapp
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    environment:
+      name: "Production"
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    permissions:
+      id-token: write
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: .net-app
+
+      - name: List contents after artifact download
+        run: |
+          Write-Host "Listing contents of the current directory:"
+          Get-ChildItem -Path ./
+          Write-Host "Listing contents of the myapp directory:"
+          Get-ChildItem -Path "./myapp" -Recurse
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_13CE46608F0647FEB019812AF81C7D5E }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D29035EDD2C14CA085127F67320078B2 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_59B22C08B79B4168983069F2E5182686 }}
+
+      - name: Verify package contents
+        run: |
+          if (Test-Path -Path "./myapp") {
+            Write-Host "Directory myapp exists."
+            Write-Host "Contents of myapp:"
+            Get-ChildItem -Path "./myapp" -Recurse
+          } else {
+            Write-Host "Directory myapp does not exist!"
+            exit 1
+          }
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: "anotali"
+          slot-name: "Production"
+          package: "myapp/**/*" # Ajustado
