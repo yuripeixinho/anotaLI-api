@@ -70,10 +70,21 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D29035EDD2C14CA085127F67320078B2 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_59B22C08B79B4168983069F2E5182686 }}
 
+      - name: Verify package contents
+        run: |
+          if (Test-Path -Path "./myapp") {
+            Write-Host "Directory myapp exists."
+            Write-Host "Contents of myapp:"
+            Get-ChildItem -Path "./myapp" -Recurse
+          } else {
+            Write-Host "Directory myapp does not exist!"
+            exit 1
+          }
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: "anotali"
           slot-name: "Production"
-          package: "./myapp/**/*"  # Utilize um wildcard
+          package: "myapp/**/*"  # Ajustado
