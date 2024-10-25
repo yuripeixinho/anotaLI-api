@@ -19,8 +19,9 @@ public class PerfilContaManager : IPerfilContaManager
 
         var perfisContaView = perfisConta.Select(p => new PerfilContaView
         {
-            Nome = p.Nome,  
+            Nome = p.Nome,
             PerfilContaID = p.PerfilContaID,
+            QtdProdutos = p.Produtos?.Count() ?? 0, 
         });
 
         return perfisContaView;

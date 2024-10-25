@@ -18,6 +18,7 @@ public class PerfilContaRepository : IPerfilContaRepository
     {
         return await _context.PerfilContas
             .Include(p => p.Conta)
+            .Include(p => p.Produtos)    
             .AsNoTracking()
             .Where(p => p.ContaID == contaID)
             .ToListAsync();
