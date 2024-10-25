@@ -7,10 +7,12 @@ namespace AL.Manager.Implementation;
 public class PerfilContaManager : IPerfilContaManager
 {
     private readonly IPerfilContaRepository _perfilContaRepository;
+    private readonly IContaRepository _contaRepository;
 
-    public PerfilContaManager(IPerfilContaRepository perfilContaRepository)
+    public PerfilContaManager(IPerfilContaRepository perfilContaRepository, IContaRepository contaRepository)
     {
-        _perfilContaRepository = perfilContaRepository;   
+        _perfilContaRepository = perfilContaRepository;
+        _contaRepository = contaRepository;
     }
 
     public async Task<IEnumerable<PerfilContaView>> GetPerfisContaAsync(string contaID)

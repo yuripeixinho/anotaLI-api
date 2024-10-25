@@ -1,5 +1,6 @@
 ﻿using AL.Core.Domain;
 using AL.Core.Shared.ModelViews.Conta;
+using AL.Core.Shared.ModelViews.PerfilConta;
 using AL.Manager.Interfaces.Managers;
 using AL.Manager.Interfaces.Repositories;
 using AL.Manager.Interfaces.Services;
@@ -9,12 +10,15 @@ namespace AL.Manager.Implementation;
 public class ContaManager : IContaManager
 {
     private readonly IContaRepository _contaRepository;
+    private readonly IPerfilContaRepository _perfilContaRepository;
+
     private readonly IJWTService _jwt;
     private readonly SenhaService _senhaService;
 
-    public ContaManager(IContaRepository contaRepository, IJWTService jwt, SenhaService senhaService)
+    public ContaManager(IContaRepository contaRepository, IPerfilContaRepository perfilContaRepository, IJWTService jwt, SenhaService senhaService)
     {
         _contaRepository = contaRepository;
+        _perfilContaRepository = perfilContaRepository;     
         _jwt = jwt;
         _senhaService = senhaService;
     }
@@ -91,8 +95,32 @@ public class ContaManager : IContaManager
 
         contaLogadaView.Token = _jwt.GerarToken(contaCriada);
 
+        await InsertPerfilContaAsync(conta.PerfilConta.Nome, contaCriada);
+
         return contaLogadaView;
     }
+
+    private async Task<PerfilContaView> InsertPerfilContaAsync(string nomePrimeiroPerfil, Conta contaCriada)
+    {
+        PerfilConta novoPerfilConta = new()
+        {
+            Nome = nomePrimeiroPerfil,
+            ContaID = contaCriada.Id,
+            Conta = contaCriada
+        };
+
+        var perfilContaCriada = await _perfilContaRepository.InsertPerfilContaAsync(novoPerfilConta);
+
+        PerfilContaView perfilContaView = new()
+        {
+            Nome = perfilContaCriada.Nome,
+            PerfilContaID = perfilContaCriada.PerfilContaID,
+            ContaID = novoPerfilConta.ContaID
+        };
+
+        return perfilContaView;
+    }
+
 
     public async Task<Conta> UpdateContaAsync(AlteraConta conta)
     {

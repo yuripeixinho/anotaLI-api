@@ -52,8 +52,6 @@ app.UseHttpsRedirection();
 
 app.UseDatabaseConfiguration();
 
-app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

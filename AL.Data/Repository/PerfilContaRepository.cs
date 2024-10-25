@@ -23,4 +23,12 @@ public class PerfilContaRepository : IPerfilContaRepository
             .Where(p => p.ContaID == contaID)
             .ToListAsync();
     }
+
+    public async Task<PerfilConta> InsertPerfilContaAsync(PerfilConta perfilConta)
+    {
+        await _context.PerfilContas.AddAsync(perfilConta);
+        await _context.SaveChangesAsync();
+
+        return perfilConta;
+    }
 }

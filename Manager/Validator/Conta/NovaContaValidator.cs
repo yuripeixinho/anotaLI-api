@@ -1,7 +1,6 @@
 ﻿using AL.Core.Shared.ModelViews.Conta;
 using AL.Manager.Interfaces.Repositories;
 using FluentValidation;
-using System.Threading;
 
 namespace AL.Manager.Validator.Conta
 {
@@ -29,6 +28,9 @@ namespace AL.Manager.Validator.Conta
                 .Matches(@"[a-z]").WithMessage(ValidationMessages.PasswordLowercaseRequired)
                 .Matches(@"[0-9]").WithMessage(ValidationMessages.PasswordNumberRequired)
                 .Matches(@"[\W]").WithMessage(ValidationMessages.PasswordSpecialCharRequired);
+            RuleFor(c => c.PerfilConta)
+                .NotEmpty()
+                .WithMessage(ValidationMessages.FieldNotEmpty);
         }
 
         private bool BeUniqueEmail(string email)
