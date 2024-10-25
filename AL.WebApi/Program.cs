@@ -30,7 +30,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerConfiguration(); // Configura��o do Swagger
 
 
-builder.Services.AddDataBaseConfiguration(builder.Configuration);
+//builder.Services.AddDataBaseConfiguration(builder.Configuration);
 
 builder.Services.AddDependencyInjectionConfiguration();
 
@@ -50,7 +50,7 @@ app.UseCors("AllowAllOrigins"); // Certifique-se de que o nome seja o mesmo da p
 
 app.UseHttpsRedirection();
 
-app.UseDatabaseConfiguration();
+//app.UseDatabaseConfiguration();
 
 app.MapControllers();
 
