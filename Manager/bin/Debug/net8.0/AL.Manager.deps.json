@@ -274,6 +274,14 @@
           }
         }
       },
+      "Nanoid/3.1.0": {
+        "runtime": {
+          "lib/net8.0/Nanoid.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.3": {
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
@@ -297,7 +305,8 @@
       "AL.Core/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.10",
-          "Microsoft.EntityFrameworkCore": "8.0.10"
+          "Microsoft.EntityFrameworkCore": "8.0.10",
+          "Nanoid": "3.1.0"
         },
         "runtime": {
           "AL.Core.dll": {
@@ -506,6 +515,13 @@
       "sha512": "sha512-ZSzGsAA3BY20XHnsp8OjrHFtpd+pQtiu4UJDjPtXwCtEzcE5CjWP/8iZEJXy5AxVEFB0z6EwLSN+T1Fsdpjifw==",
       "path": "microsoft.identitymodel.tokens/8.1.2",
       "hashPath": "microsoft.identitymodel.tokens.8.1.2.nupkg.sha512"
+    },
+    "Nanoid/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5vhxZ+1iVH213boPsR3KYQXWObZQcaGvLU9ytTroWJFeVzV2EFAtGgrmMpb8BCxd+KWeBASniZLzd3UQ0tkhRQ==",
+      "path": "nanoid/3.1.0",
+      "hashPath": "nanoid.3.1.0.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.3": {
       "type": "package",

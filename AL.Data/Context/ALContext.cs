@@ -28,7 +28,7 @@ public class ALContext : IdentityDbContext<Conta>
     public DbSet<PerfilConta> PerfilContas { get; set; }
     public DbSet<Produto> Produtos { get; set; }
     public DbSet<Categoria> Categorias { get; set; }
-    public DbSet<DimPeriodoFeira> DimPeriodoFeiras { get; set; }
+    public DbSet<Feira> Feiras { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -38,28 +38,32 @@ public class ALContext : IdentityDbContext<Conta>
         modelBuilder.ApplyConfiguration(new PerfilContaConfiguration());
         modelBuilder.ApplyConfiguration(new ProdutoConfiguration());
         modelBuilder.ApplyConfiguration(new CategoriaConfiguration());
-        modelBuilder.ApplyConfiguration(new DimPeriodoFeiraConfiguration());
+        modelBuilder.ApplyConfiguration(new FeiraConfiguration());
 
-        modelBuilder.Entity<DimPeriodoFeira>().HasData(
-            new DimPeriodoFeira
+        modelBuilder.Entity<Feira>().HasData(
+            new Feira
             {
-                DimPeriodoFeiraID = 1,
-                Periodo = "Diária",
+                FeiraID = 1,
+                Nome = "Quinzenal",
+                ContaID = "7318d839-ff36-48fd-92a9-3401ab215121"
             },
-            new DimPeriodoFeira
+            new Feira
             {
-                DimPeriodoFeiraID = 2,
-                Periodo = "Semanal",
+                FeiraID = 2,
+                Nome = "Quinzenal",
+                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
             },
-            new DimPeriodoFeira
+            new Feira
             {
-                DimPeriodoFeiraID = 3,
-                Periodo = "Quinzenal",
+                FeiraID = 3,
+                Nome = "Mensal",
+                ContaID = "7318d839-ff36-48fd-92a9-3401ab215121"
             },
-            new DimPeriodoFeira
+            new Feira
             {
-                DimPeriodoFeiraID = 4,
-                Periodo = "Mensal",
+                FeiraID = 4,
+                Nome = "Mensal",
+                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
             }
         );
 
@@ -159,31 +163,31 @@ public class ALContext : IdentityDbContext<Conta>
         modelBuilder.Entity<PerfilConta>().HasData(
             new PerfilConta
             {
-                PerfilContaID = 1,
+                PerfilContaID = "V4c8jL7x2d",
                 Nome = "Yago",
                 ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
             },
             new PerfilConta
             {
-                PerfilContaID = 2,
+                PerfilContaID = "m3Fz6kQp1W",
                 Nome = "Yuri",
                 ContaID = "7318d839-ff36-48fd-92a9-3401ab215121"
             },
             new PerfilConta
             {
-                PerfilContaID = 3,
+                PerfilContaID = "R1n8bY5sXq",
                 Nome = "Marcelo",
                 ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
             },
             new PerfilConta
             {
-                PerfilContaID = 4,
+                PerfilContaID = "uE3jK9d2Fv",
                 Nome = "Gislene",
                 ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
             },
             new PerfilConta
             {
-                PerfilContaID = 5,
+                PerfilContaID = "Z7xqL8mP4H",
                 Nome = "Lucas",
                 ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
             }
@@ -197,8 +201,8 @@ public class ALContext : IdentityDbContext<Conta>
                 Quantidade = 1,
                 Unidade = "un",
                 CategoriaID = 4, // Laticínios
-                PerfilContaID = 1,
-                DimPeriodoFeiraID = 2 // Semanal
+                PerfilContaID = "V4c8jL7x2d",
+                FeiraID = 2 // Quinzenal
             },
             new Produto
             {
@@ -207,8 +211,8 @@ public class ALContext : IdentityDbContext<Conta>
                 Quantidade = 3,
                 Unidade = "un",
                 CategoriaID = 9, // Doces e Sobremesas
-                PerfilContaID = 2,
-                DimPeriodoFeiraID = 3 // Quinzenal
+                PerfilContaID = "m3Fz6kQp1W",
+                FeiraID = 3 // Mensal
             },
             new Produto
             {
@@ -217,8 +221,8 @@ public class ALContext : IdentityDbContext<Conta>
                 Quantidade = 5,
                 Unidade = "un",
                 CategoriaID = 3, // Grãos e Cereais
-                PerfilContaID = 4,
-                DimPeriodoFeiraID = 4 // Mensal
+                PerfilContaID = "R1n8bY5sXq",
+                FeiraID = 4 // Mensal
             },
             new Produto
             {
@@ -227,8 +231,8 @@ public class ALContext : IdentityDbContext<Conta>
                 Quantidade = 3,
                 Unidade = "un",
                 CategoriaID = 3, // Grãos e Cereais
-                PerfilContaID = 5,
-                DimPeriodoFeiraID = 4 // Mensal
+                PerfilContaID = "R1n8bY5sXq",
+                FeiraID = 4 // Mensal
             },
             new Produto
             {
@@ -237,8 +241,8 @@ public class ALContext : IdentityDbContext<Conta>
                 Quantidade = 8,
                 Unidade = "un",
                 CategoriaID = 10, // Pães e Massas
-                PerfilContaID = 5,
-                DimPeriodoFeiraID = 1 // Diária
+                PerfilContaID = "uE3jK9d2Fv",
+                FeiraID = 1 // Quinzenal
             },
             new Produto
             {
@@ -247,8 +251,8 @@ public class ALContext : IdentityDbContext<Conta>
                 Quantidade = 1,
                 Unidade = "un",
                 CategoriaID = 7, // Produtos de Limpeza
-                PerfilContaID = 3,
-                DimPeriodoFeiraID = 4 // Mensal
+                PerfilContaID = "Z7xqL8mP4H",
+                FeiraID = 4 // Mensal
             }
         );
     }

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AL.Data.Migrations
 {
     [DbContext(typeof(ALContext))]
-    [Migration("20241023162503_FirstSQLiteMigrate")]
-    partial class FirstSQLiteMigrate
+    [Migration("20241025231542_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -192,12 +192,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "7318d839-ff36-48fd-92a9-3401ab215121",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "93b8cf7c-e07d-427b-829c-87a6579bcbb3",
+                            ConcurrencyStamp = "703589b1-a54e-4289-bc30-14b4e3c31c39",
                             Email = "yuri@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cebda327-f3d5-43d1-ac09-3a336bb5b283",
+                            SecurityStamp = "34114c36-bdc4-483c-be13-f7a1b121ae5c",
                             Senha = "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==",
                             TwoFactorEnabled = false
                         },
@@ -205,60 +205,69 @@ namespace AL.Data.Migrations
                         {
                             Id = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a770f6c9-4789-43e9-b62e-f4c4b6f781a1",
+                            ConcurrencyStamp = "070011a7-9dc8-4c92-95a2-27f7fb09beac",
                             Email = "marcelo@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0bdb9534-038e-4ff8-8daa-4b63423de84a",
+                            SecurityStamp = "a8899307-6376-4989-8e30-4d06bbebf201",
                             Senha = "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==",
                             TwoFactorEnabled = false
                         });
                 });
 
-            modelBuilder.Entity("AL.Core.Domain.DimPeriodoFeira", b =>
+            modelBuilder.Entity("AL.Core.Domain.Feira", b =>
                 {
-                    b.Property<int>("DimPeriodoFeiraID")
+                    b.Property<int>("FeiraID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Periodo")
+                    b.Property<string>("ContaID")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(45)
                         .HasColumnType("TEXT");
 
-                    b.HasKey("DimPeriodoFeiraID");
+                    b.HasKey("FeiraID");
 
-                    b.ToTable("DimPeriodoFeiras");
+                    b.HasIndex("ContaID");
+
+                    b.ToTable("Feiras");
 
                     b.HasData(
                         new
                         {
-                            DimPeriodoFeiraID = 1,
-                            Periodo = "Diária"
+                            FeiraID = 1,
+                            ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            Nome = "Quinzenal"
                         },
                         new
                         {
-                            DimPeriodoFeiraID = 2,
-                            Periodo = "Semanal"
+                            FeiraID = 2,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            Nome = "Quinzenal"
                         },
                         new
                         {
-                            DimPeriodoFeiraID = 3,
-                            Periodo = "Quinzenal"
+                            FeiraID = 3,
+                            ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            Nome = "Mensal"
                         },
                         new
                         {
-                            DimPeriodoFeiraID = 4,
-                            Periodo = "Mensal"
+                            FeiraID = 4,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            Nome = "Mensal"
                         });
                 });
 
             modelBuilder.Entity("AL.Core.Domain.PerfilConta", b =>
                 {
-                    b.Property<int>("PerfilContaID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("PerfilContaID")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ContaID")
                         .IsRequired()
@@ -278,31 +287,31 @@ namespace AL.Data.Migrations
                     b.HasData(
                         new
                         {
-                            PerfilContaID = 1,
+                            PerfilContaID = "V4c8jL7x2d",
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
                             Nome = "Yago"
                         },
                         new
                         {
-                            PerfilContaID = 2,
+                            PerfilContaID = "m3Fz6kQp1W",
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
                             Nome = "Yuri"
                         },
                         new
                         {
-                            PerfilContaID = 3,
+                            PerfilContaID = "R1n8bY5sXq",
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             Nome = "Marcelo"
                         },
                         new
                         {
-                            PerfilContaID = 4,
+                            PerfilContaID = "uE3jK9d2Fv",
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             Nome = "Gislene"
                         },
                         new
                         {
-                            PerfilContaID = 5,
+                            PerfilContaID = "Z7xqL8mP4H",
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             Nome = "Lucas"
                         });
@@ -317,7 +326,7 @@ namespace AL.Data.Migrations
                     b.Property<int>("CategoriaID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("DimPeriodoFeiraID")
+                    b.Property<int>("FeiraID")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Nome")
@@ -325,8 +334,9 @@ namespace AL.Data.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("PerfilContaID")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("PerfilContaID")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("INTEGER");
@@ -338,7 +348,7 @@ namespace AL.Data.Migrations
 
                     b.HasIndex("CategoriaID");
 
-                    b.HasIndex("DimPeriodoFeiraID");
+                    b.HasIndex("FeiraID");
 
                     b.HasIndex("PerfilContaID");
 
@@ -349,9 +359,9 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 1,
                             CategoriaID = 4,
-                            DimPeriodoFeiraID = 2,
+                            FeiraID = 2,
                             Nome = "Leite",
-                            PerfilContaID = 1,
+                            PerfilContaID = "V4c8jL7x2d",
                             Quantidade = 1,
                             Unidade = "un"
                         },
@@ -359,9 +369,9 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 2,
                             CategoriaID = 9,
-                            DimPeriodoFeiraID = 3,
+                            FeiraID = 3,
                             Nome = "Cacau",
-                            PerfilContaID = 2,
+                            PerfilContaID = "m3Fz6kQp1W",
                             Quantidade = 3,
                             Unidade = "un"
                         },
@@ -369,9 +379,9 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 3,
                             CategoriaID = 3,
-                            DimPeriodoFeiraID = 4,
+                            FeiraID = 4,
                             Nome = "Feijão",
-                            PerfilContaID = 4,
+                            PerfilContaID = "R1n8bY5sXq",
                             Quantidade = 5,
                             Unidade = "un"
                         },
@@ -379,9 +389,9 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 5,
                             CategoriaID = 3,
-                            DimPeriodoFeiraID = 4,
+                            FeiraID = 4,
                             Nome = "Arroz",
-                            PerfilContaID = 5,
+                            PerfilContaID = "R1n8bY5sXq",
                             Quantidade = 3,
                             Unidade = "un"
                         },
@@ -389,9 +399,9 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 6,
                             CategoriaID = 10,
-                            DimPeriodoFeiraID = 1,
+                            FeiraID = 1,
                             Nome = "Macarrão",
-                            PerfilContaID = 5,
+                            PerfilContaID = "uE3jK9d2Fv",
                             Quantidade = 8,
                             Unidade = "un"
                         },
@@ -399,9 +409,9 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 7,
                             CategoriaID = 7,
-                            DimPeriodoFeiraID = 4,
+                            FeiraID = 4,
                             Nome = "Desinfetante",
-                            PerfilContaID = 3,
+                            PerfilContaID = "Z7xqL8mP4H",
                             Quantidade = 1,
                             Unidade = "un"
                         });
@@ -545,6 +555,17 @@ namespace AL.Data.Migrations
                     b.Navigation("Conta");
                 });
 
+            modelBuilder.Entity("AL.Core.Domain.Feira", b =>
+                {
+                    b.HasOne("AL.Core.Domain.Conta", "Conta")
+                        .WithMany("Feiras")
+                        .HasForeignKey("ContaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Conta");
+                });
+
             modelBuilder.Entity("AL.Core.Domain.PerfilConta", b =>
                 {
                     b.HasOne("AL.Core.Domain.Conta", "Conta")
@@ -564,9 +585,9 @@ namespace AL.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("AL.Core.Domain.DimPeriodoFeira", "DimPeriodoFeira")
-                        .WithMany()
-                        .HasForeignKey("DimPeriodoFeiraID")
+                    b.HasOne("AL.Core.Domain.Feira", "Feira")
+                        .WithMany("Produtos")
+                        .HasForeignKey("FeiraID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -578,7 +599,7 @@ namespace AL.Data.Migrations
 
                     b.Navigation("Categoria");
 
-                    b.Navigation("DimPeriodoFeira");
+                    b.Navigation("Feira");
 
                     b.Navigation("PerfilConta");
                 });
@@ -643,7 +664,14 @@ namespace AL.Data.Migrations
                 {
                     b.Navigation("Categorias");
 
+                    b.Navigation("Feiras");
+
                     b.Navigation("PerfilContas");
+                });
+
+            modelBuilder.Entity("AL.Core.Domain.Feira", b =>
+                {
+                    b.Navigation("Produtos");
                 });
 
             modelBuilder.Entity("AL.Core.Domain.PerfilConta", b =>

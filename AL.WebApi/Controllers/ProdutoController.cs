@@ -26,7 +26,7 @@ public class ProdutosController : ControllerBase
 
     [Authorize]
     [HttpGet("/perfilcontas/{perfilContaID}/produtos")]
-    public async Task<IActionResult> GetByPerfilConta(int perfilContaID)
+    public async Task<IActionResult> GetByPerfilConta(string perfilContaID)
     {
         return Ok(await _produtoManager.GetProdutosByPerfilContasAsync(perfilContaID));
     }

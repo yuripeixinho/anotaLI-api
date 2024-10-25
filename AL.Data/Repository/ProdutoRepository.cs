@@ -28,7 +28,7 @@ public class ProdutoRepository : IProdutoRepository
         return produtos;    
     }
 
-    public async Task<List<Produto>> GetProdutosByPerfilContasAsync(int perfilContaID)
+    public async Task<List<Produto>> GetProdutosByPerfilContasAsync(string perfilContaID)
     {
         var produtos = await _context.Produtos
                 .AsNoTracking()
@@ -46,8 +46,8 @@ public class ProdutoRepository : IProdutoRepository
             throw new NotFoundException(ExceptionMessages.NotFoundID);
 
         return await _context.Produtos
-           .Include(p => p.DimPeriodoFeira)
-           .Where(p => periodoIDs.Contains(p.DimPeriodoFeiraID)) // Filtra pelos IDs dos períodos selecionados
+           .Include(p => p.Feira)
+           .Where(p => periodoIDs.Contains(p.FeiraID)) 
            .ToListAsync();
     }
 

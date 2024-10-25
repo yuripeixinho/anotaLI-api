@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AL.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstSQLiteMigrate : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -51,19 +51,6 @@ namespace AL.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Contas", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "DimPeriodoFeiras",
-                columns: table => new
-                {
-                    DimPeriodoFeiraID = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Periodo = table.Column<string>(type: "TEXT", maxLength: 45, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DimPeriodoFeiras", x => x.DimPeriodoFeiraID);
                 });
 
             migrationBuilder.CreateTable(
@@ -193,11 +180,30 @@ namespace AL.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Feiras",
+                columns: table => new
+                {
+                    FeiraID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nome = table.Column<string>(type: "TEXT", maxLength: 45, nullable: false),
+                    ContaID = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Feiras", x => x.FeiraID);
+                    table.ForeignKey(
+                        name: "FK_Feiras_Contas_ContaID",
+                        column: x => x.ContaID,
+                        principalTable: "Contas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PerfilContas",
                 columns: table => new
                 {
-                    PerfilContaID = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    PerfilContaID = table.Column<string>(type: "TEXT", nullable: false),
                     Nome = table.Column<string>(type: "TEXT", maxLength: 25, nullable: false),
                     ContaID = table.Column<string>(type: "TEXT", nullable: false)
                 },
@@ -222,8 +228,8 @@ namespace AL.Data.Migrations
                     Quantidade = table.Column<int>(type: "INTEGER", nullable: false),
                     Unidade = table.Column<string>(type: "TEXT", nullable: true),
                     CategoriaID = table.Column<int>(type: "INTEGER", nullable: false),
-                    PerfilContaID = table.Column<int>(type: "INTEGER", nullable: false),
-                    DimPeriodoFeiraID = table.Column<int>(type: "INTEGER", nullable: false)
+                    PerfilContaID = table.Column<string>(type: "TEXT", nullable: false),
+                    FeiraID = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -235,10 +241,10 @@ namespace AL.Data.Migrations
                         principalColumn: "CategoriaID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Produtos_DimPeriodoFeiras_DimPeriodoFeiraID",
-                        column: x => x.DimPeriodoFeiraID,
-                        principalTable: "DimPeriodoFeiras",
-                        principalColumn: "DimPeriodoFeiraID",
+                        name: "FK_Produtos_Feiras_FeiraID",
+                        column: x => x.FeiraID,
+                        principalTable: "Feiras",
+                        principalColumn: "FeiraID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Produtos_PerfilContas_PerfilContaID",
@@ -275,19 +281,19 @@ namespace AL.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Senha", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 0, "a770f6c9-4789-43e9-b62e-f4c4b6f781a1", "marcelo@gmail.com", false, false, null, null, null, null, null, false, "0bdb9534-038e-4ff8-8daa-4b63423de84a", "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==", false, null },
-                    { "7318d839-ff36-48fd-92a9-3401ab215121", 0, "93b8cf7c-e07d-427b-829c-87a6579bcbb3", "yuri@gmail.com", false, false, null, null, null, null, null, false, "cebda327-f3d5-43d1-ac09-3a336bb5b283", "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==", false, null }
+                    { "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 0, "070011a7-9dc8-4c92-95a2-27f7fb09beac", "marcelo@gmail.com", false, false, null, null, null, null, null, false, "a8899307-6376-4989-8e30-4d06bbebf201", "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==", false, null },
+                    { "7318d839-ff36-48fd-92a9-3401ab215121", 0, "703589b1-a54e-4289-bc30-14b4e3c31c39", "yuri@gmail.com", false, false, null, null, null, null, null, false, "34114c36-bdc4-483c-be13-f7a1b121ae5c", "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==", false, null }
                 });
 
             migrationBuilder.InsertData(
-                table: "DimPeriodoFeiras",
-                columns: new[] { "DimPeriodoFeiraID", "Periodo" },
+                table: "Feiras",
+                columns: new[] { "FeiraID", "ContaID", "Nome" },
                 values: new object[,]
                 {
-                    { 1, "Diária" },
-                    { 2, "Semanal" },
-                    { 3, "Quinzenal" },
-                    { 4, "Mensal" }
+                    { 1, "7318d839-ff36-48fd-92a9-3401ab215121", "Quinzenal" },
+                    { 2, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Quinzenal" },
+                    { 3, "7318d839-ff36-48fd-92a9-3401ab215121", "Mensal" },
+                    { 4, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Mensal" }
                 });
 
             migrationBuilder.InsertData(
@@ -295,24 +301,24 @@ namespace AL.Data.Migrations
                 columns: new[] { "PerfilContaID", "ContaID", "Nome" },
                 values: new object[,]
                 {
-                    { 1, "7318d839-ff36-48fd-92a9-3401ab215121", "Yago" },
-                    { 2, "7318d839-ff36-48fd-92a9-3401ab215121", "Yuri" },
-                    { 3, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Marcelo" },
-                    { 4, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Gislene" },
-                    { 5, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Lucas" }
+                    { "m3Fz6kQp1W", "7318d839-ff36-48fd-92a9-3401ab215121", "Yuri" },
+                    { "R1n8bY5sXq", "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Marcelo" },
+                    { "uE3jK9d2Fv", "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Gislene" },
+                    { "V4c8jL7x2d", "7318d839-ff36-48fd-92a9-3401ab215121", "Yago" },
+                    { "Z7xqL8mP4H", "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Lucas" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Produtos",
-                columns: new[] { "ProdutoID", "CategoriaID", "DimPeriodoFeiraID", "Nome", "PerfilContaID", "Quantidade", "Unidade" },
+                columns: new[] { "ProdutoID", "CategoriaID", "FeiraID", "Nome", "PerfilContaID", "Quantidade", "Unidade" },
                 values: new object[,]
                 {
-                    { 1, 4, 2, "Leite", 1, 1, "un" },
-                    { 2, 9, 3, "Cacau", 2, 3, "un" },
-                    { 3, 3, 4, "Feijão", 4, 5, "un" },
-                    { 5, 3, 4, "Arroz", 5, 3, "un" },
-                    { 6, 10, 1, "Macarrão", 5, 8, "un" },
-                    { 7, 7, 4, "Desinfetante", 3, 1, "un" }
+                    { 1, 4, 2, "Leite", "V4c8jL7x2d", 1, "un" },
+                    { 2, 9, 3, "Cacau", "m3Fz6kQp1W", 3, "un" },
+                    { 3, 3, 4, "Feijão", "R1n8bY5sXq", 5, "un" },
+                    { 5, 3, 4, "Arroz", "R1n8bY5sXq", 3, "un" },
+                    { 6, 10, 1, "Macarrão", "uE3jK9d2Fv", 8, "un" },
+                    { 7, 7, 4, "Desinfetante", "Z7xqL8mP4H", 1, "un" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -358,6 +364,11 @@ namespace AL.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Feiras_ContaID",
+                table: "Feiras",
+                column: "ContaID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PerfilContas_ContaID",
                 table: "PerfilContas",
                 column: "ContaID");
@@ -368,9 +379,9 @@ namespace AL.Data.Migrations
                 column: "CategoriaID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produtos_DimPeriodoFeiraID",
+                name: "IX_Produtos_FeiraID",
                 table: "Produtos",
-                column: "DimPeriodoFeiraID");
+                column: "FeiraID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Produtos_PerfilContaID",
@@ -406,7 +417,7 @@ namespace AL.Data.Migrations
                 name: "Categorias");
 
             migrationBuilder.DropTable(
-                name: "DimPeriodoFeiras");
+                name: "Feiras");
 
             migrationBuilder.DropTable(
                 name: "PerfilContas");

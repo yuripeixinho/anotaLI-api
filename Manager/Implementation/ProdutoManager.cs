@@ -36,7 +36,7 @@ public class ProdutoManager : IProdutoManager
         return produtoView;
     }
 
-    public async Task<List<ProdutoPerfilContaView>> GetProdutosByPerfilContasAsync(int perfilContaID)
+    public async Task<List<ProdutoPerfilContaView>> GetProdutosByPerfilContasAsync(string perfilContaID)
     {
         var produto = await _produtoRepository.GetProdutosByPerfilContasAsync(perfilContaID);
 

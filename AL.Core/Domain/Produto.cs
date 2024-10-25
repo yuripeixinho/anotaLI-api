@@ -9,8 +9,8 @@ public class Produto
 
     public required int CategoriaID { get; set; }
     public Categoria? Categoria { get; set; }
-    public required int PerfilContaID { get; set; }
+    public required string PerfilContaID { get; set; }
     public PerfilConta? PerfilConta { get; set; }
-    public required int DimPeriodoFeiraID { get; set; }
-    public DimPeriodoFeira? DimPeriodoFeira { get; set; }
+    public required int FeiraID { get; set; }
+    public Feira? Feira { get; set; }
 }

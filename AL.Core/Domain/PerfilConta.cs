@@ -1,7 +1,9 @@
-﻿namespace AL.Core.Domain;
+﻿using NanoidDotNet;
+
+namespace AL.Core.Domain;
 public class PerfilConta
 {
-    public int PerfilContaID { get; set; }
+    public string PerfilContaID { get; set; } = Nanoid.Generate(size: 10);
     public required string Nome { get; set; }
 
     public required string ContaID { get; set; }
