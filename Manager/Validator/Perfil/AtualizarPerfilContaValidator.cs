@@ -7,12 +7,7 @@ public class AtualizarPerfilContaValidator : AbstractValidator<AlterarPerfilCont
 {
     public AtualizarPerfilContaValidator()
     {
-
         Include(new NovoPerfilContaValidator());
-
-        RuleFor(c => c.PerfilContaID)
-        .NotEmpty()
-            .WithMessage("O ID do perfil é obrigatório para atualizações.");
     }
 }
 

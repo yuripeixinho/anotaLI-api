@@ -1,5 +1,6 @@
 ﻿namespace AL.Core.Shared.ModelViews.PerfilConta;
-public class AlterarPerfilConta
+
+public class AlterarPerfilConta : NovoPerfilConta
 {
-    public required string Nome { get; set; }
+ 
 }
