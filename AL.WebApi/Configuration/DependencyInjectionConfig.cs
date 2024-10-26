@@ -24,7 +24,6 @@ public static class DependencyInjectionConfig
 
         services.AddScoped<ICategoriaRepository, CategoriaRepository>();
         services.AddScoped<ICategoriaManager, CategoriaManager>();
-
-        services.AddTransient<SenhaService>();
+                services.AddTransient<SenhaService>();
     }
 }

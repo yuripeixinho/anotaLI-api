@@ -1,4 +1,5 @@
-﻿using AL.Core.Shared.ModelViews.PerfilConta;
+﻿using AL.Core.Domain;
+using AL.Core.Shared.ModelViews.PerfilConta;
 using AL.Manager.Interfaces.Managers;
 using AL.Manager.Interfaces.Repositories;
 
@@ -27,5 +28,25 @@ public class PerfilContaManager : IPerfilContaManager
         });
 
         return perfisContaView;
+    }
+
+    public async Task<PerfilContaView> InsertPerfilContaAsync(NovoPerfilConta perfilConta, string contaID)
+    {
+        PerfilConta novoPerfilConta = new()
+        {
+            Nome = perfilConta.Nome,
+            ContaID = contaID,  
+        };
+
+        var perfilContaCriada = await _perfilContaRepository.InsertPerfilContaAsync(novoPerfilConta);
+
+        PerfilContaView perfilContaView = new()
+        {
+            Nome = perfilContaCriada.Nome,
+            PerfilContaID = novoPerfilConta.PerfilContaID,
+            ContaID = contaID
+        };
+
+        return perfilContaView;
     }
 }

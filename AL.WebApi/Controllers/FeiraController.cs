@@ -15,7 +15,7 @@ public class FeiraController : ControllerBase
         _feiraManager = feiraManager;
     }
 
-    //[Authorize]
+    [Authorize]
     [HttpGet("/contas/{contaID}/feiras")]
     public async Task<IActionResult> Get(string contaID)
     {
