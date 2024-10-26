@@ -19,6 +19,8 @@ public static class DependencyInjectionConfig
         services.AddScoped<IProdutoRepository, ProdutoRepository>();
         services.AddScoped<IProdutoManager, ProdutoManager>();
 
+        services.AddScoped<IFeiraRepository, FeiraRepository>();
+        services.AddScoped<IFeiraManager, FeiraManager>();
 
         services.AddScoped<ICategoriaRepository, CategoriaRepository>();
         services.AddScoped<ICategoriaManager, CategoriaManager>();
