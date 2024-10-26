@@ -121,7 +121,6 @@ public class ContaManager : IContaManager
         return perfilContaView;
     }
 
-
     public async Task<Conta> UpdateContaAsync(AlteraConta conta)
     {
         Conta alteraContaView = new()

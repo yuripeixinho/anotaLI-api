@@ -27,7 +27,7 @@ public class ContaRepository : IContaRepository, IContaValidationRepository
                     .SingleOrDefaultAsync(p => p.Id == id);
 
         if (conta is null)
-            throw new NotFoundException(ExceptionMessages.NotFoundID);
+            throw new NotFoundException("Nenhum resultado encontrado para identificador da conta fornecido.");
 
         return conta;
     }

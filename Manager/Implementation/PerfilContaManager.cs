@@ -24,7 +24,7 @@ public class PerfilContaManager : IPerfilContaManager
         {
             Nome = p.Nome,
             PerfilContaID = p.PerfilContaID,
-            QtdProdutos = p.Produtos?.Count() ?? 0, 
+            QtdProdutos = p.Produtos?.Count() ?? 0,
         });
 
         return perfisContaView;
@@ -35,7 +35,7 @@ public class PerfilContaManager : IPerfilContaManager
         PerfilConta novoPerfilConta = new()
         {
             Nome = perfilConta.Nome,
-            ContaID = contaID,  
+            ContaID = contaID,
         };
 
         var perfilContaCriada = await _perfilContaRepository.InsertPerfilContaAsync(novoPerfilConta);
@@ -48,5 +48,32 @@ public class PerfilContaManager : IPerfilContaManager
         };
 
         return perfilContaView;
+    }
+
+    public async Task<PerfilContaView> UpdatePerfilContaAsync(AlterarPerfilConta perfilConta, string contaID, string perfilContaID)
+    {
+        var contaExistente = await _contaRepository.GetContaByIdAsync(contaID);
+        var perfilContaExistente = await _perfilContaRepository.GetPerfilContaByIdAsync(perfilContaID);
+
+        if (perfilContaExistente.ContaID != contaID)
+            throw new UnauthorizedAccessException("O perfil não pertence à conta fornecida.");
+
+        PerfilConta alterarPerfilConta = new()
+        {
+            PerfilContaID = perfilContaID,
+            ContaID = contaID,  
+            Nome = perfilConta.Nome,
+        };
+
+        var perfilContaAlterado = await _perfilContaRepository.UpdatePerfilContaAsync(alterarPerfilConta);
+
+        PerfilContaView contaAlterada = new()
+        {
+            PerfilContaID = perfilContaID,
+            ContaID = contaID,
+            Nome = perfilConta.Nome,
+        };
+
+        return contaAlterada;
     }
 }

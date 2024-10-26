@@ -1,7 +1,10 @@
 ﻿using AL.Core.Domain;
+using AL.Core.Exceptions;
+using AL.Core.Shared.Messages;
 using AL.Data.Context;
 using AL.Manager.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace AL.Data.Repository;
 
@@ -24,11 +27,35 @@ public class PerfilContaRepository : IPerfilContaRepository
             .ToListAsync();
     }
 
+    public async Task<PerfilConta> GetPerfilContaByIdAsync(string perfilContaID)
+    {
+        var perfilConta = await _context.PerfilContas
+                 .SingleOrDefaultAsync(p => p.PerfilContaID == perfilContaID);
+
+        if (perfilConta is null)
+            throw new NotFoundException("Nenhum resultado encontrado para identificador da conta fornecido.");
+
+        return perfilConta;
+    }
+
     public async Task<PerfilConta> InsertPerfilContaAsync(PerfilConta perfilConta)
     {
         await _context.PerfilContas.AddAsync(perfilConta);
         await _context.SaveChangesAsync();
 
         return perfilConta;
+    }
+
+    public async Task<PerfilConta> UpdatePerfilContaAsync(PerfilConta perfilConta)
+    {
+        var perfilContaExistente = await _context.PerfilContas.FindAsync(perfilConta.PerfilContaID);
+
+        if (perfilContaExistente is null)
+            throw new NotFoundException("Nenhum resultado encontrado para ID do perfil fornecido.");
+
+        _context.Entry(perfilContaExistente).CurrentValues.SetValues(perfilConta); // Essencialmente, este código copia todos os valores das propriedades da entidade cliente para clienteConsultado, que já está sendo rastreado pelo contexto.Após isso, o Entity Framework irá considerar que conta foi modificado, e quando você chamar SaveChanges(), essas alterações serão persistidas no banco de dados.
+
+        await _context.SaveChangesAsync();
+        return perfilContaExistente;
     }
 }

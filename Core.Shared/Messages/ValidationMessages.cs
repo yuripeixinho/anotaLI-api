@@ -14,4 +14,8 @@ public static class ValidationMessages
     public const string PasswordLowercaseRequired = "A senha deve conter pelo menos uma letra minúscula.";
     public const string PasswordNumberRequired = "A senha deve conter pelo menos um número.";
     public const string PasswordSpecialCharRequired = "A senha deve conter pelo menos um caractere especial.";
+
+    // PERFIL
+    public const string PerfilContaMaxLength = "O perfil deve ter no máximo 25 caracteres.";
+
 }

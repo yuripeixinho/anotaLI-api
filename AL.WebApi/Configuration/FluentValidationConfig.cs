@@ -14,6 +14,7 @@ public static class FluentValidationConfig
             .AddFluentValidation(p =>
             {
                 p.RegisterValidatorsFromAssemblyContaining<NovaContaValidator>();
+                //p.RegisterValidatorsFromAssemblyContaining<>();
 
                 p.ValidatorOptions.LanguageManager.Culture = new System.Globalization.CultureInfo("pt-br");
             });

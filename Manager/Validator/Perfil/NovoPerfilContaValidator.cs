@@ -10,6 +10,7 @@ public class NovoPerfilContaValidator : AbstractValidator<NovoPerfilConta>
         RuleFor(c => c.Nome)
             .NotEmpty()
                 .WithMessage(ValidationMessages.FieldNotEmpty)
-            .MaximumLength(25);
+            .MaximumLength(25)
+                .WithMessage(ValidationMessages.PerfilContaMaxLength);
     }
 }
