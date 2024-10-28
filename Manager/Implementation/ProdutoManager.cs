@@ -9,10 +9,12 @@ namespace AL.Manager.Implementation;
 public class ProdutoManager : IProdutoManager
 {
     private readonly IProdutoRepository _produtoRepository;
+    private readonly IContaRepository _contaRepository;
 
-    public ProdutoManager(IProdutoRepository produtoRepository)
+    public ProdutoManager(IProdutoRepository produtoRepository, IContaRepository contaRepository)
     {
-        _produtoRepository = produtoRepository;
+        _produtoRepository = produtoRepository; 
+        _contaRepository = contaRepository;
     }
 
     public async Task<List<ProdutoContaView>> GetProdutosByContaAsync(string contaID)
@@ -52,8 +54,29 @@ public class ProdutoManager : IProdutoManager
         return produtoView;
     }
 
+    public async Task<List<ProdutoPerfilContaView>> GetProdutosByFeiraAsync(string contaID, int feiraID)
+    {
+        var contaExistente = await _contaRepository.GetContaByIdAsync(contaID);
+        if (contaExistente == null)
+            throw new UnauthorizedAccessException("Conta não encontrada.");
+
+        var produtos = await _produtoRepository.GetProdutosByFeiraEContaAsync(contaID, feiraID);
+
+        var produtoView = produtos.Select(p => new ProdutoPerfilContaView
+        {
+            ProdutoID = p.ProdutoID,
+            Nome = p.Nome,
+            Quantidade = p.Quantidade,
+            Unidade = p.Unidade,
+            Categoria = p?.Categoria?.Nome ?? "",
+        }).ToList();
+
+        return produtoView;
+    }
+
     public async Task<IEnumerable<Produto>> FiltrarFeirasPorPeriodosAsync(IEnumerable<int> periodoIds)
     {
         return await _produtoRepository.FiltrarFeirasPorPeriodosAsync(periodoIds);
     }
+
 }

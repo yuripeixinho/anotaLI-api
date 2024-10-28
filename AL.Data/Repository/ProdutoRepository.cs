@@ -39,6 +39,16 @@ public class ProdutoRepository : IProdutoRepository
         return produtos;
     }
 
+    public async Task<List<Produto>> GetProdutosByFeiraEContaAsync(string contaID, int feiraID)
+    {
+        var produtos = await _context.Produtos
+            .AsNoTracking()
+            .Where(p => p.PerfilConta.ContaID == contaID &&  p.FeiraID == feiraID)
+            .ToListAsync();
+
+        return produtos;
+    }
+
 
     public async Task<IEnumerable<Produto>> FiltrarFeirasPorPeriodosAsync(IEnumerable<int> periodoIDs)
     {
