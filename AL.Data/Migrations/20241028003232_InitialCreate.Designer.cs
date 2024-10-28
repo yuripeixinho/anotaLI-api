@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AL.Data.Migrations
 {
     [DbContext(typeof(ALContext))]
-    [Migration("20241025231542_init")]
-    partial class init
+    [Migration("20241028003232_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -192,12 +192,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "7318d839-ff36-48fd-92a9-3401ab215121",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "703589b1-a54e-4289-bc30-14b4e3c31c39",
+                            ConcurrencyStamp = "47c8f01b-e08c-47da-a4e3-7998cfce83fc",
                             Email = "yuri@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "34114c36-bdc4-483c-be13-f7a1b121ae5c",
+                            SecurityStamp = "9513d581-b632-4756-aee6-faf92cc6e1e1",
                             Senha = "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==",
                             TwoFactorEnabled = false
                         },
@@ -205,12 +205,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "070011a7-9dc8-4c92-95a2-27f7fb09beac",
+                            ConcurrencyStamp = "e89c4cce-3f80-452c-8b2c-69a3771853e7",
                             Email = "marcelo@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a8899307-6376-4989-8e30-4d06bbebf201",
+                            SecurityStamp = "a2ce9d11-717c-4211-8335-2cd7e8ebea9b",
                             Senha = "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==",
                             TwoFactorEnabled = false
                         });
@@ -224,6 +224,12 @@ namespace AL.Data.Migrations
 
                     b.Property<string>("ContaID")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("DataFim")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("DataInicio")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nome")

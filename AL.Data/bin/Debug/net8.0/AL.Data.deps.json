@@ -408,22 +408,22 @@
           "runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm",
             "assetType": "native",
-            "fileVersion": "5.1.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "5.1.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "5.1.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "5.1.1.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -1167,10 +1167,7 @@
           "Nanoid": "3.1.0"
         },
         "runtime": {
-          "AL.Core.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "AL.Core.dll": {}
         }
       },
       "AL.Core.Shared/1.0.0": {
@@ -1178,10 +1175,7 @@
           "AL.Core": "1.0.0"
         },
         "runtime": {
-          "AL.Core.Shared.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "AL.Core.Shared.dll": {}
         }
       },
       "AL.Manager/1.0.0": {
@@ -1193,10 +1187,7 @@
           "System.IdentityModel.Tokens.Jwt": "8.1.2"
         },
         "runtime": {
-          "AL.Manager.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "AL.Manager.dll": {}
         }
       }
     }

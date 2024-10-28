@@ -14,7 +14,7 @@ public class ALContext : IdentityDbContext<Conta>
     public ALContext() 
     { 
     }
-
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
