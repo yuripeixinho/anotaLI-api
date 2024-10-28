@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AL.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -186,6 +186,8 @@ namespace AL.Data.Migrations
                     FeiraID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(type: "TEXT", maxLength: 45, nullable: false),
+                    DataInicio = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DataFim = table.Column<DateTime>(type: "TEXT", nullable: true),
                     ContaID = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -281,19 +283,19 @@ namespace AL.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Senha", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 0, "070011a7-9dc8-4c92-95a2-27f7fb09beac", "marcelo@gmail.com", false, false, null, null, null, null, null, false, "a8899307-6376-4989-8e30-4d06bbebf201", "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==", false, null },
-                    { "7318d839-ff36-48fd-92a9-3401ab215121", 0, "703589b1-a54e-4289-bc30-14b4e3c31c39", "yuri@gmail.com", false, false, null, null, null, null, null, false, "34114c36-bdc4-483c-be13-f7a1b121ae5c", "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==", false, null }
+                    { "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 0, "e89c4cce-3f80-452c-8b2c-69a3771853e7", "marcelo@gmail.com", false, false, null, null, null, null, null, false, "a2ce9d11-717c-4211-8335-2cd7e8ebea9b", "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==", false, null },
+                    { "7318d839-ff36-48fd-92a9-3401ab215121", 0, "47c8f01b-e08c-47da-a4e3-7998cfce83fc", "yuri@gmail.com", false, false, null, null, null, null, null, false, "9513d581-b632-4756-aee6-faf92cc6e1e1", "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==", false, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "Feiras",
-                columns: new[] { "FeiraID", "ContaID", "Nome" },
+                columns: new[] { "FeiraID", "ContaID", "DataFim", "DataInicio", "Nome" },
                 values: new object[,]
                 {
-                    { 1, "7318d839-ff36-48fd-92a9-3401ab215121", "Quinzenal" },
-                    { 2, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Quinzenal" },
-                    { 3, "7318d839-ff36-48fd-92a9-3401ab215121", "Mensal" },
-                    { 4, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Mensal" }
+                    { 1, "7318d839-ff36-48fd-92a9-3401ab215121", null, null, "Quinzenal" },
+                    { 2, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", null, null, "Quinzenal" },
+                    { 3, "7318d839-ff36-48fd-92a9-3401ab215121", null, null, "Mensal" },
+                    { 4, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", null, null, "Mensal" }
                 });
 
             migrationBuilder.InsertData(

@@ -189,12 +189,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "7318d839-ff36-48fd-92a9-3401ab215121",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2df0d5af-3345-4227-ba62-e92af64f1024",
+                            ConcurrencyStamp = "47c8f01b-e08c-47da-a4e3-7998cfce83fc",
                             Email = "yuri@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7a96396b-536c-41f4-88f3-4fb216c03616",
+                            SecurityStamp = "9513d581-b632-4756-aee6-faf92cc6e1e1",
                             Senha = "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==",
                             TwoFactorEnabled = false
                         },
@@ -202,12 +202,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "48ede5cd-8639-40b8-abd1-88f05ca7656c",
+                            ConcurrencyStamp = "e89c4cce-3f80-452c-8b2c-69a3771853e7",
                             Email = "marcelo@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d4605b87-0067-4a49-8a42-dcdc97da0b41",
+                            SecurityStamp = "a2ce9d11-717c-4211-8335-2cd7e8ebea9b",
                             Senha = "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==",
                             TwoFactorEnabled = false
                         });
@@ -223,10 +223,10 @@ namespace AL.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DataFim")
+                    b.Property<DateTime?>("DataFim")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DataInicio")
+                    b.Property<DateTime?>("DataInicio")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nome")
@@ -245,32 +245,24 @@ namespace AL.Data.Migrations
                         {
                             FeiraID = 1,
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
-                            DataFim = new DateTime(2024, 10, 25, 23, 59, 59, 999, DateTimeKind.Local).AddTicks(9999),
-                            DataInicio = new DateTime(2024, 10, 25, 20, 25, 11, 909, DateTimeKind.Local).AddTicks(2072),
                             Nome = "Quinzenal"
                         },
                         new
                         {
                             FeiraID = 2,
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
-                            DataFim = new DateTime(2024, 10, 25, 23, 59, 59, 999, DateTimeKind.Local).AddTicks(9999),
-                            DataInicio = new DateTime(2024, 10, 25, 20, 25, 11, 909, DateTimeKind.Local).AddTicks(2094),
                             Nome = "Quinzenal"
                         },
                         new
                         {
                             FeiraID = 3,
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
-                            DataFim = new DateTime(2024, 10, 25, 23, 59, 59, 999, DateTimeKind.Local).AddTicks(9999),
-                            DataInicio = new DateTime(2024, 10, 25, 20, 25, 11, 909, DateTimeKind.Local).AddTicks(2095),
                             Nome = "Mensal"
                         },
                         new
                         {
                             FeiraID = 4,
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
-                            DataFim = new DateTime(2024, 10, 25, 23, 59, 59, 999, DateTimeKind.Local).AddTicks(9999),
-                            DataInicio = new DateTime(2024, 10, 25, 20, 25, 11, 909, DateTimeKind.Local).AddTicks(2097),
                             Nome = "Mensal"
                         });
                 });
