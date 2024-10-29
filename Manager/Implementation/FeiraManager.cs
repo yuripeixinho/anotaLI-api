@@ -74,20 +74,25 @@ public class FeiraManager : IFeiraManager
         if (feiraExistente.ContaID != contaID)
             throw new UnauthorizedAccessException("O perfil não pertence à conta fornecida.");
 
+        // Cria a instância de Feira e preenche as propriedades necessárias
         Feira feiraParaAlterar = new()
-            {
-                ContaID = contaID,
-                Nome = novaFeira.Nome,
-                FeiraID = feiraID,
-            };
+        {
+            ContaID = contaID,
+            Nome = novaFeira.Nome,
+            FeiraID = feiraID,
+            DataInicio = novaFeira.DataInicio, // Atribui a data de início
+            DataFim = novaFeira.DataFim        // Atribui a data de fim
+        };
 
+        // Atualiza a feira no repositório
         var feiraAlterada = await _feiraRepository.UpdateFeiraAsync(feiraParaAlterar);
 
+        // Cria a nova instância de NovaFeira com os dados atualizados
         NovaFeira perfilContaView = new()
         {
             Nome = feiraAlterada.Nome,
-            DataInicio = feiraAlterada.DataInicio.GetValueOrDefault(),
-            DataFim = feiraAlterada.DataFim.GetValueOrDefault()
+            DataInicio = feiraAlterada.DataInicio,
+            DataFim = feiraAlterada.DataFim
         };
 
         return perfilContaView;
