@@ -1,5 +1,6 @@
 ﻿using AL.Core.Exceptions;
 using AL.Core.Shared.Messages;
+using AL.Manager.Implementation;
 using AL.Manager.Interfaces.Managers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +44,15 @@ public class ProdutosController : ControllerBase
     public async Task<IActionResult> FiltrarFeirasPorPeriodos([FromQuery] List<int> periodoIds)
     {
         return Ok(await _produtoManager.FiltrarFeirasPorPeriodosAsync(periodoIds));
+    }
+
+    [Authorize]
+    [HttpDelete("/contas/{contaID}/produtos/{produtoID}")]
+    public async Task<IActionResult> Delete(string contaID, int produtoID)
+    {
+        await _produtoManager.DeleteProdutoAsync(contaID, produtoID);
+
+        return NoContent();
     }
 
 }

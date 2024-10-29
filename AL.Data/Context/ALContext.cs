@@ -44,26 +44,34 @@ public class ALContext : IdentityDbContext<Conta>
             new Feira
             {
                 FeiraID = 1,
-                Nome = "Quinzenal",
-                ContaID = "7318d839-ff36-48fd-92a9-3401ab215121"
+                Nome = "Diária",
+                ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now, 
             },
             new Feira
             {
                 FeiraID = 2,
                 Nome = "Quinzenal",
-                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
+                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now,
             },
             new Feira
             {
                 FeiraID = 3,
                 Nome = "Mensal",
-                ContaID = "7318d839-ff36-48fd-92a9-3401ab215121"
+                ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now,
             },
             new Feira
             {
                 FeiraID = 4,
-                Nome = "Mensal",
-                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
+                Nome = "Semanal",
+                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now,
             }
         );
 
@@ -202,7 +210,8 @@ public class ALContext : IdentityDbContext<Conta>
                 Unidade = "un",
                 CategoriaID = 4, // Laticínios
                 PerfilContaID = "V4c8jL7x2d",
-                FeiraID = 2 // Quinzenal
+                FeiraID = 1, // Quinzenal
+                ContaID = "7318d839-ff36-48fd-92a9-3401ab215121"
             },
             new Produto
             {
@@ -212,7 +221,9 @@ public class ALContext : IdentityDbContext<Conta>
                 Unidade = "un",
                 CategoriaID = 9, // Doces e Sobremesas
                 PerfilContaID = "m3Fz6kQp1W",
-                FeiraID = 3 // Mensal
+                FeiraID = 3, // Mensal,
+                ContaID = "7318d839-ff36-48fd-92a9-3401ab215121"
+
             },
             new Produto
             {
@@ -222,7 +233,8 @@ public class ALContext : IdentityDbContext<Conta>
                 Unidade = "un",
                 CategoriaID = 3, // Grãos e Cereais
                 PerfilContaID = "R1n8bY5sXq",
-                FeiraID = 4 // Mensal
+                FeiraID = 4, // Mensal
+                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
             },
             new Produto
             {
@@ -232,7 +244,8 @@ public class ALContext : IdentityDbContext<Conta>
                 Unidade = "un",
                 CategoriaID = 3, // Grãos e Cereais
                 PerfilContaID = "R1n8bY5sXq",
-                FeiraID = 4 // Mensal
+                FeiraID = 4, // Mensal
+                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
             },
             new Produto
             {
@@ -242,7 +255,8 @@ public class ALContext : IdentityDbContext<Conta>
                 Unidade = "un",
                 CategoriaID = 10, // Pães e Massas
                 PerfilContaID = "uE3jK9d2Fv",
-                FeiraID = 1 // Quinzenal
+                FeiraID = 2, // Quinzenal
+                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
             },
             new Produto
             {
@@ -252,7 +266,8 @@ public class ALContext : IdentityDbContext<Conta>
                 Unidade = "un",
                 CategoriaID = 7, // Produtos de Limpeza
                 PerfilContaID = "Z7xqL8mP4H",
-                FeiraID = 4 // Mensal
+                FeiraID = 4, // Mensal
+                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
             }
         );
     }

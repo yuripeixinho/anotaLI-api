@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AL.Data.Migrations
 {
     [DbContext(typeof(ALContext))]
-    [Migration("20241028003232_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241028213613_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -192,12 +192,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "7318d839-ff36-48fd-92a9-3401ab215121",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "47c8f01b-e08c-47da-a4e3-7998cfce83fc",
+                            ConcurrencyStamp = "a40a7f52-9217-4b03-8263-4a1417137a96",
                             Email = "yuri@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9513d581-b632-4756-aee6-faf92cc6e1e1",
+                            SecurityStamp = "70d80059-fadf-46f4-a2ec-581e1d11e74d",
                             Senha = "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==",
                             TwoFactorEnabled = false
                         },
@@ -205,12 +205,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e89c4cce-3f80-452c-8b2c-69a3771853e7",
+                            ConcurrencyStamp = "6d4f52fe-e87e-4f56-a5e8-0ba5ecf6ec23",
                             Email = "marcelo@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a2ce9d11-717c-4211-8335-2cd7e8ebea9b",
+                            SecurityStamp = "ebd1ed9c-7892-4998-82e4-1cbcf26e0e31",
                             Senha = "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==",
                             TwoFactorEnabled = false
                         });
@@ -248,25 +248,33 @@ namespace AL.Data.Migrations
                         {
                             FeiraID = 1,
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
-                            Nome = "Quinzenal"
+                            DataFim = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1688),
+                            DataInicio = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1672),
+                            Nome = "Diária"
                         },
                         new
                         {
                             FeiraID = 2,
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            DataFim = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1691),
+                            DataInicio = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1691),
                             Nome = "Quinzenal"
                         },
                         new
                         {
                             FeiraID = 3,
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            DataFim = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1693),
+                            DataInicio = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1692),
                             Nome = "Mensal"
                         },
                         new
                         {
                             FeiraID = 4,
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
-                            Nome = "Mensal"
+                            DataFim = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1695),
+                            DataInicio = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1694),
+                            Nome = "Semanal"
                         });
                 });
 
@@ -365,7 +373,7 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 1,
                             CategoriaID = 4,
-                            FeiraID = 2,
+                            FeiraID = 1,
                             Nome = "Leite",
                             PerfilContaID = "V4c8jL7x2d",
                             Quantidade = 1,
@@ -405,7 +413,7 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 6,
                             CategoriaID = 10,
-                            FeiraID = 1,
+                            FeiraID = 2,
                             Nome = "Macarrão",
                             PerfilContaID = "uE3jK9d2Fv",
                             Quantidade = 8,

@@ -1,4 +1,5 @@
 ﻿using AL.Core.Domain;
+using AL.Core.Shared.ModelViews.Categoria;
 using AL.Core.Shared.ModelViews.PerfilConta;
 using AL.Core.Shared.ModelViews.Produto;
 using AL.Manager.Interfaces.Managers;
@@ -48,7 +49,7 @@ public class ProdutoManager : IProdutoManager
             Nome = p.Nome,
             Quantidade = p.Quantidade,
             Unidade = p.Unidade,
-            Categoria = p?.Categoria?.Nome ?? "",
+            Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID ,Nome = p.Categoria?.Nome }
         }).ToList();
 
         return produtoView;
@@ -68,7 +69,7 @@ public class ProdutoManager : IProdutoManager
             Nome = p.Nome,
             Quantidade = p.Quantidade,
             Unidade = p.Unidade,
-            Categoria = p?.Categoria?.Nome ?? "",
+            Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID, Nome = p.Categoria?.Nome }
         }).ToList();
 
         return produtoView;
@@ -79,4 +80,14 @@ public class ProdutoManager : IProdutoManager
         return await _produtoRepository.FiltrarFeirasPorPeriodosAsync(periodoIds);
     }
 
+    public async Task DeleteProdutoAsync(string contaID, int feiraID)
+    {
+        var contaExistente = await _contaRepository.GetContaByIdAsync(contaID);
+
+        if (contaExistente == null)
+            throw new UnauthorizedAccessException("Conta não encontrada.");
+
+
+        throw new NotImplementedException();
+    }
 }

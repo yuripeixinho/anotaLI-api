@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AL.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -283,8 +283,8 @@ namespace AL.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Senha", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 0, "e89c4cce-3f80-452c-8b2c-69a3771853e7", "marcelo@gmail.com", false, false, null, null, null, null, null, false, "a2ce9d11-717c-4211-8335-2cd7e8ebea9b", "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==", false, null },
-                    { "7318d839-ff36-48fd-92a9-3401ab215121", 0, "47c8f01b-e08c-47da-a4e3-7998cfce83fc", "yuri@gmail.com", false, false, null, null, null, null, null, false, "9513d581-b632-4756-aee6-faf92cc6e1e1", "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==", false, null }
+                    { "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 0, "6d4f52fe-e87e-4f56-a5e8-0ba5ecf6ec23", "marcelo@gmail.com", false, false, null, null, null, null, null, false, "ebd1ed9c-7892-4998-82e4-1cbcf26e0e31", "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==", false, null },
+                    { "7318d839-ff36-48fd-92a9-3401ab215121", 0, "a40a7f52-9217-4b03-8263-4a1417137a96", "yuri@gmail.com", false, false, null, null, null, null, null, false, "70d80059-fadf-46f4-a2ec-581e1d11e74d", "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==", false, null }
                 });
 
             migrationBuilder.InsertData(
@@ -292,10 +292,10 @@ namespace AL.Data.Migrations
                 columns: new[] { "FeiraID", "ContaID", "DataFim", "DataInicio", "Nome" },
                 values: new object[,]
                 {
-                    { 1, "7318d839-ff36-48fd-92a9-3401ab215121", null, null, "Quinzenal" },
-                    { 2, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", null, null, "Quinzenal" },
-                    { 3, "7318d839-ff36-48fd-92a9-3401ab215121", null, null, "Mensal" },
-                    { 4, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", null, null, "Mensal" }
+                    { 1, "7318d839-ff36-48fd-92a9-3401ab215121", new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1688), new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1672), "Diária" },
+                    { 2, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1691), new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1691), "Quinzenal" },
+                    { 3, "7318d839-ff36-48fd-92a9-3401ab215121", new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1693), new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1692), "Mensal" },
+                    { 4, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1695), new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1694), "Semanal" }
                 });
 
             migrationBuilder.InsertData(
@@ -315,11 +315,11 @@ namespace AL.Data.Migrations
                 columns: new[] { "ProdutoID", "CategoriaID", "FeiraID", "Nome", "PerfilContaID", "Quantidade", "Unidade" },
                 values: new object[,]
                 {
-                    { 1, 4, 2, "Leite", "V4c8jL7x2d", 1, "un" },
+                    { 1, 4, 1, "Leite", "V4c8jL7x2d", 1, "un" },
                     { 2, 9, 3, "Cacau", "m3Fz6kQp1W", 3, "un" },
                     { 3, 3, 4, "Feijão", "R1n8bY5sXq", 5, "un" },
                     { 5, 3, 4, "Arroz", "R1n8bY5sXq", 3, "un" },
-                    { 6, 10, 1, "Macarrão", "uE3jK9d2Fv", 8, "un" },
+                    { 6, 10, 2, "Macarrão", "uE3jK9d2Fv", 8, "un" },
                     { 7, 7, 4, "Desinfetante", "Z7xqL8mP4H", 1, "un" }
                 });
 

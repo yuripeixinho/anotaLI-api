@@ -41,14 +41,20 @@ public class ProdutoRepository : IProdutoRepository
 
     public async Task<List<Produto>> GetProdutosByFeiraEContaAsync(string contaID, int feiraID)
     {
+        bool feiraExiste = await _context.Feiras
+        .AnyAsync(f => f.ContaID == contaID && f.FeiraID == feiraID);
+
+        if (!feiraExiste)
+            throw new InvalidOperationException("A feira não existe para a conta especificada.");
+
         var produtos = await _context.Produtos
             .AsNoTracking()
-            .Where(p => p.PerfilConta.ContaID == contaID &&  p.FeiraID == feiraID)
+            .Include(p => p.Categoria)
+            .Where(p => p.PerfilConta.ContaID == contaID && p.FeiraID == feiraID)
             .ToListAsync();
 
         return produtos;
     }
-
 
     public async Task<IEnumerable<Produto>> FiltrarFeirasPorPeriodosAsync(IEnumerable<int> periodoIDs)
     {
@@ -59,6 +65,20 @@ public class ProdutoRepository : IProdutoRepository
            .Include(p => p.Feira)
            .Where(p => periodoIDs.Contains(p.FeiraID)) 
            .ToListAsync();
+    }
+
+    public async Task DeleteProdutoAsync(string contaID, int produtoID)
+    {
+        bool feiraExiste = await _context.Produtos
+        .AnyAsync(f => f.ContaID == contaID && f.FeiraID == feiraID);
+
+        var produtoExistente = await _context.Contas.FindAsync(produtoID);
+
+        if (contaExistente is null)
+            throw new NotFoundException(ExceptionMessages.NotFoundID);
+
+        _context.Contas.Remove(contaExistente);
+        await _context.SaveChangesAsync();
     }
 
 }

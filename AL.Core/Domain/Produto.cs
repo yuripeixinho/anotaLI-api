@@ -7,6 +7,8 @@ public class Produto
     public required int Quantidade { get; set; }
     public string? Unidade { get; set; }
 
+    public required string ContaID { get; set; }
+    public Conta? Conta { get; set; }   
     public required int CategoriaID { get; set; }
     public Categoria? Categoria { get; set; }
     public required string PerfilContaID { get; set; }
