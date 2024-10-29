@@ -10,10 +10,12 @@ namespace AL.Manager.Implementation;
 public class ProdutoManager : IProdutoManager
 {
     private readonly IProdutoRepository _produtoRepository;
+    private readonly IContaRepository _contaRepository;
 
-    public ProdutoManager(IProdutoRepository produtoRepository)
+    public ProdutoManager(IProdutoRepository produtoRepository, IContaRepository contaRepository)
     {
         _produtoRepository = produtoRepository;
+        _contaRepository = contaRepository; 
     }
 
     public async Task<List<ProdutoContaView>> GetProdutosByContaAsync(string contaID)
@@ -53,7 +55,7 @@ public class ProdutoManager : IProdutoManager
         return produtoView;
     }
 
-    public async Task<List<ProdutoPerfilContaView>> GetProdutosByFeiraAsync(string contaID, int feiraID)
+    public async Task<List<ProdutoPerfilContaView>> GetProdutosByFeiraEContaAsync(string contaID, int feiraID)
     {
         var contaExistente = await _contaRepository.GetContaByIdAsync(contaID);
         if (contaExistente == null)

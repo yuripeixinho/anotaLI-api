@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AL.Data.Migrations
 {
     [DbContext(typeof(ALContext))]
-    [Migration("20241028213613_init")]
+    [Migration("20241029021220_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -192,12 +192,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "7318d839-ff36-48fd-92a9-3401ab215121",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a40a7f52-9217-4b03-8263-4a1417137a96",
+                            ConcurrencyStamp = "0ac64906-2fd4-4f38-96b0-a42abbae1b14",
                             Email = "yuri@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "70d80059-fadf-46f4-a2ec-581e1d11e74d",
+                            SecurityStamp = "c0c51c1a-af08-4ad8-961d-b699472aa5d6",
                             Senha = "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==",
                             TwoFactorEnabled = false
                         },
@@ -205,12 +205,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6d4f52fe-e87e-4f56-a5e8-0ba5ecf6ec23",
+                            ConcurrencyStamp = "71eff823-3ff1-401a-96f2-c174a01025e1",
                             Email = "marcelo@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ebd1ed9c-7892-4998-82e4-1cbcf26e0e31",
+                            SecurityStamp = "01c69407-f4f6-46c2-8162-21e3b673afea",
                             Senha = "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==",
                             TwoFactorEnabled = false
                         });
@@ -248,32 +248,32 @@ namespace AL.Data.Migrations
                         {
                             FeiraID = 1,
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
-                            DataFim = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1688),
-                            DataInicio = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1672),
+                            DataFim = new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(995),
+                            DataInicio = new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(977),
                             Nome = "Diária"
                         },
                         new
                         {
                             FeiraID = 2,
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
-                            DataFim = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1691),
-                            DataInicio = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1691),
+                            DataFim = new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(997),
+                            DataInicio = new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(997),
                             Nome = "Quinzenal"
                         },
                         new
                         {
                             FeiraID = 3,
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
-                            DataFim = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1693),
-                            DataInicio = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1692),
+                            DataFim = new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(999),
+                            DataInicio = new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(999),
                             Nome = "Mensal"
                         },
                         new
                         {
                             FeiraID = 4,
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
-                            DataFim = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1695),
-                            DataInicio = new DateTime(2024, 10, 28, 18, 36, 12, 638, DateTimeKind.Local).AddTicks(1694),
+                            DataFim = new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(1001),
+                            DataInicio = new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(1000),
                             Nome = "Semanal"
                         });
                 });
@@ -340,6 +340,10 @@ namespace AL.Data.Migrations
                     b.Property<int>("CategoriaID")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("ContaID")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("FeiraID")
                         .HasColumnType("INTEGER");
 
@@ -362,6 +366,8 @@ namespace AL.Data.Migrations
 
                     b.HasIndex("CategoriaID");
 
+                    b.HasIndex("ContaID");
+
                     b.HasIndex("FeiraID");
 
                     b.HasIndex("PerfilContaID");
@@ -373,6 +379,7 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 1,
                             CategoriaID = 4,
+                            ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
                             FeiraID = 1,
                             Nome = "Leite",
                             PerfilContaID = "V4c8jL7x2d",
@@ -383,6 +390,7 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 2,
                             CategoriaID = 9,
+                            ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
                             FeiraID = 3,
                             Nome = "Cacau",
                             PerfilContaID = "m3Fz6kQp1W",
@@ -393,6 +401,7 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 3,
                             CategoriaID = 3,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             FeiraID = 4,
                             Nome = "Feijão",
                             PerfilContaID = "R1n8bY5sXq",
@@ -403,6 +412,7 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 5,
                             CategoriaID = 3,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             FeiraID = 4,
                             Nome = "Arroz",
                             PerfilContaID = "R1n8bY5sXq",
@@ -413,6 +423,7 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 6,
                             CategoriaID = 10,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             FeiraID = 2,
                             Nome = "Macarrão",
                             PerfilContaID = "uE3jK9d2Fv",
@@ -423,6 +434,7 @@ namespace AL.Data.Migrations
                         {
                             ProdutoID = 7,
                             CategoriaID = 7,
+                            ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             FeiraID = 4,
                             Nome = "Desinfetante",
                             PerfilContaID = "Z7xqL8mP4H",
@@ -599,6 +611,12 @@ namespace AL.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("AL.Core.Domain.Conta", "Conta")
+                        .WithMany()
+                        .HasForeignKey("ContaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("AL.Core.Domain.Feira", "Feira")
                         .WithMany("Produtos")
                         .HasForeignKey("FeiraID")
@@ -612,6 +630,8 @@ namespace AL.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Categoria");
+
+                    b.Navigation("Conta");
 
                     b.Navigation("Feira");
 
