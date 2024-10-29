@@ -39,6 +39,7 @@ public class ProdutoRepository : IProdutoRepository
         return produtos;
     }
 
+<<<<<<< HEAD
     public async Task<List<Produto>> GetProdutosByFeiraEContaAsync(string contaID, int feiraID)
     {
         bool feiraExiste = await _context.Feiras
@@ -55,6 +56,8 @@ public class ProdutoRepository : IProdutoRepository
 
         return produtos;
     }
+=======
+>>>>>>> 9a9c485809fc95930d7c0fadecbe68233370ff28
 
     public async Task<IEnumerable<Produto>> FiltrarFeirasPorPeriodosAsync(IEnumerable<int> periodoIDs)
     {

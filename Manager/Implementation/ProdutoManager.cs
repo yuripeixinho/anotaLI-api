@@ -10,12 +10,10 @@ namespace AL.Manager.Implementation;
 public class ProdutoManager : IProdutoManager
 {
     private readonly IProdutoRepository _produtoRepository;
-    private readonly IContaRepository _contaRepository;
 
-    public ProdutoManager(IProdutoRepository produtoRepository, IContaRepository contaRepository)
+    public ProdutoManager(IProdutoRepository produtoRepository)
     {
-        _produtoRepository = produtoRepository; 
-        _contaRepository = contaRepository;
+        _produtoRepository = produtoRepository;
     }
 
     public async Task<List<ProdutoContaView>> GetProdutosByContaAsync(string contaID)

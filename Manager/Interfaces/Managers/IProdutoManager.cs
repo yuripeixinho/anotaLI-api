@@ -7,7 +7,6 @@ public interface IProdutoManager
 {
     Task<List<ProdutoContaView>> GetProdutosByContaAsync(string contaID);
     Task<List<ProdutoPerfilContaView>> GetProdutosByPerfilContasAsync(string perfilContaID);
-    Task<List<ProdutoPerfilContaView>> GetProdutosByFeiraAsync(string contaID, int feiraID);
     Task<IEnumerable<Produto>> FiltrarFeirasPorPeriodosAsync(IEnumerable<int> periodoIDs);
     Task DeleteProdutoAsync(string contaID, int produtoID);
 }

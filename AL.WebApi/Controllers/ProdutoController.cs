@@ -33,13 +33,6 @@ public class ProdutosController : ControllerBase
     }
 
     [Authorize]
-    [HttpGet("/contas/{contaID}/feiras/{feiraID}/produtos")]
-    public async Task<IActionResult> GetByFeira(string contaID, int feiraID)
-    {
-        return Ok(await _produtoManager.GetProdutosByFeiraAsync(contaID, feiraID));
-    }
-
-    [Authorize]
     [HttpGet("/produtos/filtrar")]
     public async Task<IActionResult> FiltrarFeirasPorPeriodos([FromQuery] List<int> periodoIds)
     {
