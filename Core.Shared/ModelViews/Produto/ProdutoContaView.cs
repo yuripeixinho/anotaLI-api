@@ -1,5 +1,4 @@
-﻿using AL.Core.Domain;
-using AL.Core.Shared.ModelViews.PerfilConta;
+﻿using AL.Core.Shared.ModelViews.PerfilConta;
 
 namespace AL.Core.Shared.ModelViews.Produto;
 public class ProdutoContaView

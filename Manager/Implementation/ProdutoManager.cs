@@ -80,6 +80,68 @@ public class ProdutoManager : IProdutoManager
         return await _produtoRepository.FiltrarFeirasPorPeriodosAsync(periodoIds);
     }
 
+    public async Task<NovoProduto> InsertProdutoAsync(NovoProduto produto, string contaID)
+    {
+        var contaExistente = await _contaRepository.GetContaByIdAsync(contaID);
+        if (contaExistente == null)
+            throw new UnauthorizedAccessException("Conta não encontrada.");
+
+        Produto novoProduto = new()
+        {
+            Nome = produto.Nome,
+            Quantidade = produto.Quantidade,
+            Unidade = produto.Unidade,
+            ContaID = contaID,
+            CategoriaID = produto.CategoriaID,
+            PerfilContaID = produto.PerfilContaID,
+            FeiraID = produto.FeiraID,
+        };
+
+        var produtoCriado = _produtoRepository.InsertProdutoAsync(novoProduto);
+
+        NovoProduto produtoContaView = new()
+        {
+            Nome = produtoCriado.Result.Nome,
+            Quantidade = produtoCriado.Result.Quantidade,
+            Unidade = produtoCriado.Result.Unidade,
+            CategoriaID = produtoCriado.Result.CategoriaID,
+            PerfilContaID = produtoCriado.Result.PerfilContaID,
+            FeiraID = produtoCriado.Result.FeiraID,
+        };
+
+        return produtoContaView;    
+    }
+
+    //public int ProdutoID { get; set; }
+    //public required string Nome { get; set; }
+    //public required int Quantidade { get; set; }
+    //public string? Unidade { get; set; }
+
+    //public required string ContaID { get; set; }
+    //public required int CategoriaID { get; set; }
+    //public required string PerfilContaID { get; set; }
+    //public required int FeiraID { get; set; }
+
+
+    //Feira addNovaFeira = new()
+    //{
+    //    ContaID = contaID,
+    //    Nome = novaFeira.Nome,
+    //    DataInicio = novaFeira.DataInicio.GetValueOrDefault(),
+    //    DataFim = novaFeira.DataFim.GetValueOrDefault()
+    //};
+
+    //var novaFeiraCriada = await _feiraRepository.InsertNovaFeiraAsync(addNovaFeira);
+
+    //NovaFeira perfilContaView = new()
+    //{
+    //    Nome = novaFeiraCriada.Nome,
+    //    DataInicio = novaFeiraCriada.DataInicio.GetValueOrDefault(),
+    //    DataFim = novaFeiraCriada.DataFim.GetValueOrDefault()
+    //};
+
+    //    return perfilContaView;
+
     public async Task DeleteProdutoAsync(string contaID, int feiraID)
     {
         var contaExistente = await _contaRepository.GetContaByIdAsync(contaID);

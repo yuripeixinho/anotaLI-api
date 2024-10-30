@@ -67,6 +67,14 @@ public class ProdutoRepository : IProdutoRepository
            .ToListAsync();
     }
 
+    public async Task<Produto> InsertProdutoAsync(Produto produto)
+    {
+        await _context.Produtos.AddAsync(produto);
+        await _context.SaveChangesAsync();
+
+        return produto;
+    }
+
     public async Task DeleteProdutoAsync(string contaID, int produtoID)
     {
         //bool feiraExiste = await _context.Produtos

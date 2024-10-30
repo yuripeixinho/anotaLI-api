@@ -1,5 +1,6 @@
 ﻿using AL.Core.Exceptions;
 using AL.Core.Shared.Messages;
+using AL.Core.Shared.ModelViews.Produto;
 using AL.Manager.Implementation;
 using AL.Manager.Interfaces.Managers;
 using Microsoft.AspNetCore.Authorization;
@@ -46,6 +47,14 @@ public class ProdutosController : ControllerBase
         return Ok(await _produtoManager.FiltrarFeirasPorPeriodosAsync(periodoIds));
     }
 
+    [HttpPost("/contas/{contaID}/produtos")]
+    public async Task<IActionResult> Post([FromBody] NovoProduto produto, string contaID)
+    {
+        NovoProduto produtoInserido = await _produtoManager.InsertProdutoAsync(produto, contaID);
+
+        return CreatedAtAction(nameof(GetByConta), new { contaID }, produtoInserido);
+    }
+
     [Authorize]
     [HttpDelete("/contas/{contaID}/produtos/{produtoID}")]
     public async Task<IActionResult> Delete(string contaID, int produtoID)
@@ -54,5 +63,4 @@ public class ProdutosController : ControllerBase
 
         return NoContent();
     }
-
 }
