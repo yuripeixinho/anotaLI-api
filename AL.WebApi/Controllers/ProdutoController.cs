@@ -1,7 +1,4 @@
-﻿using AL.Core.Exceptions;
-using AL.Core.Shared.Messages;
-using AL.Core.Shared.ModelViews.Produto;
-using AL.Manager.Implementation;
+﻿using AL.Core.Shared.ModelViews.Produto;
 using AL.Manager.Interfaces.Managers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -26,6 +26,7 @@ public class ProdutoManager : IProdutoManager
         {
             ProdutoID = p.ProdutoID,
             Nome = p.Nome,
+            Descricao = p.Descricao,
             Quantidade = p.Quantidade,
             Unidade = p.Unidade,
             Categoria = p?.Categoria?.Nome ?? "", 
@@ -47,9 +48,10 @@ public class ProdutoManager : IProdutoManager
         {
             ProdutoID = p.ProdutoID,
             Nome = p.Nome,
+            Descricao = p.Descricao,
             Quantidade = p.Quantidade,
             Unidade = p.Unidade,
-            Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID ,Nome = p.Categoria?.Nome }
+            Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID, Nome = p.Categoria?.Nome }
         }).ToList();
 
         return produtoView;
@@ -67,6 +69,7 @@ public class ProdutoManager : IProdutoManager
         {
             ProdutoID = p.ProdutoID,
             Nome = p.Nome,
+            Descricao = p.Descricao,    
             Quantidade = p.Quantidade,
             Unidade = p.Unidade,
             Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID, Nome = p.Categoria?.Nome }
@@ -89,6 +92,7 @@ public class ProdutoManager : IProdutoManager
         Produto novoProduto = new()
         {
             Nome = produto.Nome,
+            Descricao= produto.Descricao,    
             Quantidade = produto.Quantidade,
             Unidade = produto.Unidade,
             ContaID = contaID,
@@ -102,6 +106,7 @@ public class ProdutoManager : IProdutoManager
         NovoProduto produtoContaView = new()
         {
             Nome = produtoCriado.Result.Nome,
+            Descricao = produtoCriado.Result.Descricao,
             Quantidade = produtoCriado.Result.Quantidade,
             Unidade = produtoCriado.Result.Unidade,
             CategoriaID = produtoCriado.Result.CategoriaID,
@@ -111,36 +116,6 @@ public class ProdutoManager : IProdutoManager
 
         return produtoContaView;    
     }
-
-    //public int ProdutoID { get; set; }
-    //public required string Nome { get; set; }
-    //public required int Quantidade { get; set; }
-    //public string? Unidade { get; set; }
-
-    //public required string ContaID { get; set; }
-    //public required int CategoriaID { get; set; }
-    //public required string PerfilContaID { get; set; }
-    //public required int FeiraID { get; set; }
-
-
-    //Feira addNovaFeira = new()
-    //{
-    //    ContaID = contaID,
-    //    Nome = novaFeira.Nome,
-    //    DataInicio = novaFeira.DataInicio.GetValueOrDefault(),
-    //    DataFim = novaFeira.DataFim.GetValueOrDefault()
-    //};
-
-    //var novaFeiraCriada = await _feiraRepository.InsertNovaFeiraAsync(addNovaFeira);
-
-    //NovaFeira perfilContaView = new()
-    //{
-    //    Nome = novaFeiraCriada.Nome,
-    //    DataInicio = novaFeiraCriada.DataInicio.GetValueOrDefault(),
-    //    DataFim = novaFeiraCriada.DataFim.GetValueOrDefault()
-    //};
-
-    //    return perfilContaView;
 
     public async Task DeleteProdutoAsync(string contaID, int feiraID)
     {
