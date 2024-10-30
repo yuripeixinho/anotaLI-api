@@ -28,6 +28,8 @@ public class ProdutoManager : IProdutoManager
             Nome = p.Nome,
             Quantidade = p.Quantidade,
             Unidade = p.Unidade,
+            CategoriaID = p.CategoriaID,
+            PerfilContaID = p.PerfilContaID,
             Categoria = p?.Categoria?.Nome ?? "", 
             PerfilConta = p?.PerfilConta != null ? new PerfilContaView
             {
