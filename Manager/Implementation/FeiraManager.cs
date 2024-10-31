@@ -1,6 +1,7 @@
 ﻿using AL.Core.Domain;
 using AL.Core.Shared.ModelViews.Feira;
 using AL.Core.Shared.ModelViews.PerfilConta;
+using AL.Core.Shared.ModelViews.Produto;
 using AL.Manager.Interfaces.Managers;
 using AL.Manager.Interfaces.Repositories;
 
@@ -69,12 +70,11 @@ public class FeiraManager : IFeiraManager
                 Nome = p.Nome,
                 Quantidade = p.Quantidade,
                 Unidade = p.Unidade,
-                CategoriaID = p.CategoriaID, // Mantenha o CategoriaID existente
-                // Remover a criação de uma nova Categoria aqui
+                CategoriaID = p.CategoriaID,
                 PerfilContaID = p.PerfilContaID,
                 FeiraID = novaFeiraCriada.FeiraID // Use o ID da nova feira criada
             }).ToList() 
-            : new List<Produto>(); // Cria uma lista vazia se Produto for nulo ou vazio
+            : []; // Cria uma lista vazia se Produto for nulo ou vazio
 
         // Adicione os produtos após a feira ter sido criada
         if (produtos.Any())
@@ -86,7 +86,16 @@ public class FeiraManager : IFeiraManager
         {
             Nome = novaFeiraCriada.Nome,
             DataInicio = novaFeiraCriada.DataInicio.GetValueOrDefault(),
-            DataFim = novaFeiraCriada.DataFim.GetValueOrDefault()
+            DataFim = novaFeiraCriada.DataFim.GetValueOrDefault(),
+            Produto = novaFeira.Produto.Select(p => new NovoProduto
+            {
+                Nome = p.Nome,
+                Quantidade = p.Quantidade,
+                Unidade = p.Unidade,
+                CategoriaID = p.CategoriaID,
+                PerfilContaID = p.PerfilContaID,
+                FeiraID = novaFeiraCriada.FeiraID // Use o ID da nova feira criada
+            }).ToList()
         };
 
         return perfilContaView;

@@ -7,5 +7,5 @@ public class NovaFeira
     public required string Nome { get; set; }
     public DateTime? DataInicio { get; set; }    
     public DateTime? DataFim { get; set; }
-    public List<ProdutoContaView>? Produto {get ;set; }
+    public List<NovoProduto>? Produto {get ;set; }
 }
