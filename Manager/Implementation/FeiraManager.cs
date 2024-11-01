@@ -1,6 +1,7 @@
 ﻿using AL.Core.Domain;
 using AL.Core.Shared.ModelViews.Feira;
 using AL.Core.Shared.ModelViews.PerfilConta;
+using AL.Core.Shared.ModelViews.Produto;
 using AL.Manager.Interfaces.Managers;
 using AL.Manager.Interfaces.Repositories;
 
@@ -8,10 +9,12 @@ namespace AL.Manager.Implementation;
 public class FeiraManager : IFeiraManager
 {
     private readonly IFeiraRepository _feiraRepository;
+    private readonly IProdutoRepository _produtoRepository;
 
-    public FeiraManager(IFeiraRepository feiraRepository)
+    public FeiraManager(IFeiraRepository feiraRepository, IProdutoRepository produtoRepository)
     {
         _feiraRepository = feiraRepository; 
+        _produtoRepository = produtoRepository;
     }
 
     public async Task<IEnumerable<FeiraView>> GetFeirasAsync(string contaID)
@@ -44,9 +47,10 @@ public class FeiraManager : IFeiraManager
 
         return feiraEncontradaView;
     }
-
- public async Task<NovaFeira> InsertNovaFeiraAsync(NovaFeira novaFeira, string contaID)
+    
+    public async Task<NovaFeira> InsertNovaFeiraAsync(NovaFeira novaFeira, string contaID)
     {
+        // Criando a nova feira
         Feira addNovaFeira = new()
         {
             ContaID = contaID,
@@ -55,17 +59,48 @@ public class FeiraManager : IFeiraManager
             DataFim = novaFeira.DataFim.GetValueOrDefault()
         };
 
+        // Insira a nova feira e obtenha o ID
         var novaFeiraCriada = await _feiraRepository.InsertNovaFeiraAsync(addNovaFeira);
+
+        // Agora que a feira foi criada, você pode mapear os produtos
+        List<Produto> produtos = novaFeira.Produto != null && novaFeira.Produto.Any() 
+            ? novaFeira.Produto.Select(p => new Produto
+            {
+                ContaID = contaID, // Preencha com o contaID correto
+                Nome = p.Nome,
+                Quantidade = p.Quantidade,
+                Unidade = p.Unidade,
+                CategoriaID = p.CategoriaID,
+                PerfilContaID = p.PerfilContaID,
+                FeiraID = novaFeiraCriada.FeiraID // Use o ID da nova feira criada
+            }).ToList() 
+            : []; // Cria uma lista vazia se Produto for nulo ou vazio
+
+        // Adicione os produtos após a feira ter sido criada
+        if (produtos.Any())
+        {
+            await _produtoRepository.InsertProdutoListAsync(produtos); // Você precisa de um método para inserir os produtos
+        }
 
         NovaFeira perfilContaView = new()
         {
             Nome = novaFeiraCriada.Nome,
             DataInicio = novaFeiraCriada.DataInicio.GetValueOrDefault(),
-            DataFim = novaFeiraCriada.DataFim.GetValueOrDefault()
+            DataFim = novaFeiraCriada.DataFim.GetValueOrDefault(),
+            Produto = novaFeira.Produto.Select(p => new NovoProduto
+            {
+                Nome = p.Nome,
+                Quantidade = p.Quantidade,
+                Unidade = p.Unidade,
+                CategoriaID = p.CategoriaID,
+                PerfilContaID = p.PerfilContaID,
+                FeiraID = novaFeiraCriada.FeiraID // Use o ID da nova feira criada
+            }).ToList()
         };
 
         return perfilContaView;
     }
+
 
     public async Task<NovaFeira> UpdateFeiraAsync(NovaFeira novaFeira, int feiraID, string contaID)
     {
