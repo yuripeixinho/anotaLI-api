@@ -227,6 +227,7 @@ namespace AL.Data.Migrations
                     ProdutoID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(type: "TEXT", maxLength: 25, nullable: false),
+                    Descricao = table.Column<string>(type: "TEXT", nullable: true),
                     Quantidade = table.Column<int>(type: "INTEGER", nullable: false),
                     Unidade = table.Column<string>(type: "TEXT", nullable: true),
                     ContaID = table.Column<string>(type: "TEXT", nullable: false),
@@ -290,8 +291,8 @@ namespace AL.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Senha", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 0, "71eff823-3ff1-401a-96f2-c174a01025e1", "marcelo@gmail.com", false, false, null, null, null, null, null, false, "01c69407-f4f6-46c2-8162-21e3b673afea", "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==", false, null },
-                    { "7318d839-ff36-48fd-92a9-3401ab215121", 0, "0ac64906-2fd4-4f38-96b0-a42abbae1b14", "yuri@gmail.com", false, false, null, null, null, null, null, false, "c0c51c1a-af08-4ad8-961d-b699472aa5d6", "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==", false, null }
+                    { "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 0, "6a26c970-5282-469c-a7a0-a89225740771", "marcelo@gmail.com", false, false, null, null, null, null, null, false, "b6b993a2-a4e1-464a-a268-b9be8585bc16", "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==", false, null },
+                    { "7318d839-ff36-48fd-92a9-3401ab215121", 0, "21ed7b20-ee37-447c-96a7-2595ca90fb50", "yuri@gmail.com", false, false, null, null, null, null, null, false, "1509eaf8-889d-44c0-8496-8695f693e4bb", "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==", false, null }
                 });
 
             migrationBuilder.InsertData(
@@ -299,10 +300,10 @@ namespace AL.Data.Migrations
                 columns: new[] { "FeiraID", "ContaID", "DataFim", "DataInicio", "Nome" },
                 values: new object[,]
                 {
-                    { 1, "7318d839-ff36-48fd-92a9-3401ab215121", new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(995), new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(977), "Diária" },
-                    { 2, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(997), new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(997), "Quinzenal" },
-                    { 3, "7318d839-ff36-48fd-92a9-3401ab215121", new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(999), new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(999), "Mensal" },
-                    { 4, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(1001), new DateTime(2024, 10, 28, 23, 12, 19, 651, DateTimeKind.Local).AddTicks(1000), "Semanal" }
+                    { 1, "7318d839-ff36-48fd-92a9-3401ab215121", new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(148), new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(131), "Diária" },
+                    { 2, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(150), new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(150), "Quinzenal" },
+                    { 3, "7318d839-ff36-48fd-92a9-3401ab215121", new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(152), new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(151), "Mensal" },
+                    { 4, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(153), new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(153), "Semanal" }
                 });
 
             migrationBuilder.InsertData(
@@ -319,15 +320,15 @@ namespace AL.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Produtos",
-                columns: new[] { "ProdutoID", "CategoriaID", "ContaID", "FeiraID", "Nome", "PerfilContaID", "Quantidade", "Unidade" },
+                columns: new[] { "ProdutoID", "CategoriaID", "ContaID", "Descricao", "FeiraID", "Nome", "PerfilContaID", "Quantidade", "Unidade" },
                 values: new object[,]
                 {
-                    { 1, 4, "7318d839-ff36-48fd-92a9-3401ab215121", 1, "Leite", "V4c8jL7x2d", 1, "un" },
-                    { 2, 9, "7318d839-ff36-48fd-92a9-3401ab215121", 3, "Cacau", "m3Fz6kQp1W", 3, "un" },
-                    { 3, 3, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 4, "Feijão", "R1n8bY5sXq", 5, "un" },
-                    { 5, 3, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 4, "Arroz", "R1n8bY5sXq", 3, "un" },
-                    { 6, 10, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 2, "Macarrão", "uE3jK9d2Fv", 8, "un" },
-                    { 7, 7, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 4, "Desinfetante", "Z7xqL8mP4H", 1, "un" }
+                    { 1, 4, "7318d839-ff36-48fd-92a9-3401ab215121", null, 1, "Leite", "V4c8jL7x2d", 1, "un" },
+                    { 2, 9, "7318d839-ff36-48fd-92a9-3401ab215121", null, 3, "Cacau", "m3Fz6kQp1W", 3, "un" },
+                    { 3, 3, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "preto e carioca", 4, "Feijão", "R1n8bY5sXq", 5, "un" },
+                    { 5, 3, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", null, 4, "Arroz", "R1n8bY5sXq", 3, "un" },
+                    { 6, 10, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", null, 2, "Macarrão", "uE3jK9d2Fv", 8, "un" },
+                    { 7, 7, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", null, 4, "Desinfetante", "Z7xqL8mP4H", 1, "un" }
                 });
 
             migrationBuilder.CreateIndex(

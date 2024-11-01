@@ -8,6 +8,7 @@ public class ProdutoContaView
     public string? Descricao { get; set; }
     public required int Quantidade { get; set; }
     public string? Unidade { get; set; }
+    public string? QuantidadeUnidade { get; set; }
     public required string Categoria { get; set; }    
     public PerfilContaView? PerfilConta { get; set; }
 }

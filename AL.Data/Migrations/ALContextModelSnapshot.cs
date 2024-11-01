@@ -189,12 +189,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "7318d839-ff36-48fd-92a9-3401ab215121",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d74749de-732b-42dd-b72c-a937b0b4202d",
+                            ConcurrencyStamp = "21ed7b20-ee37-447c-96a7-2595ca90fb50",
                             Email = "yuri@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "647f8b2a-59dd-496d-8518-fa48f4a3b594",
+                            SecurityStamp = "1509eaf8-889d-44c0-8496-8695f693e4bb",
                             Senha = "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==",
                             TwoFactorEnabled = false
                         },
@@ -202,12 +202,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "64b1b831-1963-4e0b-8af7-860d14c98d60",
+                            ConcurrencyStamp = "6a26c970-5282-469c-a7a0-a89225740771",
                             Email = "marcelo@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "18461a6c-2122-4a83-9ec1-c377ba7dfced",
+                            SecurityStamp = "b6b993a2-a4e1-464a-a268-b9be8585bc16",
                             Senha = "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==",
                             TwoFactorEnabled = false
                         });
@@ -245,32 +245,32 @@ namespace AL.Data.Migrations
                         {
                             FeiraID = 1,
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
-                            DataFim = new DateTime(2024, 10, 30, 19, 21, 4, 156, DateTimeKind.Local).AddTicks(5837),
-                            DataInicio = new DateTime(2024, 10, 30, 19, 21, 4, 156, DateTimeKind.Local).AddTicks(5821),
+                            DataFim = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(148),
+                            DataInicio = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(131),
                             Nome = "Diária"
                         },
                         new
                         {
                             FeiraID = 2,
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
-                            DataFim = new DateTime(2024, 10, 30, 19, 21, 4, 156, DateTimeKind.Local).AddTicks(5840),
-                            DataInicio = new DateTime(2024, 10, 30, 19, 21, 4, 156, DateTimeKind.Local).AddTicks(5839),
+                            DataFim = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(150),
+                            DataInicio = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(150),
                             Nome = "Quinzenal"
                         },
                         new
                         {
                             FeiraID = 3,
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
-                            DataFim = new DateTime(2024, 10, 30, 19, 21, 4, 156, DateTimeKind.Local).AddTicks(5842),
-                            DataInicio = new DateTime(2024, 10, 30, 19, 21, 4, 156, DateTimeKind.Local).AddTicks(5841),
+                            DataFim = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(152),
+                            DataInicio = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(151),
                             Nome = "Mensal"
                         },
                         new
                         {
                             FeiraID = 4,
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
-                            DataFim = new DateTime(2024, 10, 30, 19, 21, 4, 156, DateTimeKind.Local).AddTicks(5843),
-                            DataInicio = new DateTime(2024, 10, 30, 19, 21, 4, 156, DateTimeKind.Local).AddTicks(5843),
+                            DataFim = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(153),
+                            DataInicio = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(153),
                             Nome = "Semanal"
                         });
                 });
@@ -402,6 +402,7 @@ namespace AL.Data.Migrations
                             ProdutoID = 3,
                             CategoriaID = 3,
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            Descricao = "preto e carioca",
                             FeiraID = 4,
                             Nome = "Feijão",
                             PerfilContaID = "R1n8bY5sXq",

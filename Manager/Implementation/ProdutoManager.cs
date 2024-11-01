@@ -29,7 +29,8 @@ public class ProdutoManager : IProdutoManager
             Descricao = p.Descricao,
             Quantidade = p.Quantidade,
             Unidade = p.Unidade,
-            Categoria = p?.Categoria?.Nome ?? "", 
+            Categoria = p?.Categoria?.Nome ?? "",
+            QuantidadeUnidade = $"{p.Quantidade} {p.Unidade}",
             PerfilConta = p?.PerfilConta != null ? new PerfilContaView
             {
                 PerfilContaID = p.PerfilConta.PerfilContaID,
@@ -50,6 +51,7 @@ public class ProdutoManager : IProdutoManager
             Nome = p.Nome,
             Descricao = p.Descricao,
             Quantidade = p.Quantidade,
+            QuantidadeUnidade = $"{p.Quantidade} {p.Unidade}",
             Unidade = p.Unidade,
             Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID, Nome = p.Categoria?.Nome }
         }).ToList();
@@ -72,6 +74,7 @@ public class ProdutoManager : IProdutoManager
             Descricao = p.Descricao,    
             Quantidade = p.Quantidade,
             Unidade = p.Unidade,
+            QuantidadeUnidade = $"{p.Quantidade} {p.Unidade}",
             Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID, Nome = p.Categoria?.Nome }
         }).ToList();
 
