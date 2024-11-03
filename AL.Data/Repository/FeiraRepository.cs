@@ -17,8 +17,11 @@ public class FeiraRepository : IFeiraRepository
     public async Task<IEnumerable<Feira>> GetFeirasAsync(string contaID)
     {
         return await _context.Feiras
-                     .Where(c => c.ContaID == contaID)
-                     .ToListAsync();
+                    .Where(c => c.ContaID == contaID)
+                    .OrderBy(f => f.DataInicio)
+                    .Include(f => f.Produtos)
+                        .ThenInclude(p => p.Categoria) // Carrega a Categoria de cada Produto
+                    .ToListAsync();
     }
 
     public async Task<Feira> InsertNovaFeiraAsync(Feira novaFeira)

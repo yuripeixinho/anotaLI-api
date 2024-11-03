@@ -28,9 +28,9 @@ public class ProdutoManager : IProdutoManager
             Nome = p.Nome,
             Quantidade = p.Quantidade,
             Unidade = p.Unidade,
-            CategoriaID = p.CategoriaID,
+            // CategoriaID = p.CategoriaID, // (0003: verify)
             PerfilContaID = p.PerfilContaID,
-            Categoria = p?.Categoria?.Nome ?? "", 
+            // Categoria = p?.Categoria?.Nome ?? "",  (0003: verify)
             PerfilConta = p?.PerfilConta != null ? new PerfilContaView
             {
                 PerfilContaID = p.PerfilConta.PerfilContaID,
