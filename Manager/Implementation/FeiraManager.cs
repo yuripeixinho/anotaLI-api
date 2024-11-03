@@ -101,7 +101,6 @@ public class FeiraManager : IFeiraManager
         return perfilContaView;
     }
 
-
     public async Task<NovaFeira> UpdateFeiraAsync(NovaFeira novaFeira, int feiraID, string contaID)
     {
         var feiraExistente = await _feiraRepository.GetFeiraByIdAsync(feiraID); 

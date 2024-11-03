@@ -11,6 +11,6 @@ public class ProdutoContaView
     public required int CategoriaID { get; set; }    
     public required string PerfilContaID { get; set; }    
     public string? QuantidadeUnidade { get; set; }
-    public required string Categoria { get; set; }    
+    public string? Categoria { get; set; }    
     public PerfilContaView? PerfilConta { get; set; }
 }

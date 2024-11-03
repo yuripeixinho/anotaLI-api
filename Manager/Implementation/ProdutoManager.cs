@@ -1,4 +1,6 @@
 ﻿using AL.Core.Domain;
+using AL.Core.Exceptions;
+using AL.Core.Shared.Messages;
 using AL.Core.Shared.ModelViews.Categoria;
 using AL.Core.Shared.ModelViews.PerfilConta;
 using AL.Core.Shared.ModelViews.Produto;
@@ -32,7 +34,6 @@ public class ProdutoManager : IProdutoManager
             CategoriaID = p.CategoriaID,
             PerfilContaID = p.PerfilContaID,
             Categoria = p?.Categoria?.Nome ?? "", 
-            Categoria = p?.Categoria?.Nome ?? "",
             QuantidadeUnidade = $"{p.Quantidade} {p.Unidade}",
             PerfilConta = p?.PerfilConta != null ? new PerfilContaView
             {
@@ -40,6 +41,64 @@ public class ProdutoManager : IProdutoManager
                 Nome = p.PerfilConta.Nome
             } : null
         }).ToList();
+
+        return produtoView;
+    }
+
+    public async Task<ProdutoContaView> GetProdutosByIdAsync(int produtoID)
+    {
+        var produto = await _produtoRepository.GetProdutosByIdAsync(produtoID);
+        if (produto == null)
+            throw new NotFoundException(ExceptionMessages.NotFoundID);
+
+        var produtoView = new ProdutoContaView
+        {
+            ProdutoID = produto.ProdutoID,
+            Nome = produto.Nome,
+            Descricao = produto.Descricao,
+            Quantidade = produto.Quantidade,
+            Unidade = produto.Unidade,
+            CategoriaID = produto.CategoriaID,
+            PerfilContaID = produto.PerfilContaID,
+            Categoria = produto?.Categoria?.Nome ?? "",
+            QuantidadeUnidade = $"{produto?.Quantidade} {produto?.Unidade}",
+            PerfilConta = produto?.PerfilConta != null ? new PerfilContaView
+            {
+                PerfilContaID = produto.PerfilConta.PerfilContaID,
+                Nome = produto.PerfilConta.Nome
+            } : null
+        };
+
+        return produtoView;
+    }
+
+    public async Task<ProdutoContaView> GetProdutosByContaByIdAsync(string contaID, int produtoID)
+    {
+        var contaExistente = await _contaRepository.GetContaByIdAsync(contaID);
+        if (contaExistente == null)
+            throw new NotFoundException("Conta não encontrada.");
+
+        var produto = await _produtoRepository.GetProdutosByContaByIdAsync(contaID, produtoID);
+        if (produto == null)
+            throw new NotFoundException(ExceptionMessages.NotFoundID);
+
+        var produtoView = new ProdutoContaView
+        {
+            ProdutoID = produto.ProdutoID,
+            Nome = produto.Nome,
+            Descricao = produto.Descricao,
+            Quantidade = produto.Quantidade,
+            Unidade = produto.Unidade,
+            CategoriaID = produto.CategoriaID,
+            PerfilContaID = produto.PerfilContaID,
+            Categoria = produto?.Categoria?.Nome ?? "",
+            QuantidadeUnidade = $"{produto?.Quantidade} {produto?.Unidade}",
+            PerfilConta = produto?.PerfilConta != null ? new PerfilContaView
+            {
+                PerfilContaID = produto.PerfilConta.PerfilContaID,
+                Nome = produto.PerfilConta.Nome
+            } : null
+        };
 
         return produtoView;
     }
@@ -89,7 +148,7 @@ public class ProdutoManager : IProdutoManager
         return await _produtoRepository.FiltrarFeirasPorPeriodosAsync(periodoIds);
     }
 
-    public async Task<NovoProduto> InsertProdutoAsync(NovoProduto produto, string contaID)
+    public async Task<ProdutoContaView> InsertProdutoAsync(NovoProduto produto, string contaID)
     {
         var contaExistente = await _contaRepository.GetContaByIdAsync(contaID);
         if (contaExistente == null)
@@ -109,28 +168,78 @@ public class ProdutoManager : IProdutoManager
 
         var produtoCriado = _produtoRepository.InsertProdutoAsync(novoProduto);
 
-        NovoProduto produtoContaView = new()
+        ProdutoContaView produtoContaView = new()
         {
+            ProdutoID = produtoCriado.Result.ProdutoID,
             Nome = produtoCriado.Result.Nome,
             Descricao = produtoCriado.Result.Descricao,
             Quantidade = produtoCriado.Result.Quantidade,
             Unidade = produtoCriado.Result.Unidade,
             CategoriaID = produtoCriado.Result.CategoriaID,
-            PerfilContaID = produtoCriado.Result.PerfilContaID,
-            FeiraID = produtoCriado.Result.FeiraID,
+            PerfilContaID = produtoCriado.Result.PerfilContaID
         };
 
         return produtoContaView;    
     }
 
-    public async Task DeleteProdutoAsync(string contaID, int feiraID)
+    public async Task<ProdutoContaView> UpdateProdutoAsync(AlteraProduto alteraProduto, string contaID, int produtoID)
     {
         var contaExistente = await _contaRepository.GetContaByIdAsync(contaID);
-
         if (contaExistente == null)
-            throw new UnauthorizedAccessException("Conta não encontrada.");
+            throw new NotFoundException("Conta não encontrada.");
 
+        var produtoExistente = await _produtoRepository.GetProdutosByIdAsync(produtoID);
+        if (produtoExistente == null)
+            throw new NotFoundException("Produto não encontrado.");
 
-        throw new NotImplementedException();
+        if(produtoExistente.ContaID != contaID)
+            throw new NotFoundException("O produto não pertence à conta fornecida.");
+
+        Produto produtoParaAlterar = new()
+        {
+            ProdutoID = produtoID,
+            ContaID = contaID,
+
+            // Usar os valores existentes a menos que novos valores sejam fornecidos
+            Nome = alteraProduto.Nome ?? produtoExistente.Nome,
+            Descricao = alteraProduto.Descricao ?? produtoExistente.Descricao,
+            Quantidade = alteraProduto.Quantidade ?? produtoExistente.Quantidade,
+            Unidade = alteraProduto.Unidade ?? produtoExistente.Unidade,
+            CategoriaID = alteraProduto.CategoriaID ?? produtoExistente.CategoriaID,
+            PerfilContaID = alteraProduto.PerfilContaID ?? produtoExistente.PerfilContaID,
+            FeiraID = alteraProduto.FeiraID ?? produtoExistente.FeiraID,
+        };
+
+        await _produtoRepository.UpdateProdutoAsync(produtoParaAlterar);
+
+        ProdutoContaView produtoContaView = new()
+        {
+            ProdutoID = produtoParaAlterar.ProdutoID,
+            Nome = produtoParaAlterar.Nome,
+            Descricao = produtoParaAlterar.Descricao,
+            Quantidade = produtoParaAlterar.Quantidade,
+            Unidade = produtoParaAlterar.Unidade,
+            CategoriaID = produtoParaAlterar.CategoriaID,
+            PerfilContaID = produtoParaAlterar.PerfilContaID
+        };
+
+        return produtoContaView;
     }
+
+    public async Task DeleteProdutoAsync(string contaID, int produtoID)
+    {
+        var contaExistente = await _contaRepository.GetContaByIdAsync(contaID);
+        if (contaExistente == null)
+            throw new NotFoundException("Conta não encontrada.");
+
+        var produtoExistente = await _produtoRepository.GetProdutosByIdAsync(produtoID);
+        if (produtoExistente == null)
+            throw new NotFoundException("Produto não encontrado.");
+
+        if (produtoExistente.ContaID != contaID)
+            throw new NotFoundException("O produto não pertence à conta fornecida.");
+
+        await _produtoRepository.DeleteProdutoAsync(produtoID);
+    }
+
 }
