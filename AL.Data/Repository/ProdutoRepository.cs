@@ -85,6 +85,8 @@ public class ProdutoRepository : IProdutoRepository
            .Include(p => p.Feira)
            .Where(p => periodoIDs.Contains(p.FeiraID)) 
            .ToListAsync();
+
+           
     }
 
     public async Task<Produto> InsertProdutoAsync(Produto produto)
