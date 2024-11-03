@@ -1,4 +1,5 @@
 ﻿using AL.Core.Shared.ModelViews.Categoria;
+using AL.Core.Shared.ModelViews.PerfilConta;
 
 namespace AL.Core.Shared.ModelViews.Produto;
 
@@ -11,4 +12,5 @@ public class ProdutoPerfilContaView
     public string? Unidade { get; set; }
     public string? QuantidadeUnidade { get; set; } 
     public required CategoriaView Categoria { get; set; }
+    public PerfilContaView PerfilConta {get;set;}
 }

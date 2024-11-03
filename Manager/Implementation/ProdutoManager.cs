@@ -132,7 +132,8 @@ public class ProdutoManager : IProdutoManager
             Quantidade = p.Quantidade,
             Unidade = p.Unidade,
             QuantidadeUnidade = $"{p.Quantidade} {p.Unidade}",
-            Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID, Nome = p.Categoria?.Nome }
+            Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID, Nome = p.Categoria?.Nome },
+            PerfilConta = new PerfilContaView {Nome = p.PerfilConta.Nome, PerfilContaID = p.PerfilConta.PerfilContaID}
         }).ToList();
 
         return produtoView;
