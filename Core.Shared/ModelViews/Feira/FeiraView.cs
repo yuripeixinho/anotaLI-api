@@ -9,5 +9,5 @@ public class FeiraView
         public required string Nome { get; set; }
         public DateTime? DataInicio { get; set; }
         public DateTime? DataFim { get; set; }
-         public IEnumerable<ProdutoContaView>? Produtos { get; set; } 
+        public IEnumerable<ProdutoContaView>? Produtos { get; set; } 
 }

@@ -1,4 +1,5 @@
 ﻿using AL.Core.Domain;
+using AL.Core.Shared.ModelViews.Categoria;
 using AL.Core.Shared.ModelViews.Feira;
 using AL.Core.Shared.ModelViews.PerfilConta;
 using AL.Core.Shared.ModelViews.Produto;
@@ -24,10 +25,19 @@ public class FeiraManager : IFeiraManager
         var feiraView = feiras.Select(feira => new FeiraView
         {
             FeiraID = feira.FeiraID,
-            Nome = feira.Nome,  
-            DataFim = feira.DataFim.GetValueOrDefault(),    
-            DataInicio = feira.DataInicio.GetValueOrDefault(),        
-        }).ToList();
+            Nome = feira.Nome,
+            DataFim = feira.DataFim.GetValueOrDefault(),
+            DataInicio = feira.DataInicio.GetValueOrDefault(),
+            Produtos = feira.Produtos?.Select(produto
+            => new ProdutoContaView
+            {
+                Quantidade = produto.Quantidade,
+                PerfilContaID = produto.PerfilContaID,
+                Nome = produto.Nome,
+                Categoria = new CategoriaView { Nome = produto.Categoria?.Nome ?? "", CategoriaID = produto.CategoriaID }
+            })
+        })
+        .ToList();
 
         return feiraView;
     }
