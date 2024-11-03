@@ -1,7 +1,4 @@
-﻿using AL.Core.Exceptions;
-using AL.Core.Shared.Messages;
-using AL.Core.Shared.ModelViews.Produto;
-using AL.Manager.Implementation;
+﻿using AL.Core.Shared.ModelViews.Produto;
 using AL.Manager.Interfaces.Managers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +24,20 @@ public class ProdutosController : ControllerBase
     }
 
     [Authorize]
+    [HttpGet("/produtos/{produtoID}")]
+    public async Task<IActionResult> GetById(int produtoID)
+    {
+        return Ok(await _produtoManager.GetProdutosByIdAsync(produtoID));
+    }
+
+    [Authorize]
+    [HttpGet("/contas/{contaID}/produtos/{produtoID}")]
+    public async Task<IActionResult> GetByContaById(string contaID, int produtoID)
+    {
+        return Ok(await _produtoManager.GetProdutosByContaByIdAsync(contaID, produtoID));
+    }
+
+    [Authorize]
     [HttpGet("/perfilcontas/{perfilContaID}/produtos")]
     public async Task<IActionResult> GetByPerfilConta(string perfilContaID)
     {
@@ -47,12 +58,22 @@ public class ProdutosController : ControllerBase
         return Ok(await _produtoManager.FiltrarFeirasPorPeriodosAsync(periodoIds));
     }
 
+    [Authorize]
     [HttpPost("/contas/{contaID}/produtos")]
     public async Task<IActionResult> Post([FromBody] NovoProduto produto, string contaID)
     {
-        NovoProduto produtoInserido = await _produtoManager.InsertProdutoAsync(produto, contaID);
+        ProdutoContaView produtoInserido = await _produtoManager.InsertProdutoAsync(produto, contaID);
 
         return CreatedAtAction(nameof(GetByConta), new { contaID }, produtoInserido);
+    }
+
+    [Authorize]
+    [HttpPut("/contas/{contaID}/produtos/{produtoID}")]
+    public async Task<IActionResult> Put([FromBody] AlteraProduto produto, string contaID, int produtoID)
+    {
+        ProdutoContaView produtoAtualizado = await _produtoManager.UpdateProdutoAsync(produto, contaID, produtoID);
+
+        return Ok(produtoAtualizado);
     }
 
     [Authorize]

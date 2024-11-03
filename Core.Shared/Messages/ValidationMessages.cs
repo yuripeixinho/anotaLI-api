@@ -3,6 +3,8 @@ public static class ValidationMessages
 {
     // GERAL
     public const string FieldNotEmpty = "Campo obrigatório";
+    public const string GenericMaxLength = "Campo deve ter no máximo {0} caracteres"; // Placeholder {0} para valor dinâmico
+    public const string GenericMinLength = "Campo deve ter no mínimo {0} caracteres"; // Placeholder {0} para valor dinâmico
 
     // EMAIL
     public const string EmailInvalid = "O email informado não é válido.";
@@ -17,5 +19,8 @@ public static class ValidationMessages
 
     // PERFIL
     public const string PerfilContaMaxLength = "O perfil deve ter no máximo 25 caracteres.";
+
+    // PRODUTO
+    public const string GreaterThan0 = "A quantidade deve ser maior que zero.";
 
 }

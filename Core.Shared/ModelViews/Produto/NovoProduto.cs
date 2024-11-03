@@ -3,6 +3,7 @@
 public class NovoProduto
 {
     public required string Nome { get; set; }
+    public string? Descricao { get; set; }
     public required int Quantidade { get; set; }
     public string? Unidade { get; set; }
 

@@ -22,3 +22,9 @@ obj/
 # Others
 appsettings.json
 appsettings.Development.json
+/AL.WebApi/bin/Debug/net8.0/AL.Core.dll
+/AL.WebApi/bin/Debug/net8.0/AL.Data.dll
+/AL.WebApi/bin/Debug/net8.0/AL.WebApi.dll
+/AL.WebApi/AnotaLi.db
+/AL.WebApi/AnotaLi.db-shm
+/AL.WebApi/AnotaLi.db-wal

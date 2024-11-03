@@ -229,6 +229,7 @@ public class ALContext : IdentityDbContext<Conta>
             {
                 ProdutoID = 3,
                 Nome = "Feijão",
+                Descricao = "preto e carioca",
                 Quantidade = 5,
                 Unidade = "un",
                 CategoriaID = 3, // Grãos e Cereais
