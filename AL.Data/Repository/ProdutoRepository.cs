@@ -28,6 +28,26 @@ public class ProdutoRepository : IProdutoRepository
         return produtos;    
     }
 
+    public async Task<Produto> GetProdutosByIdAsync(int produtoID)
+    {
+        var produtos = await _context.Produtos
+            .Include(p => p.PerfilConta)
+            .Include(p => p.Categoria)
+            .FirstOrDefaultAsync(p => p.ProdutoID == produtoID); // Filtra pelo ID do produto
+
+        return produtos;
+    }
+
+    public async Task<Produto> GetProdutosByContaByIdAsync(string contaID, int produtoID)
+    {
+        var produtos = await _context.Produtos
+              .Include(p => p.PerfilConta)
+              .Include(p => p.Categoria)
+              .SingleOrDefaultAsync(p => p.ContaID == contaID && p.ProdutoID == produtoID);
+
+        return produtos;
+    }
+
     public async Task<List<Produto>> GetProdutosByPerfilContasAsync(string perfilContaID)
     {
         var produtos = await _context.Produtos
@@ -84,18 +104,28 @@ public class ProdutoRepository : IProdutoRepository
         return produtos;
     }
 
-    public async Task DeleteProdutoAsync(string contaID, int produtoID)
+    public async Task<Produto> UpdateProdutoAsync(Produto produto)
     {
-        //bool feiraExiste = await _context.Produtos
-        //.AnyAsync(f => f.ContaID == contaID && f.FeiraID == feiraID);
+        var produtoExistente = await _context.Produtos.FindAsync(produto.ProdutoID);
 
-        //var produtoExistente = await _context.Contas.FindAsync(produtoID);
+        if (produtoExistente is null)
+            throw new NotFoundException("Nenhum resultado encontrado para ID do produto fornecido.");
 
-        //if (feiraExiste is null)
-        //    throw new NotFoundException(ExceptionMessages.NotFoundID);
+        _context.Entry(produtoExistente).CurrentValues.SetValues(produto); 
 
-        //_context.Contas.Remove(feiraExiste);
-        //await _context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
+        return produtoExistente;
+    }
+
+    public async Task DeleteProdutoAsync(int produtoID)
+    {
+        var produtoExistente = await _context.Produtos.FindAsync(produtoID);
+
+        if (produtoExistente is null)
+            throw new NotFoundException(ExceptionMessages.NotFoundID);
+
+        _context.Produtos.Remove(produtoExistente);
+        await _context.SaveChangesAsync();
     }
 
 }
