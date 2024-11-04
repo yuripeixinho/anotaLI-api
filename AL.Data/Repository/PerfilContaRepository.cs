@@ -1,10 +1,8 @@
 ﻿using AL.Core.Domain;
 using AL.Core.Exceptions;
-using AL.Core.Shared.Messages;
 using AL.Data.Context;
 using AL.Manager.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace AL.Data.Repository;
 
@@ -30,12 +28,32 @@ public class PerfilContaRepository : IPerfilContaRepository
     public async Task<PerfilConta> GetPerfilContaByIdAsync(string perfilContaID)
     {
         var perfilConta = await _context.PerfilContas
-                 .SingleOrDefaultAsync(p => p.PerfilContaID == perfilContaID);
+                .Include(p => p.Produtos)
+                .ThenInclude(p => p.Feira)
+                .SingleOrDefaultAsync(p => p.PerfilContaID == perfilContaID);
 
         if (perfilConta is null)
             throw new NotFoundException("Nenhum resultado encontrado para identificador da conta fornecido.");
 
         return perfilConta;
+    }
+
+    public async Task<Dictionary<string, int>> GetProdutoCountByCategoriaAsync(string perfilContaID)
+    {
+        return await _context.PerfilContas
+            .Where(pc => pc.PerfilContaID == perfilContaID)
+            .SelectMany(pc => pc.Produtos)
+            .GroupBy(p => p.Categoria.Nome) 
+            .ToDictionaryAsync(g => g.Key, g => g.Count());
+    }
+
+    public async Task<Dictionary<string, int>> GetProdutoCountByFeiraAsync(string perfilContaID)
+    {
+        return await _context.PerfilContas
+            .Where(pc => pc.PerfilContaID == perfilContaID)
+            .SelectMany(pc => pc.Produtos)
+            .GroupBy(p => p.Feira.Nome)
+            .ToDictionaryAsync(g => g.Key, g => g.Count());
     }
 
     public async Task<PerfilConta> InsertPerfilContaAsync(PerfilConta perfilConta)

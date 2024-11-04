@@ -24,6 +24,28 @@ public class PerfilContaController : ControllerBase
     }
 
     [Authorize]
+    [HttpGet("/perfis/{perfilContaID}")]
+    public async Task<IActionResult> GetById(string perfilContaID)
+    {
+        return Ok(await _perfilContaManager.GetPerfilContaByIdAsync(perfilContaID));
+    }
+
+    //[HttpGet("/perfis/{perfilContaID}/produtos-por-categoria")]
+    //public async Task<IActionResult> GetProdutoCountByCategoria(string perfilContaID)
+    //{
+    //    var resultado = await _perfilContaManager.GetProdutoCountByCategoriaAsync(perfilContaID);
+
+    //    return Ok(resultado);
+    //}
+    //[HttpGet("/perfis/{perfilContaID}/produtos-por-categoria")]
+    //public async Task<IActionResult> GetProdutoCountByFeiraAsync(string perfilContaID)
+    //{
+    //    var resultado = await _perfilContaManager.GetProdutoCountByFeiraAsync(perfilContaID);
+
+    //    return Ok(resultado);
+    //}
+    
+    [Authorize]
     [HttpPost("/contas/{contaID}/perfis")]
     public async Task<IActionResult> Post([FromBody] NovoPerfilConta novoPerfilConta, string contaID)
     {

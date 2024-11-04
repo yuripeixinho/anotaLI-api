@@ -2,6 +2,7 @@
 using AL.Core.Exceptions;
 using AL.Core.Shared.Messages;
 using AL.Core.Shared.ModelViews.Categoria;
+using AL.Core.Shared.ModelViews.Feira;
 using AL.Core.Shared.ModelViews.PerfilConta;
 using AL.Core.Shared.ModelViews.Produto;
 using AL.Manager.Interfaces.Managers;
@@ -31,7 +32,7 @@ public class ProdutoManager : IProdutoManager
             Descricao = p.Descricao,
             Quantidade = p.Quantidade,
             Unidade = p.Unidade,
-            // CategoriaID = p.CategoriaID, // (0003: verify)
+            Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID, Nome = p.Categoria?.Nome },
             PerfilContaID = p.PerfilContaID,
             QuantidadeUnidade = $"{p.Quantidade} {p.Unidade}",
             PerfilConta = p?.PerfilConta != null ? new PerfilContaView
@@ -105,12 +106,19 @@ public class ProdutoManager : IProdutoManager
         var produtoView = produto.Select(p => new ProdutoPerfilContaView
         {
             ProdutoID = p.ProdutoID,
+            FeiraID = p.FeiraID,
             Nome = p.Nome,
             Descricao = p.Descricao,
             Quantidade = p.Quantidade,
             QuantidadeUnidade = $"{p.Quantidade} {p.Unidade}",
             Unidade = p.Unidade,
+            PerfilConta = p?.PerfilConta != null ? new PerfilContaView
+            {
+                PerfilContaID = p.PerfilConta.PerfilContaID,
+                Nome = p.PerfilConta.Nome
+            } : null,            
             Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID, Nome = p.Categoria?.Nome }
+
         }).ToList();
 
         return produtoView;
@@ -171,7 +179,7 @@ public class ProdutoManager : IProdutoManager
             Descricao = produtoCriado.Result.Descricao,
             Quantidade = produtoCriado.Result.Quantidade,
             Unidade = produtoCriado.Result.Unidade,
-            PerfilContaID = produtoCriado.Result.PerfilContaID
+            PerfilContaID = produtoCriado.Result.PerfilContaID,
         };
 
         return produtoContaView;    
