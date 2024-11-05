@@ -9,4 +9,5 @@ public interface IFeiraManager
     Task<FeiraView> GetFeiraByIdAsync(int feiraID);
     Task<NovaFeira> InsertNovaFeiraAsync(NovaFeira novaFeira, string contaID);
     Task<NovaFeira> UpdateFeiraAsync(NovaFeira novaFeira, int feiraID,  string contaID);
+    Task DeleteFeiraAsync(string contaID, int feiraID);
 }
