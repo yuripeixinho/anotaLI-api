@@ -1,4 +1,5 @@
 ﻿using AL.Core.Domain;
+using AL.Core.Exceptions;
 using AL.Core.Shared.ModelViews.Categoria;
 using AL.Core.Shared.ModelViews.Feira;
 using AL.Core.Shared.ModelViews.PerfilConta;
@@ -139,5 +140,17 @@ public class FeiraManager : IFeiraManager
         };
 
         return perfilContaView;
+    }
+
+      public async Task DeleteFeiraAsync(string contaID, int feiraID)
+    {
+        var feiraExistente = await _feiraRepository.GetFeiraByIdAsync(feiraID);
+        if (feiraExistente == null)
+            throw new NotFoundException("Produto não encontrado.");
+
+        if (feiraExistente.ContaID != contaID)
+            throw new NotFoundException("O produto não pertence à conta fornecida.");
+
+        await _feiraRepository.DeleteFeiraAsync(feiraID);
     }
 }

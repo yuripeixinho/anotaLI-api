@@ -47,4 +47,13 @@ public class FeiraController : ControllerBase
 
         return Ok(novaFeira);
     }
+
+    [Authorize]
+    [HttpDelete("/contas/{contaID}/feiras/{feiraID}")]
+    public async Task<IActionResult> Delete(string contaID, int feiraID)
+    {
+        await _feiraManager.DeleteFeiraAsync(contaID, feiraID);
+
+        return NoContent();
+    }
 }

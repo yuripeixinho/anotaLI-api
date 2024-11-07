@@ -1,5 +1,6 @@
 ﻿using AL.Core.Domain;
 using AL.Core.Exceptions;
+using AL.Core.Shared.Messages;
 using AL.Data.Context;
 using AL.Manager.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -52,4 +53,18 @@ public class FeiraRepository : IFeiraRepository
         await _context.SaveChangesAsync();
         return feiraExistente;
     }
+
+     public async Task DeleteFeiraAsync(int feiraID)
+    {
+        var feiraExistente = await _context.Feiras.FindAsync(feiraID);
+
+        if (feiraExistente is null)
+            throw new NotFoundException(ExceptionMessages.NotFoundID);
+
+        _context.Feiras.Remove(feiraExistente);
+        await _context.SaveChangesAsync();
+        
 }
+}
+
+

@@ -7,4 +7,5 @@ public interface IFeiraRepository
     Task<Feira> GetFeiraByIdAsync(int feiraID);
     Task<Feira> InsertNovaFeiraAsync(Feira novaFeira);
     Task<Feira> UpdateFeiraAsync(Feira feira);
+    Task DeleteFeiraAsync(int feiraID);
 }
