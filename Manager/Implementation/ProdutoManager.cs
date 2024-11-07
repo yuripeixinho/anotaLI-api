@@ -117,7 +117,8 @@ public class ProdutoManager : IProdutoManager
                 PerfilContaID = p.PerfilConta.PerfilContaID,
                 Nome = p.PerfilConta.Nome
             } : null,            
-            Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID, Nome = p.Categoria?.Nome }
+            Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID, Nome = p.Categoria?.Nome },
+            Feira = new FeiraView { FeiraID = p.Feira.FeiraID ,Nome = p.Feira.Nome }
 
         }).ToList();
 

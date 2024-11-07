@@ -54,6 +54,7 @@ public class ProdutoRepository : IProdutoRepository
                 .AsNoTracking()
                 .Include(p => p.Categoria)
                 .Include(p => p.PerfilConta)
+                .Include(p => p.Feira)
                 .Where(p => p.PerfilContaID == perfilContaID)
                 .ToListAsync();
 

@@ -29,31 +29,15 @@ public class PerfilContaRepository : IPerfilContaRepository
     {
         var perfilConta = await _context.PerfilContas
                 .Include(p => p.Produtos)
-                .ThenInclude(p => p.Feira)
+                    .ThenInclude(p => p.Feira)
+                 .Include(p => p.Produtos)
+                    .ThenInclude(p => p.Categoria)
                 .SingleOrDefaultAsync(p => p.PerfilContaID == perfilContaID);
 
         if (perfilConta is null)
             throw new NotFoundException("Nenhum resultado encontrado para identificador da conta fornecido.");
 
         return perfilConta;
-    }
-
-    public async Task<Dictionary<string, int>> GetProdutoCountByCategoriaAsync(string perfilContaID)
-    {
-        return await _context.PerfilContas
-            .Where(pc => pc.PerfilContaID == perfilContaID)
-            .SelectMany(pc => pc.Produtos)
-            .GroupBy(p => p.Categoria.Nome) 
-            .ToDictionaryAsync(g => g.Key, g => g.Count());
-    }
-
-    public async Task<Dictionary<string, int>> GetProdutoCountByFeiraAsync(string perfilContaID)
-    {
-        return await _context.PerfilContas
-            .Where(pc => pc.PerfilContaID == perfilContaID)
-            .SelectMany(pc => pc.Produtos)
-            .GroupBy(p => p.Feira.Nome)
-            .ToDictionaryAsync(g => g.Key, g => g.Count());
     }
 
     public async Task<PerfilConta> InsertPerfilContaAsync(PerfilConta perfilConta)
