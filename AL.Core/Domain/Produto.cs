@@ -12,7 +12,7 @@ public class Produto
     public Conta? Conta { get; set; }   
     public required int CategoriaID { get; set; }
     public Categoria? Categoria { get; set; }
-    public required string PerfilContaID { get; set; }
+    public string? PerfilContaID { get; set; } // Permitir valores nulos
     public PerfilConta? PerfilConta { get; set; }
     public required int FeiraID { get; set; }
     public Feira? Feira { get; set; }

@@ -8,5 +8,6 @@ public interface IPerfilContaRepository
     Task<PerfilConta> GetPerfilContaByIdAsync(string contaID);
     Task<PerfilConta> InsertPerfilContaAsync(PerfilConta conta);
     Task<PerfilConta> UpdatePerfilContaAsync(PerfilConta perfilConta);
+    Task DeletePerfilContaAsync(string produtoID);
 }
 

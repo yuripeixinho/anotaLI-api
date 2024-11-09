@@ -118,4 +118,19 @@ public class PerfilContaManager : IPerfilContaManager
         return contaAlterada;
     }
 
+    public async Task DeletePerfilContaAsync(string contaID, string contaPerfilID)
+    {
+        var contaExistente = await _contaRepository.GetContaByIdAsync(contaID);
+        if (contaExistente == null)
+            throw new NotFoundException("Conta não encontrada.");
+
+        var perfilContaIDExistente = await _perfilContaRepository.GetPerfilContaByIdAsync(contaPerfilID);
+        if (perfilContaIDExistente == null)
+            throw new NotFoundException("Conta não encontrada.");
+
+        if (perfilContaIDExistente.ContaID != contaID)
+            throw new NotFoundException("O Perfil não pertence à conta fornecida.");
+
+        await _perfilContaRepository.DeletePerfilContaAsync(contaPerfilID);
+    }
 }

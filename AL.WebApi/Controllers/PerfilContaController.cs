@@ -62,4 +62,13 @@ public class PerfilContaController : ControllerBase
 
         return Ok(perfilAtualizado);
     }
+
+    [Authorize]
+    [HttpDelete("/contas/{contaID}/perfis/{perfilContaID}")]
+    public async Task<IActionResult> Delete(string contaID, string perfilContaID)
+    {
+        await _perfilContaManager.DeletePerfilContaAsync(contaID, perfilContaID);
+
+        return NoContent();
+    }
 }

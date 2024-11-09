@@ -1,5 +1,6 @@
 ﻿using AL.Core.Domain;
 using AL.Core.Exceptions;
+using AL.Core.Shared.Messages;
 using AL.Data.Context;
 using AL.Manager.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -59,5 +60,16 @@ public class PerfilContaRepository : IPerfilContaRepository
 
         await _context.SaveChangesAsync();
         return perfilContaExistente;
+    }
+
+      public async Task DeletePerfilContaAsync(string periflContaID)
+    {
+        var contaExistente = await _context.PerfilContas.FindAsync(periflContaID);
+
+        if (contaExistente is null)
+            throw new NotFoundException(ExceptionMessages.NotFoundID);
+
+        _context.PerfilContas.Remove(contaExistente);
+        await _context.SaveChangesAsync();
     }
 }

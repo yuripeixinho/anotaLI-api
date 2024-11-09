@@ -10,4 +10,5 @@ public interface IPerfilContaManager
     //Task<Dictionary<string, int>> GetProdutoCountByFeiraAsync(string perfilContaID);
     Task<PerfilContaView> InsertPerfilContaAsync(NovoPerfilConta perfilConta, string contaID);
     Task<PerfilContaView> UpdatePerfilContaAsync(AlterarPerfilConta perfilConta, string contaID, string perfilContaID);
+    Task DeletePerfilContaAsync(string contaID, string perfilContaID);
 }
