@@ -10,4 +10,6 @@ public class PerfilConta
     public Conta? Conta { get; set; }
 
     public List<Produto>? Produtos { get; set; }
+    public int? ImagemPerfilID {get; set;}
+    public Imagem? ImagemPerfil { get; set; } 
 }

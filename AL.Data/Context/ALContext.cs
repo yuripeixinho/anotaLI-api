@@ -29,6 +29,7 @@ public class ALContext : IdentityDbContext<Conta>
     public DbSet<Produto> Produtos { get; set; }
     public DbSet<Categoria> Categorias { get; set; }
     public DbSet<Feira> Feiras { get; set; }
+    public DbSet<Imagem> Imagems { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -174,18 +175,23 @@ public class ALContext : IdentityDbContext<Conta>
                 PerfilContaID = "V4c8jL7x2d",
                 Nome = "Yago",
                 ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                ImagemPerfilID = 1,
             },
             new PerfilConta
             {
                 PerfilContaID = "m3Fz6kQp1W",
                 Nome = "Yuri",
-                ContaID = "7318d839-ff36-48fd-92a9-3401ab215121"
+                ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                                ImagemPerfilID = 1,
+
             },
             new PerfilConta
             {
                 PerfilContaID = "R1n8bY5sXq",
                 Nome = "Marcelo",
-                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
+                ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                                ImagemPerfilID = 1,
+
             },
             new PerfilConta
             {
@@ -200,6 +206,12 @@ public class ALContext : IdentityDbContext<Conta>
                 ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
             }
         );
+
+           modelBuilder.Entity<Imagem>().HasData(
+                new Imagem { Id = 1, CaminhoImagem = "/imagens/perfil1.jpg"},
+                new Imagem { Id = 2, CaminhoImagem = "/imagens/perfil2.jpg"},
+                new Imagem { Id = 3, CaminhoImagem = "/imagens/perfil3.jpg"}
+            );
 
         modelBuilder.Entity<Produto>().HasData(
             new Produto

@@ -2,5 +2,5 @@
 
 public class AlterarPerfilConta : NovoPerfilConta
 {
- 
+    public int? ImagemPerfilID {get; set;}
 }

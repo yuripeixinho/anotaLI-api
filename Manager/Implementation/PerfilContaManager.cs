@@ -2,6 +2,7 @@
 using AL.Core.Exceptions;
 using AL.Core.Shared.ModelViews.Categoria;
 using AL.Core.Shared.ModelViews.Feira;
+using AL.Core.Shared.ModelViews.Imagens;
 using AL.Core.Shared.ModelViews.PerfilConta;
 using AL.Core.Shared.ModelViews.Produto;
 using AL.Manager.Interfaces.Managers;
@@ -29,6 +30,13 @@ public class PerfilContaManager : IPerfilContaManager
             Nome = p.Nome,
             PerfilContaID = p.PerfilContaID,
             QtdProdutos = p.Produtos?.Count() ?? 0,
+            ImagemPerfil = p.ImagemPerfil != null 
+                ? new ImagemView 
+                {
+                    CaminhoImagem = p.ImagemPerfil.CaminhoImagem, 
+                    Id = p.ImagemPerfil.Id
+                } 
+                : null,
         });
 
         return perfisContaView;
@@ -43,7 +51,13 @@ public class PerfilContaManager : IPerfilContaManager
             Nome = perfilConta.Nome,
             PerfilContaID = perfilConta.PerfilContaID,
             ContaID = perfilConta.ContaID,
-            //QtdProdutos = perfilConta.Produtos?.Count() ?? 0,
+            ImagemPerfil = perfilConta.ImagemPerfil != null 
+                ? new ImagemView 
+                {
+                    CaminhoImagem = perfilConta.ImagemPerfil.CaminhoImagem, 
+                    Id = perfilConta.ImagemPerfil.Id
+                } 
+                : null,
             Produtos = perfilConta.Produtos?.Select(produto
                 => new ProdutoContaView
                 {
@@ -55,21 +69,12 @@ public class PerfilContaManager : IPerfilContaManager
                     Feira = new FeiraView { FeiraID = produto.Feira.FeiraID, Nome = produto.Feira.Nome  },
                     Nome = produto.Nome,
                     Categoria = new CategoriaView { Nome = produto.Categoria?.Nome ?? "", CategoriaID = produto.CategoriaID }
+
                 }).ToList(),
         };
 
         return perfilContaView;
     }
-
-    //public async Task<Dictionary<string, int>> GetProdutoCountByCategoriaAsync(string perfilContaID)
-    //{
-    //    var produtoCountByCategoria = await _perfilContaRepository.GetProdutoCountByCategoriaAsync(perfilContaID);
-
-    //    if (produtoCountByCategoria == null || !produtoCountByCategoria.Any())
-    //        throw new NotFoundException("Nenhum produto encontrado para a conta fornecida.");
-
-    //    return produtoCountByCategoria;
-    //}
 
     public async Task<PerfilContaView> InsertPerfilContaAsync(NovoPerfilConta perfilConta, string contaID)
     {
@@ -104,6 +109,7 @@ public class PerfilContaManager : IPerfilContaManager
             PerfilContaID = perfilContaID,
             ContaID = contaID,  
             Nome = perfilConta.Nome,
+            ImagemPerfilID = perfilConta.ImagemPerfilID
         };
 
         var perfilContaAlterado = await _perfilContaRepository.UpdatePerfilContaAsync(alterarPerfilConta);
@@ -112,7 +118,14 @@ public class PerfilContaManager : IPerfilContaManager
         {
             PerfilContaID = perfilContaID,
             ContaID = contaID,
-            Nome = perfilConta.Nome,
+            Nome = perfilContaAlterado.Nome,
+            ImagemPerfil = perfilContaAlterado.ImagemPerfil != null 
+                ? new ImagemView 
+                {
+                    CaminhoImagem = perfilContaAlterado.ImagemPerfil.CaminhoImagem, 
+                    Id = perfilContaAlterado.ImagemPerfil.Id
+                } 
+                : null,
         };
 
         return contaAlterada;

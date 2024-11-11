@@ -2,6 +2,7 @@
 using AL.Core.Exceptions;
 using AL.Core.Shared.ModelViews.Categoria;
 using AL.Core.Shared.ModelViews.Feira;
+using AL.Core.Shared.ModelViews.Imagens;
 using AL.Core.Shared.ModelViews.PerfilConta;
 using AL.Core.Shared.ModelViews.Produto;
 using AL.Manager.Interfaces.Managers;
@@ -34,8 +35,16 @@ public class FeiraManager : IFeiraManager
             {
                 Quantidade = produto.Quantidade,
                 PerfilContaID = produto.PerfilContaID,
+                // PerfilConta = {
+                //     PerfilContaID = produto.PerfilContaID,
+                //     ImagemPerfil = new ImagemView {
+                //         Id = produto.PerfilConta.ImagemPerfil.Id,
+                //         CaminhoImagem = produto.PerfilConta.ImagemPerfil.CaminhoImagem,
+                //     },
+                // },
                 Nome = produto.Nome,
                 Categoria = new CategoriaView { Nome = produto.Categoria?.Nome ?? "", CategoriaID = produto.CategoriaID }
+                
             })
         })
         .ToList();

@@ -74,6 +74,7 @@ public class ProdutoRepository : IProdutoRepository
             .Include(p => p.Categoria)
             .Where(p => p.PerfilConta.ContaID == contaID && p.FeiraID == feiraID)
             .Include(p => p.PerfilConta)
+                .ThenInclude(p => p.ImagemPerfil)
             .ToListAsync();
 
         return produtos;
