@@ -21,6 +21,7 @@ public class PerfilContaRepository : IPerfilContaRepository
         return await _context.PerfilContas
             .Include(p => p.Conta)
             .Include(p => p.Produtos)    
+            .Include(p => p.ImagemPerfil)
             .AsNoTracking()
             .Where(p => p.ContaID == contaID)
             .ToListAsync();
@@ -31,8 +32,9 @@ public class PerfilContaRepository : IPerfilContaRepository
         var perfilConta = await _context.PerfilContas
                 .Include(p => p.Produtos)
                     .ThenInclude(p => p.Feira)
-                 .Include(p => p.Produtos)
+                .Include(p => p.Produtos)
                     .ThenInclude(p => p.Categoria)
+                .Include(p => p.ImagemPerfil)
                 .SingleOrDefaultAsync(p => p.PerfilContaID == perfilContaID);
 
         if (perfilConta is null)
@@ -52,7 +54,7 @@ public class PerfilContaRepository : IPerfilContaRepository
     public async Task<PerfilConta> UpdatePerfilContaAsync(PerfilConta perfilConta)
     {
         var perfilContaExistente = await _context.PerfilContas.FindAsync(perfilConta.PerfilContaID);
-
+      
         if (perfilContaExistente is null)
             throw new NotFoundException("Nenhum resultado encontrado para ID do perfil fornecido.");
 

@@ -22,6 +22,8 @@ public class FeiraRepository : IFeiraRepository
                     .OrderBy(f => f.DataInicio)
                     .Include(f => f.Produtos)
                         .ThenInclude(p => p.Categoria) // Carrega a Categoria de cada Produto
+                        .ThenInclude(p=> p.Conta)
+                        .ThenInclude(p => p.PerfilContas)
                     .ToListAsync();
     }
 

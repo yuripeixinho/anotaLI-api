@@ -3,6 +3,7 @@ using AL.Core.Exceptions;
 using AL.Core.Shared.Messages;
 using AL.Core.Shared.ModelViews.Categoria;
 using AL.Core.Shared.ModelViews.Feira;
+using AL.Core.Shared.ModelViews.Imagens;
 using AL.Core.Shared.ModelViews.PerfilConta;
 using AL.Core.Shared.ModelViews.Produto;
 using AL.Manager.Interfaces.Managers;
@@ -142,7 +143,14 @@ public class ProdutoManager : IProdutoManager
             Unidade = p.Unidade,
             QuantidadeUnidade = $"{p.Quantidade} {p.Unidade}",
             Categoria = new CategoriaView { CategoriaID = p.Categoria.CategoriaID, Nome = p.Categoria?.Nome },
-            PerfilConta = new PerfilContaView {Nome = p.PerfilConta.Nome, PerfilContaID = p.PerfilConta.PerfilContaID}
+            PerfilConta = new PerfilContaView {Nome = p.PerfilConta.Nome, PerfilContaID = p.PerfilConta.PerfilContaID, 
+              ImagemPerfil = p.PerfilConta.ImagemPerfil != null 
+                ? new ImagemView 
+                {
+                    CaminhoImagem = p.PerfilConta.ImagemPerfil.CaminhoImagem, 
+                    Id = p.PerfilConta.ImagemPerfil.Id
+                } 
+                : null}
         }).ToList();
 
         return produtoView;

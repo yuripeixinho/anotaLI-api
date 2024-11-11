@@ -189,12 +189,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "7318d839-ff36-48fd-92a9-3401ab215121",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "21ed7b20-ee37-447c-96a7-2595ca90fb50",
+                            ConcurrencyStamp = "8024e968-d984-43f6-aaac-4e5482ab29da",
                             Email = "yuri@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1509eaf8-889d-44c0-8496-8695f693e4bb",
+                            SecurityStamp = "b530611f-95f1-44cd-86ea-66659cf56b34",
                             Senha = "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==",
                             TwoFactorEnabled = false
                         },
@@ -202,12 +202,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6a26c970-5282-469c-a7a0-a89225740771",
+                            ConcurrencyStamp = "eb2cd948-1751-472b-839f-9c3a84bf6eaa",
                             Email = "marcelo@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b6b993a2-a4e1-464a-a268-b9be8585bc16",
+                            SecurityStamp = "daef3eab-be91-4405-b829-7f2a2203eff9",
                             Senha = "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==",
                             TwoFactorEnabled = false
                         });
@@ -245,33 +245,64 @@ namespace AL.Data.Migrations
                         {
                             FeiraID = 1,
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
-                            DataFim = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(148),
-                            DataInicio = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(131),
+                            DataFim = new DateTime(2024, 11, 10, 16, 32, 55, 632, DateTimeKind.Local).AddTicks(9547),
+                            DataInicio = new DateTime(2024, 11, 10, 16, 32, 55, 632, DateTimeKind.Local).AddTicks(9514),
                             Nome = "Diária"
                         },
                         new
                         {
                             FeiraID = 2,
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
-                            DataFim = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(150),
-                            DataInicio = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(150),
+                            DataFim = new DateTime(2024, 11, 10, 16, 32, 55, 632, DateTimeKind.Local).AddTicks(9553),
+                            DataInicio = new DateTime(2024, 11, 10, 16, 32, 55, 632, DateTimeKind.Local).AddTicks(9552),
                             Nome = "Quinzenal"
                         },
                         new
                         {
                             FeiraID = 3,
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
-                            DataFim = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(152),
-                            DataInicio = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(151),
+                            DataFim = new DateTime(2024, 11, 10, 16, 32, 55, 632, DateTimeKind.Local).AddTicks(9557),
+                            DataInicio = new DateTime(2024, 11, 10, 16, 32, 55, 632, DateTimeKind.Local).AddTicks(9556),
                             Nome = "Mensal"
                         },
                         new
                         {
                             FeiraID = 4,
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
-                            DataFim = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(153),
-                            DataInicio = new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(153),
+                            DataFim = new DateTime(2024, 11, 10, 16, 32, 55, 632, DateTimeKind.Local).AddTicks(9561),
+                            DataInicio = new DateTime(2024, 11, 10, 16, 32, 55, 632, DateTimeKind.Local).AddTicks(9559),
                             Nome = "Semanal"
+                        });
+                });
+
+            modelBuilder.Entity("AL.Core.Domain.Imagem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CaminhoImagem")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Imagems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CaminhoImagem = "/imagens/perfil1.jpg"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CaminhoImagem = "/imagens/perfil2.jpg"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CaminhoImagem = "/imagens/perfil3.jpg"
                         });
                 });
 
@@ -284,6 +315,9 @@ namespace AL.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("ImagemPerfilID")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(25)
@@ -293,6 +327,8 @@ namespace AL.Data.Migrations
 
                     b.HasIndex("ContaID");
 
+                    b.HasIndex("ImagemPerfilID");
+
                     b.ToTable("PerfilContas");
 
                     b.HasData(
@@ -300,18 +336,21 @@ namespace AL.Data.Migrations
                         {
                             PerfilContaID = "V4c8jL7x2d",
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            ImagemPerfilID = 1,
                             Nome = "Yago"
                         },
                         new
                         {
                             PerfilContaID = "m3Fz6kQp1W",
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            ImagemPerfilID = 1,
                             Nome = "Yuri"
                         },
                         new
                         {
                             PerfilContaID = "R1n8bY5sXq",
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            ImagemPerfilID = 1,
                             Nome = "Marcelo"
                         },
                         new
@@ -353,7 +392,6 @@ namespace AL.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PerfilContaID")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Quantidade")
@@ -601,7 +639,13 @@ namespace AL.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AL.Core.Domain.Imagem", "ImagemPerfil")
+                        .WithMany()
+                        .HasForeignKey("ImagemPerfilID");
+
                     b.Navigation("Conta");
+
+                    b.Navigation("ImagemPerfil");
                 });
 
             modelBuilder.Entity("AL.Core.Domain.Produto", b =>
@@ -627,8 +671,7 @@ namespace AL.Data.Migrations
                     b.HasOne("AL.Core.Domain.PerfilConta", "PerfilConta")
                         .WithMany("Produtos")
                         .HasForeignKey("PerfilContaID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Categoria");
 
