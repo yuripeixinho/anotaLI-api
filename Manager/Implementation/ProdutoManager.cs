@@ -223,6 +223,7 @@ public class ProdutoManager : IProdutoManager
             Descricao = produtoParaAlterar.Descricao,
             Quantidade = produtoParaAlterar.Quantidade,
             Unidade = produtoParaAlterar.Unidade,
+            CategoriaID = produtoParaAlterar.CategoriaID,
             PerfilContaID = produtoParaAlterar.PerfilContaID
         };
 

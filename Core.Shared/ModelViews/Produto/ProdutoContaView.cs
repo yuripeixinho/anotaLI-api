@@ -13,6 +13,7 @@ public class ProdutoContaView
     public string? Unidade { get; set; }
     public required string PerfilContaID { get; set; }    
     public string? QuantidadeUnidade { get; set; }
+    public int? CategoriaID { get; set; }
     public PerfilContaView? PerfilConta { get; set; }
     public CategoriaView? Categoria {get;set;}
     public FeiraView? Feira { get; set; }

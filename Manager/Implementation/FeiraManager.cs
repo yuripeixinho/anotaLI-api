@@ -94,6 +94,7 @@ public class FeiraManager : IFeiraManager
 
         NovaFeira perfilContaView = new()
         {
+            FeiraID = novaFeiraCriada.FeiraID,
             Nome = novaFeiraCriada.Nome,
             DataInicio = novaFeiraCriada.DataInicio.GetValueOrDefault(),
             DataFim = novaFeiraCriada.DataFim.GetValueOrDefault(),
@@ -142,14 +143,14 @@ public class FeiraManager : IFeiraManager
         return perfilContaView;
     }
 
-      public async Task DeleteFeiraAsync(string contaID, int feiraID)
+    public async Task DeleteFeiraAsync(string contaID, int feiraID)
     {
         var feiraExistente = await _feiraRepository.GetFeiraByIdAsync(feiraID);
         if (feiraExistente == null)
-            throw new NotFoundException("Produto não encontrado.");
+            throw new NotFoundException("Feira não encontrada.");
 
         if (feiraExistente.ContaID != contaID)
-            throw new NotFoundException("O produto não pertence à conta fornecida.");
+            throw new NotFoundException("A feira não pertence à conta fornecida.");
 
         await _feiraRepository.DeleteFeiraAsync(feiraID);
     }
