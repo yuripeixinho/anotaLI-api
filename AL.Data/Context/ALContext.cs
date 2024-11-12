@@ -41,6 +41,84 @@ public class ALContext : IdentityDbContext<Conta>
         modelBuilder.ApplyConfiguration(new CategoriaConfiguration());
         modelBuilder.ApplyConfiguration(new FeiraConfiguration());
 
+        modelBuilder.Entity<Imagem>().HasData(
+            new Imagem
+            {
+                Id = 1,
+                CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil1.png"
+            },
+            new Imagem
+            {
+                Id = 2,
+                CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil2.png"
+            },
+            new Imagem
+            {
+                Id = 3,
+                CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil3.png"
+            },
+            new Imagem
+            {
+                Id = 4,
+                CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil4.png"
+            },
+            new Imagem
+            {
+                Id = 5,
+                CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil5.png"
+            },
+            new Imagem
+            {
+                Id = 6,
+                CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil6.png"
+            },
+            new Imagem
+            {
+                Id = 7,
+                CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil7.png"
+            },
+            new Imagem
+            {
+                Id = 8,
+                CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile1.png"
+            },
+            new Imagem
+            {
+                Id = 9,
+                CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile2.png"
+            },
+            new Imagem
+            {
+                Id = 10,
+                CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile3.png"
+            },
+            new Imagem
+            {
+                Id = 11,
+                CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile4.png"
+            },
+            new Imagem
+            {
+                Id = 12,
+                CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile5.png"
+            },
+            new Imagem
+            {
+                Id = 13,
+                CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile6.png"
+            },
+            new Imagem
+            {
+                Id = 14,
+                CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile7.png"
+            },
+            new Imagem
+            {
+                Id = 15,
+                CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile8.png"
+            }
+        );
+
         modelBuilder.Entity<Feira>().HasData(
             new Feira
             {
@@ -182,7 +260,7 @@ public class ALContext : IdentityDbContext<Conta>
                 PerfilContaID = "m3Fz6kQp1W",
                 Nome = "Yuri",
                 ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
-                                ImagemPerfilID = 1,
+                ImagemPerfilID = 1,
 
             },
             new PerfilConta
@@ -190,7 +268,7 @@ public class ALContext : IdentityDbContext<Conta>
                 PerfilContaID = "R1n8bY5sXq",
                 Nome = "Marcelo",
                 ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
-                                ImagemPerfilID = 1,
+                ImagemPerfilID = 1,
 
             },
             new PerfilConta
@@ -206,12 +284,6 @@ public class ALContext : IdentityDbContext<Conta>
                 ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe"
             }
         );
-
-           modelBuilder.Entity<Imagem>().HasData(
-                new Imagem { Id = 1, CaminhoImagem = "/imagens/perfil1.jpg"},
-                new Imagem { Id = 2, CaminhoImagem = "/imagens/perfil2.jpg"},
-                new Imagem { Id = 3, CaminhoImagem = "/imagens/perfil3.jpg"}
-            );
 
         modelBuilder.Entity<Produto>().HasData(
             new Produto

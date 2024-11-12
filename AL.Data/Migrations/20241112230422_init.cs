@@ -54,6 +54,19 @@ namespace AL.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Imagems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CaminhoImagem = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Imagems", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -207,7 +220,8 @@ namespace AL.Data.Migrations
                 {
                     PerfilContaID = table.Column<string>(type: "TEXT", nullable: false),
                     Nome = table.Column<string>(type: "TEXT", maxLength: 25, nullable: false),
-                    ContaID = table.Column<string>(type: "TEXT", nullable: false)
+                    ContaID = table.Column<string>(type: "TEXT", nullable: false),
+                    ImagemPerfilID = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -218,6 +232,11 @@ namespace AL.Data.Migrations
                         principalTable: "Contas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PerfilContas_Imagems_ImagemPerfilID",
+                        column: x => x.ImagemPerfilID,
+                        principalTable: "Imagems",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -232,7 +251,7 @@ namespace AL.Data.Migrations
                     Unidade = table.Column<string>(type: "TEXT", nullable: true),
                     ContaID = table.Column<string>(type: "TEXT", nullable: false),
                     CategoriaID = table.Column<int>(type: "INTEGER", nullable: false),
-                    PerfilContaID = table.Column<string>(type: "TEXT", nullable: false),
+                    PerfilContaID = table.Column<string>(type: "TEXT", nullable: true),
                     FeiraID = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -291,8 +310,30 @@ namespace AL.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Senha", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 0, "6a26c970-5282-469c-a7a0-a89225740771", "marcelo@gmail.com", false, false, null, null, null, null, null, false, "b6b993a2-a4e1-464a-a268-b9be8585bc16", "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==", false, null },
-                    { "7318d839-ff36-48fd-92a9-3401ab215121", 0, "21ed7b20-ee37-447c-96a7-2595ca90fb50", "yuri@gmail.com", false, false, null, null, null, null, null, false, "1509eaf8-889d-44c0-8496-8695f693e4bb", "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==", false, null }
+                    { "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 0, "b9b68e36-660d-4e11-9a0b-159eb6458ab3", "marcelo@gmail.com", false, false, null, null, null, null, null, false, "38879ef6-e268-4120-b7f7-faab920a5061", "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==", false, null },
+                    { "7318d839-ff36-48fd-92a9-3401ab215121", 0, "b7a48aab-ce70-41e0-bc5d-b17b0aa125f8", "yuri@gmail.com", false, false, null, null, null, null, null, false, "f9bc400f-98ac-4e8c-9180-0d9485c025f4", "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==", false, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Imagems",
+                columns: new[] { "Id", "CaminhoImagem" },
+                values: new object[,]
+                {
+                    { 1, "/assets/imagens/perfis/anotali/anotaliperfil1.png" },
+                    { 2, "/assets/imagens/perfis/anotali/anotaliperfil2.png" },
+                    { 3, "/assets/imagens/perfis/anotali/anotaliperfil3.png" },
+                    { 4, "/assets/imagens/perfis/anotali/anotaliperfil4.png" },
+                    { 5, "/assets/imagens/perfis/anotali/anotaliperfil5.png" },
+                    { 6, "/assets/imagens/perfis/anotali/anotaliperfil6.png" },
+                    { 7, "/assets/imagens/perfis/anotali/anotaliperfil7.png" },
+                    { 8, "/assets/imagens/perfis/animals/animalprofile1.png" },
+                    { 9, "/assets/imagens/perfis/animals/animalprofile2.png" },
+                    { 10, "/assets/imagens/perfis/animals/animalprofile3.png" },
+                    { 11, "/assets/imagens/perfis/animals/animalprofile4.png" },
+                    { 12, "/assets/imagens/perfis/animals/animalprofile5.png" },
+                    { 13, "/assets/imagens/perfis/animals/animalprofile6.png" },
+                    { 14, "/assets/imagens/perfis/animals/animalprofile7.png" },
+                    { 15, "/assets/imagens/perfis/animals/animalprofile8.png" }
                 });
 
             migrationBuilder.InsertData(
@@ -300,22 +341,22 @@ namespace AL.Data.Migrations
                 columns: new[] { "FeiraID", "ContaID", "DataFim", "DataInicio", "Nome" },
                 values: new object[,]
                 {
-                    { 1, "7318d839-ff36-48fd-92a9-3401ab215121", new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(148), new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(131), "Diária" },
-                    { 2, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(150), new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(150), "Quinzenal" },
-                    { 3, "7318d839-ff36-48fd-92a9-3401ab215121", new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(152), new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(151), "Mensal" },
-                    { 4, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(153), new DateTime(2024, 10, 30, 20, 7, 33, 190, DateTimeKind.Local).AddTicks(153), "Semanal" }
+                    { 1, "7318d839-ff36-48fd-92a9-3401ab215121", new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1349), new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1330), "Diária" },
+                    { 2, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1350), new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1350), "Quinzenal" },
+                    { 3, "7318d839-ff36-48fd-92a9-3401ab215121", new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1352), new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1351), "Mensal" },
+                    { 4, "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1353), new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1353), "Semanal" }
                 });
 
             migrationBuilder.InsertData(
                 table: "PerfilContas",
-                columns: new[] { "PerfilContaID", "ContaID", "Nome" },
+                columns: new[] { "PerfilContaID", "ContaID", "ImagemPerfilID", "Nome" },
                 values: new object[,]
                 {
-                    { "m3Fz6kQp1W", "7318d839-ff36-48fd-92a9-3401ab215121", "Yuri" },
-                    { "R1n8bY5sXq", "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Marcelo" },
-                    { "uE3jK9d2Fv", "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Gislene" },
-                    { "V4c8jL7x2d", "7318d839-ff36-48fd-92a9-3401ab215121", "Yago" },
-                    { "Z7xqL8mP4H", "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", "Lucas" }
+                    { "m3Fz6kQp1W", "7318d839-ff36-48fd-92a9-3401ab215121", 1, "Yuri" },
+                    { "R1n8bY5sXq", "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", 1, "Marcelo" },
+                    { "uE3jK9d2Fv", "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", null, "Gislene" },
+                    { "V4c8jL7x2d", "7318d839-ff36-48fd-92a9-3401ab215121", 1, "Yago" },
+                    { "Z7xqL8mP4H", "2e81ad9b-54d4-4c3f-b6e7-0987654321fe", null, "Lucas" }
                 });
 
             migrationBuilder.InsertData(
@@ -384,6 +425,11 @@ namespace AL.Data.Migrations
                 column: "ContaID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_PerfilContas_ImagemPerfilID",
+                table: "PerfilContas",
+                column: "ImagemPerfilID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Produtos_CategoriaID",
                 table: "Produtos",
                 column: "CategoriaID");
@@ -439,6 +485,9 @@ namespace AL.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Contas");
+
+            migrationBuilder.DropTable(
+                name: "Imagems");
         }
     }
 }

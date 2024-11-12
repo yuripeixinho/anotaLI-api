@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AL.Data.Migrations
 {
     [DbContext(typeof(ALContext))]
-    [Migration("20241110190156_Imagens")]
-    partial class Imagens
+    [Migration("20241112230422_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -192,12 +192,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "7318d839-ff36-48fd-92a9-3401ab215121",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c178cb1b-31dc-4f60-9ef3-a1eb447d96a5",
+                            ConcurrencyStamp = "b7a48aab-ce70-41e0-bc5d-b17b0aa125f8",
                             Email = "yuri@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "95dadd58-9d0f-4d20-a0e6-8b3180fc226a",
+                            SecurityStamp = "f9bc400f-98ac-4e8c-9180-0d9485c025f4",
                             Senha = "AQAAAAIAAYagAAAAEBetXPkYb4myWCUoS+w53eIcqBtq5un6kzi8EgY5kXkaDWBeGRvmAzIi/JEZpblXRg==",
                             TwoFactorEnabled = false
                         },
@@ -205,12 +205,12 @@ namespace AL.Data.Migrations
                         {
                             Id = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "af4ac92c-38ac-4fc6-a821-f66361929580",
+                            ConcurrencyStamp = "b9b68e36-660d-4e11-9a0b-159eb6458ab3",
                             Email = "marcelo@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "32fccbeb-eee1-4316-b299-251bf7deda0b",
+                            SecurityStamp = "38879ef6-e268-4120-b7f7-faab920a5061",
                             Senha = "AQAAAAIAAYagAAAAEJIK61UE+3YzbIzvKpEXJZQ8+oiG9wKPLw5ntv0x3clwXVh3QnhXSJ5rpvLgduyYAQ==",
                             TwoFactorEnabled = false
                         });
@@ -248,32 +248,32 @@ namespace AL.Data.Migrations
                         {
                             FeiraID = 1,
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
-                            DataFim = new DateTime(2024, 11, 10, 16, 1, 55, 291, DateTimeKind.Local).AddTicks(7123),
-                            DataInicio = new DateTime(2024, 11, 10, 16, 1, 55, 291, DateTimeKind.Local).AddTicks(7097),
+                            DataFim = new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1349),
+                            DataInicio = new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1330),
                             Nome = "Diária"
                         },
                         new
                         {
                             FeiraID = 2,
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
-                            DataFim = new DateTime(2024, 11, 10, 16, 1, 55, 291, DateTimeKind.Local).AddTicks(7133),
-                            DataInicio = new DateTime(2024, 11, 10, 16, 1, 55, 291, DateTimeKind.Local).AddTicks(7129),
+                            DataFim = new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1350),
+                            DataInicio = new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1350),
                             Nome = "Quinzenal"
                         },
                         new
                         {
                             FeiraID = 3,
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
-                            DataFim = new DateTime(2024, 11, 10, 16, 1, 55, 291, DateTimeKind.Local).AddTicks(7143),
-                            DataInicio = new DateTime(2024, 11, 10, 16, 1, 55, 291, DateTimeKind.Local).AddTicks(7138),
+                            DataFim = new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1352),
+                            DataInicio = new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1351),
                             Nome = "Mensal"
                         },
                         new
                         {
                             FeiraID = 4,
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
-                            DataFim = new DateTime(2024, 11, 10, 16, 1, 55, 291, DateTimeKind.Local).AddTicks(7152),
-                            DataInicio = new DateTime(2024, 11, 10, 16, 1, 55, 291, DateTimeKind.Local).AddTicks(7148),
+                            DataFim = new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1353),
+                            DataInicio = new DateTime(2024, 11, 12, 20, 4, 21, 682, DateTimeKind.Local).AddTicks(1353),
                             Nome = "Semanal"
                         });
                 });
@@ -289,23 +289,83 @@ namespace AL.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Imagem");
+                    b.ToTable("Imagems");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CaminhoImagem = "/imagens/perfil1.jpg"
+                            CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil1.png"
                         },
                         new
                         {
                             Id = 2,
-                            CaminhoImagem = "/imagens/perfil2.jpg"
+                            CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil2.png"
                         },
                         new
                         {
                             Id = 3,
-                            CaminhoImagem = "/imagens/perfil3.jpg"
+                            CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil3.png"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil4.png"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil5.png"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil6.png"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CaminhoImagem = "/assets/imagens/perfis/anotali/anotaliperfil7.png"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile1.png"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile2.png"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile3.png"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile4.png"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile5.png"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile6.png"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile7.png"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CaminhoImagem = "/assets/imagens/perfis/animals/animalprofile8.png"
                         });
                 });
 
@@ -318,7 +378,7 @@ namespace AL.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("ImagemPerfilId")
+                    b.Property<int?>("ImagemPerfilID")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Nome")
@@ -330,7 +390,7 @@ namespace AL.Data.Migrations
 
                     b.HasIndex("ContaID");
 
-                    b.HasIndex("ImagemPerfilId");
+                    b.HasIndex("ImagemPerfilID");
 
                     b.ToTable("PerfilContas");
 
@@ -339,18 +399,21 @@ namespace AL.Data.Migrations
                         {
                             PerfilContaID = "V4c8jL7x2d",
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            ImagemPerfilID = 1,
                             Nome = "Yago"
                         },
                         new
                         {
                             PerfilContaID = "m3Fz6kQp1W",
                             ContaID = "7318d839-ff36-48fd-92a9-3401ab215121",
+                            ImagemPerfilID = 1,
                             Nome = "Yuri"
                         },
                         new
                         {
                             PerfilContaID = "R1n8bY5sXq",
                             ContaID = "2e81ad9b-54d4-4c3f-b6e7-0987654321fe",
+                            ImagemPerfilID = 1,
                             Nome = "Marcelo"
                         },
                         new
@@ -641,7 +704,7 @@ namespace AL.Data.Migrations
 
                     b.HasOne("AL.Core.Domain.Imagem", "ImagemPerfil")
                         .WithMany()
-                        .HasForeignKey("ImagemPerfilId");
+                        .HasForeignKey("ImagemPerfilID");
 
                     b.Navigation("Conta");
 
