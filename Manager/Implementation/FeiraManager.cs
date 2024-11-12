@@ -132,10 +132,10 @@ public class FeiraManager : IFeiraManager
         Feira feiraParaAlterar = new()
         {
             ContaID = contaID,
-            Nome = novaFeira.Nome,
+            Nome = novaFeira.Nome ?? feiraExistente.Nome,
             FeiraID = feiraID,
-            DataInicio = novaFeira.DataInicio, // Atribui a data de início
-            DataFim = novaFeira.DataFim        // Atribui a data de fim
+            DataInicio = novaFeira.DataInicio ?? feiraExistente.DataInicio, 
+            DataFim = novaFeira.DataFim ?? feiraExistente.DataFim
         };
 
         // Atualiza a feira no repositório
